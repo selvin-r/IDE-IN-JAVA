@@ -44,3 +44,40 @@ class LargestNumber {
         return s.toString();
     }
 }
+
+
+// Move all zero to the End
+
+class MergeArray {
+    public static int[] Zeros(int[] arr) {
+        int n = arr.length;
+
+
+        for (int i = 0; i < n - 1; i++) {
+            if (arr[i] != 0 && arr[i] == arr[i + 1]) {
+                arr[i] = arr[i] + arr[i + 1];
+                arr[i + 1] = 0;
+            }
+        }
+
+        int index=0;
+        for (int i = 0; i < n; i++) {
+            if (arr[i] != 0) {
+                arr[index++] = arr[i];
+            }
+        }
+        while (index < n) {
+            arr[index++] = 0;
+        }
+
+        return arr;
+    }
+
+    public static void main(String[] args) {
+        int[] arr1 = {0, 2, 2, 0, 6, 6, 0, 8};
+        int[] arr2 = {2, 2, 4, 0, 4, 4};
+
+        System.out.println(Arrays.toString(Zeros(arr1)));
+        System.out.println(Arrays.toString(Zeros(arr2)));
+    }
+}
