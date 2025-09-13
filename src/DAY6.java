@@ -81,3 +81,41 @@ class MergeArray {
         System.out.println(Arrays.toString(Zeros(arr2)));
     }
 }
+
+
+
+// First MaxNumber and Second MinNumber
+
+class MaxMin {
+    public static void main(String[] args) {
+        int arr[] = {1,2,3,4,5,6,7};
+
+        System.out.println(Arrays.toString(Maxmin(arr)));
+    }
+
+    public static int [] Maxmin(int []arr){
+
+        int arr1[]=new int[arr.length];
+
+        int l=0,r=arr.length-1,val=0;
+
+        while(l<=r) {
+
+            if (l != r) {
+
+                arr1[val++] = arr[r];
+                arr1[val++] = arr[l];
+
+
+            } else {
+
+                arr1[val] = arr[l];
+
+
+            }
+            r--;
+            l++;
+        }
+        return arr1;
+    }
+}
