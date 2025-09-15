@@ -101,7 +101,7 @@ class MaxMin {
 
         while(l<=r) {
 
-            if (l != r) {
+            if (l < r) {
 
                 arr1[val++] = arr[r];
                 arr1[val++] = arr[l];
@@ -119,3 +119,60 @@ class MaxMin {
         return arr1;
     }
 }
+
+
+class swap {
+    public static void main(String[] args) {
+        int [] arr ={6,8,7,1,2,3};
+        int [] arr2 ={1,2,3,4,5,6};
+
+        System.out.println(Arrays.toString(swapa(arr)));
+        System.out.println(Arrays.toString(swapa(arr2)));
+
+    }
+
+    public static int [] swapa(int []arr){
+
+        int left=0,right=arr.length-1;
+
+
+        while (left<=right){
+
+            if(left %2==0){
+                  int i=left;
+                while(i<arr.length){
+                     if(arr[left] < arr[i]){
+
+                         int temp = arr[i];
+                         arr[i]=arr[left];
+                         arr[left]=temp;
+
+                     }
+                    i++;
+                }
+
+
+            } else {
+                int j=left;
+                while (j<arr.length){
+
+                    if(arr[left] > arr[j]){
+
+                        int temp = arr[j];
+                        arr[j]=arr[left];
+                        arr[left]=temp;
+                    }
+                    j++;
+                }
+
+            }
+            left++;
+
+        }
+
+        return arr;
+    }
+}
+
+
+

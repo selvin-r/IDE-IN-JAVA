@@ -1,3 +1,5 @@
+import java.util.Arrays;
+
 public class DAY1 {
 
     // 90% Degrees Clockwish
@@ -57,3 +59,64 @@ public class DAY1 {
             }
         }
     }
+
+
+    // Meeting Room--------------------------------
+
+class Meeting {
+    public static void main(String[] args) {
+        int arr[][]={{1,4}, {7,10}, {10,15} };
+        int arr1[][]={{2,4},{9,12},{6,10}};
+        System.out.println(Room(arr));
+        System.out.println(Room(arr1));
+    }
+
+    public static boolean Room(int arr[][]){
+        Arrays.sort(arr, (a, b) -> Integer.compare(a[0], b[0]));
+        for(int i=1;i<arr.length;i++){
+
+            if(arr[i][0] <arr[i-1][1]){
+                return false;
+            }
+        }
+       return true;
+    }
+
+}
+
+class Meeting2 {
+    public static void main(String[] args) {
+
+        int [] start ={1, 10, 7};
+        int [] end ={4, 15, 10};
+
+        int start1 [] ={2, 9, 6};
+        int  end1 [] ={4, 12, 10};
+
+        System.out.println(Room1(start,end));
+        System.out.println(Room1(start1,end1));
+
+    }
+
+    public static int Room1(int start [] ,int  end[]){
+
+        Arrays.sort(start);
+        Arrays.sort(end);
+
+        int Room=0,MaxRoom=0;
+        int i=0,j=0;
+
+        while(i< start.length){
+            if(start[i]<end[j]){
+                Room++;
+                MaxRoom=Math.max(MaxRoom,Room);
+                i++;
+            } else {
+                Room--;
+                j++;
+            }
+        }
+        return MaxRoom;
+
+    }
+}
