@@ -41,3 +41,94 @@ public class DAY2 {
     }
 
 }
+
+
+// Problem of the Day: Remove Duplicate Characters and Digits with Different Rules
+//You are given a string s consisting of lowercase English letters and digits (0–9).
+//You must transform the string in two steps:
+//Characters (a–z):
+//Traverse from left to right.
+//Keep only the first occurrence of each character.
+//Remove all later duplicates.
+//Digits (0–9):
+//Traverse from right to left.
+//Keep only the first digit you encounter (the rightmost occurrence in the original string).
+//Remove earlier duplicates.
+//Return the final transformed string.
+
+// 1.Input: programming123321
+//After Step1: progamin123321
+//Final: progamin321
+//(keeps the rightmost 1,2,3 — final digits appear as the left-to-right order of their last occurrences)   (16-09-2025)====
+
+class RemoveDuplicate {
+    public static void main(String[] args) throws Exception {
+        String s = "programming";
+        String b ="a1b2c1d2e3";
+        System.out.println(Result(s));
+        System.out.println(Result(b));
+    }
+
+    public static String Result(String s) {
+        char[] c = s.toCharArray();
+        String result = "";
+
+        int i = 0;
+        while (i < c.length) {
+            boolean found = false;
+            int j = 0;
+
+            while (j < result.length()) {
+                if (c[i] == result.charAt(j)) {
+                    found = true;
+                    break;
+                }
+                j++;
+            }
+
+            if (!found) {
+                result = result + c[i];
+            }
+
+            i++;
+        }
+
+        return result;
+    }
+}
+
+// This is Result Answer The Qustions=================================================================
+
+
+class Lable {
+    public static void main(String[] args) throws  Exception{
+
+        String input =" programming123321";
+
+
+        selvin : for (int i=0;i<input.length();i++){
+
+            if(input.charAt(i) >=97 && input.charAt(i) <=122){
+
+                for(int j=0;j<i;j++){
+
+                    if(input.charAt(j)==input.charAt(i)){
+
+                        continue  selvin;
+                    }
+                }
+                System.out.print(input.charAt(i));
+            } else {
+                for(int j=i+1;j<input.length();j++){
+                    if(input.charAt(j)==input.charAt(i)){
+
+                        continue  selvin;
+                    }
+                }
+                System.out.print(input.charAt(i));
+            }
+
+        }
+        System.out.println();
+    }
+}
