@@ -39,10 +39,10 @@ public class DAY4 {
 //    }
 //}
 //
-//Problem Statement
+//50 Problem Statement
 //Given two strings main and sub, determine whether sub is a substring of main.
 //
-//You must implement the check manually without using built-in substring functions (such as contains(), indexOf()
+//You must implement the check manually without using built-in substring functions (such as contains(), indexOf() (10.09.2025)
 // // , or substring()) from Java libraries.
 
 class SubString {
@@ -83,6 +83,51 @@ class SubString {
             }
         }
         return false;
+    }
+}
+
+
+// roblem is to sort an array of strings lexicographically (dictionary order)
+// without using built-in sort functions like Arrays.sort().
+
+class Lexicogra{
+    public static void main(String[] args) {
+
+        String input [] = {"zebra", "apple", "mango","ball", "cat","dog", "elephant", "fish", "ant", "bat"};
+
+        for(int i=0;i< input.length;i++)
+        {
+            for(int j=i+1;j< input.length;j++)
+            {
+                if(Function(input[i],input[j]))
+                {
+
+                    String swap = input[i];
+                    input[i]=input[j];
+                    input[j]=swap;
+                }
+            }
+        }
+        for (String word : input){
+            System.out.print( " " +word);
+        }
+    }
+    public static boolean Function(String a,String b){
+
+        int min =Math.min(a.length(),b.length());
+
+        for(int i=0;i<min;i++){
+
+            if(a.charAt(i) > b.charAt(i)){
+                return true;
+
+            } else if (a.charAt(i) < b.charAt(i)) {
+
+                return  false;
+
+            }
+        }
+        return a.length() > b.length();
     }
 }
 
