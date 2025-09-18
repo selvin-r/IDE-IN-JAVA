@@ -38,3 +38,51 @@ public class DAY4 {
 //
 //    }
 //}
+//
+//Problem Statement
+//Given two strings main and sub, determine whether sub is a substring of main.
+//
+//You must implement the check manually without using built-in substring functions (such as contains(), indexOf()
+// // , or substring()) from Java libraries.
+
+class SubString {
+    public static void main(String[] args) {
+        String main ="abcdef";
+        String sub ="gh";
+        String main1="hello";
+        String sub1="ell";
+
+        System.out.println(sub(main,sub));
+        System.out.println(sub(main1,sub1));
+
+    }
+
+    public static boolean sub (String main ,String sub){
+
+        char [] c = main.toCharArray();
+        char [] c1 = sub.toCharArray();
+
+
+        int i=0,j=0;
+
+        while(i<c.length){
+
+            if(c[i]==c1[j]){
+                i++;
+                j++;
+
+                if(j==c1.length){
+                    return true;
+                }
+
+
+            } else {
+              i++;
+              j=0;
+
+            }
+        }
+        return false;
+    }
+}
+
