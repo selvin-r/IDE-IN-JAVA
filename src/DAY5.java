@@ -1,3 +1,4 @@
+import java.rmi.server.ExportException;
 import java.util.*;
 
 public class DAY5 {
@@ -112,5 +113,105 @@ class ValidateIPv4 {
         System.out.println(isValidIPv4("172.16.254.1"));   // true
         System.out.println(isValidIPv4("256.100.5.0"));    // false
 
+    }
+}
+
+
+
+
+// 52
+
+class Pattan1{
+    public static void main(String[] args) {
+        Scanner scan = new Scanner(System.in);
+        System.out.println("Enter the n value :");
+        int n= scan.nextInt();
+
+        int value=0;
+        int v=0;
+
+        for(int i=1;i<=n;i++){
+
+            for(int s=i;s<n;s++){
+                System.out.print(" ");
+            }
+            value +=i;
+            v=value;
+
+            for (int j=1;j<=i;j++){
+                System.out.print(v-- + " ");
+            }
+            System.out.println();
+        }
+
+        for(int i=n;i>0;i--){
+
+            for(int s=n-1;s>=i;s--){
+                System.out.print(" ");
+            }
+
+            for (int j=1;j<=i;j++){
+                System.out.print(value-- + " ");
+            }
+            System.out.println();
+        }
+
+
+    }
+}
+
+//51 — Adjacent Pairs Not Equal
+//
+//Problem Statement
+//You are given two strings s1 and s2 of equal length.
+//Consider every adjacent pair of characters (substring of length 2) from both strings.
+//Your task is to return all adjacent pairs where the pair in s1 is not equal to the pair in s2.
+//Each result should be represented as "pair1-pair2".
+//
+//Input:
+//s1 = "asdfghij"
+//s2 = "adsfgijh"
+//
+//Output:
+//        ["sd-ds", "hij-ijh"]
+
+
+class Pairs {
+    public static void main(String[] args)  throws ExportException {
+        String s= "asdfghil";
+        String s1="adsfgijh";
+
+        List<String> sb = new ArrayList<>();
+
+        String value1="";
+        String value2="";
+
+        boolean check =false;
+
+
+        for(int i=0;i<s.length();i++){
+
+            if(s.charAt(i)!=s1.charAt(i)){
+
+                value1 += s.charAt(i);
+                value2 += s1.charAt(i);
+
+                check = true;
+
+            } else {
+                if(check){
+
+                    sb.add(value1 + "-" + value2);
+                    check = false;
+
+                    value1 = "";
+                    value2 ="";
+                }
+            }
+        }if(check){
+            sb.add(value2 + " -" + value1);
+        }
+
+        System.out.println(sb);
     }
 }
