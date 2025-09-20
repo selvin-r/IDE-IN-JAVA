@@ -176,7 +176,31 @@ class swap {
 
 
 
-// Q 53
+// Q 53   🧩 Problem Statement: String Group Rotation
+//You are given a string s and an integer k. Your task is to transform the string in the following way:
+//- Split the string into groups of size k, starting from index 0.
+//- For each group:
+//- Rotate the group to the left by 1 character (i.e., move the first character to the end).
+//- If the last group has fewer than k characters, still apply the same rotation.
+//- Finally, return the new transformed string.
+//
+// Examples
+//Example 1:
+//Input:
+//String str1 = "ZohoCorporations"
+//k = 3
+//
+//Output:
+//"hoZoCooprtarnois"
+//
+//
+//Example 2:
+//Input:
+//String str1 = "Hellokid"
+//k = 2
+//
+//Output:
+//"eHllikod"
 
 
 
@@ -200,5 +224,91 @@ class TransForm {
         }
 
         System.out.println(Arrays.toString(c));
+    }
+}
+
+
+
+class TransForm1{
+    public static void main(String[] args) {
+        String s = "zohocorporation";
+        int k = 5;
+
+        char[] c = s.toCharArray();
+        int n = c.length;
+        char[] result = new char[n]; // final output array
+        int index = 0; // pointer for result array
+
+        int left = 0;
+
+        while (left < n) {
+            int right = Math.min(left + k, n); // handle last group safely
+
+            // Rotate left by 1: move chars from left+1 to right-1, then add c[left] at the end
+            for (int i = left + 1; i < right; i++) {
+                result[index++] = c[i];
+            }
+            result[index++] = c[left]; // first char goes last
+
+            left += k;
+        }
+
+        System.out.println(new String(result));
+    }
+}
+
+// 54 🧠 Problem Statement
+//You are given an integer array nums.
+//- First, count the frequency of each distinct number in the array.
+//- Then, for each frequency f, compute the sum of all numbers in the array that appear exactly f times.
+//- Return a mapping (or any suitable output format) where:
+//- Key = frequency
+//- Value = sum of elements that occur with that frequency
+//
+//📥 Example 1
+//Input:
+//nums = [1,1,1,2,2,2,3,3,5,5]
+//Output:
+//1 -> 9
+//3 -> 7
+//
+//
+//Explanation:
+//- Number 7 occurs 1 time → contributes to frequency 1 sum.
+//- Numbers {3,3,5,5} occur 2 times each → sum = 3 + 3 + 5 + 5 = 16
+//- Numbers {1,1,1,2,2,2} occur 3 times each → sum = 1 + 1 + 1 + 2 + 2 + 2 = 9
+//
+//📥 Example 2
+//Input:
+//nums = [1,1,1,2,2,2,3]
+//Output:
+//1 -> 3
+//3 -> 9
+
+class Codechef
+{
+    public static void main (String[] args) throws java.lang.Exception
+    {
+        int[] nums={1,7,1,1,2,2,2,3,3,5,5};
+
+        HashMap<Integer,Integer> map1=new HashMap<>();
+
+        for(int n:nums){
+            map1.put(n,map1.getOrDefault(n,0)+1);
+        }
+
+        HashMap<Integer,Integer> map2=new HashMap<>();
+
+        for(Map.Entry<Integer,Integer> entry:map1.entrySet()){
+            int num=entry.getKey();
+            int freq=entry.getValue();
+
+            map2.put(freq,map2.getOrDefault(freq,0)+num);
+        }
+
+        for(Map.Entry<Integer,Integer> entry:map2.entrySet()){
+            System.out.println(entry.getKey()+" -> "+entry.getValue()*entry.getKey());
+        }
+
     }
 }
