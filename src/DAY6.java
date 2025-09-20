@@ -176,3 +176,29 @@ class swap {
 
 
 
+// Q 53
+
+
+
+class TransForm {
+    public static void main(String[] args) {
+         String s ="zohocorporation";
+         int k = 5;
+//        String s = "Hellokid";
+        char[] c = s.toCharArray();
+
+        int left = 0;
+        int right = k-1;
+
+        while (right <= c.length) {
+            char temp = c[left];
+            c[left] = c[right];
+            c[right] = temp;
+
+            left += k;
+            right += k;
+        }
+
+        System.out.println(Arrays.toString(c));
+    }
+}
