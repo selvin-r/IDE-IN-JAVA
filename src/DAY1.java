@@ -121,7 +121,13 @@ class Meeting2 {
     }
 }
 
-
+// 55 ) Here is the question covered in plain text format:
+//
+//From the input sentence given, find the strings which are not palindrome and print them.
+//
+//Input: he knows malayalam
+//
+//Output: he knows
 
 
 class NonPalindromeWords {
@@ -162,6 +168,13 @@ class NonPalindromeWords {
 
     }
 }
+// 55 ) Here is the question covered in plain text format:
+//
+//From the input sentence given, find the strings which are not palindrome and print them.
+//
+//Input: he knows malayalam
+//
+//Output: he knows
 
 class Demo22 {
     public static void main(String[] args) {
