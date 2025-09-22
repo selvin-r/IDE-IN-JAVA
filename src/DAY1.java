@@ -120,3 +120,88 @@ class Meeting2 {
 
     }
 }
+
+
+
+
+class NonPalindromeWords {
+    public static void main(String[] args) {
+        String s = "he know malayalam";
+
+        String result [] =s.split(" ");
+
+        StringBuffer sb = new StringBuffer();
+
+
+        for(String Value : result){
+
+            if(!isPalindrome(Value)){
+                sb.append(Value);
+            }
+        }
+
+
+        System.out.println(sb);
+    }
+    static boolean isPalindrome(String word) {
+
+        int i=0;
+        int j = word.length()-1;
+
+        while(i<j){
+            if(word.charAt(i) !=word.charAt(j)){
+                return  false;
+            }
+
+            i++;
+            j--;
+        }
+
+        return true;
+
+
+    }
+}
+
+class Demo22 {
+    public static void main(String[] args) {
+
+        String s ="he know mala";
+
+        StringBuilder sb = new StringBuilder();
+
+        for(int i=0;i<s.length();i++){
+
+            char c= s.charAt(i);
+
+            if(c!=' '){
+                sb.append(c);
+            }
+            if(c==' ' || i==s.length()-1){
+
+                if(!Not(sb.toString())){
+
+                    System.out.println(sb.toString().concat(" "));
+                    sb.setLength(0);
+                }
+
+            }
+        }
+
+    }
+
+    public static  boolean Not (String wo){
+
+        int i=0;
+        int j =wo.length()-1;
+
+        while (i<j){
+            if(wo.charAt(i) !=wo.charAt(j)){
+                return false;
+            }
+            i++;
+            j--;
+        }
+        return true;
+    }
+}
