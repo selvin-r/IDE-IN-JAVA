@@ -132,3 +132,55 @@ class Lable {
         System.out.println();
     }
 }
+
+
+// 56
+
+class RemovString {
+    public static void main(String[] args) {
+        String s = "expErlence";
+        String s1 = "En";
+        String result = "";
+
+        int i = 0;
+        while (i < s.length()) {
+            boolean mat = false;
+            for (int j = 0; j < s1.length(); j++) {
+                if (s.charAt(i) == s1.charAt(j)) {
+                    mat= true;
+                    break;
+                }
+            }
+            if (!mat) {
+                result = result + s.charAt(i);
+            }
+            i++;
+        }
+
+        System.out.println(result);
+    }
+}
+
+class RemovString2 {
+    public static void main(String[] args) {
+        String s = "expErlence";
+        String s1 = "En";
+
+        boolean arr [] = new boolean[128];
+
+
+        for(int i=0;i<s1.length();i++){
+
+            arr[s1.charAt(i)]=true;
+        }
+
+        for(int i=0;i<s.length();i++){
+            if(!arr[s.charAt(i)]){
+                System.out.print(s.charAt(i));
+            }
+        }
+
+
+    }
+}
+
