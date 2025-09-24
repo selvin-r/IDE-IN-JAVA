@@ -38,3 +38,58 @@ class Solution {
         }
     }
 }
+
+// 57. Largest Substring Between Two Equal Characters  (24-09-25)===========
+//Easy
+//Topics
+//premium lock icon
+//Companies
+//Hint
+//Given a string s, return the length of the longest substring between two equal characters, excluding the two characters. If there is no such substring return -1.
+//
+//A substring is a contiguous sequence of characters within a string.
+//
+//
+//
+//Example 1:
+//
+//Input: s = "aa"
+//Output: 0
+//Explanation: The optimal substring here is an empty substring between the two 'a's.
+
+
+class Two {
+    public static void main(String[] args) {
+
+        String s ="abcccccbba";
+        String s1="aaaaaa";
+
+        System.out.println(TwoEqual(s));
+        System.out.println(TwoEqual(s1));
+
+    }
+
+    public static  int TwoEqual(String s){
+
+        int n = s.length();
+        int f=0;
+        int l=0;
+        int max=0;
+
+        char c;
+
+        for(int i=0;i<s.length();i++){
+            c=s.charAt(i);
+//            System.out.print(c);
+
+            f=s.indexOf(c);
+            l=s.lastIndexOf(c);
+
+            if(f!=l){
+                max=Math.max(max,l-f-1);
+            }
+
+        }
+       return max;
+    }
+}

@@ -3,6 +3,10 @@ import java.util.Arrays;
 public class DAY1 {
 
     // 90% Degrees Clockwish
+    // After Transpose
+    //   7 4 1
+    //   8 5 2
+    //   9 6 3
         public static void main(String[] args) {
 
             int arr [][] = {
