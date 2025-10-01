@@ -1,7 +1,4 @@
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.Scanner;
-import java.util.Set;
+import java.util.*;
 
 public class LeetCode {
     public static void main(String[] args) {
@@ -374,5 +371,258 @@ class DefuseBomb {
             }
         }
        return  result;
+    }
+}
+
+
+// 71. Simplify Path (29-09-2025)===============================================================================
+//
+//You are given an absolute path for a Unix-style file system, which always begins with a slash '
+// /'. Your task is to transform this absolute path into its simplified canonical path.
+//
+//The rules of a Unix-style file system are as follows:
+//
+//A single period '.' represents the current directory.
+//A double period '..' represents the previous/parent directory.
+//Multiple consecutive slashes such as '//' and '///' are treated as a single slash '/'.
+//Any sequence of periods that does not match the rules above should be treated as a valid directory
+// or file name. For example, '...' and '....' are valid directory or file names.
+//The simplified canonical path should follow these rules:
+//
+//The path must start with a single slash '/'.
+//Directories within the path must be separated by exactly one slash '/'.
+//The path must not end with a slash '/', unless it is the root directory.
+//The path must not have any single or double periods ('.' and '..') used to denote current or parent directories.
+//Return the simplified canonical path.
+//
+//
+//
+//        Example 1:
+//
+//Input: path = "/home/"
+//
+//Output: "/home"
+//
+//Explanation:
+//
+//The trailing slash should be removed.
+//
+//Example 2:
+//
+//Input: path = "/home//foo/"
+//
+//Output: "/home/foo"
+//
+//Explanation:
+//
+//Multiple consecutive slashes are replaced by a single one.
+//
+//        Example 3:
+//
+//Input: path = "/home/user/Documents/../Pictures"
+//
+//Output: "/home/user/Pictures"
+//
+//Explanation:
+//
+//A double period ".." refers to the directory up a level (the parent directory).
+//
+//Example 4:
+//
+//Input: path = "/../"
+//
+//Output: "/"
+//
+//Explanation:
+//
+//Going one level up from the root directory is not possible.
+//
+//        Example 5:
+//
+//Input: path = "/.../a/../b/c/../d/./"
+//
+//Output: "/.../b/d"
+//
+//Explanation:
+//
+//        "..." is a valid name for a directory in this problem
+
+class Directory {
+    public static void main(String[] args) {
+      String testcase1="/home/";
+      String testcase2 ="/home//foo/";
+      String testcase3 ="/home/user/Documents/../Pictures";
+      String testcase4 = "/../";
+      String testcase5 ="/.../a/../b/c/../d/./";
+
+        System.out.println(Path(testcase1));
+        System.out.println(Path(testcase2));
+        System.out.println(Path(testcase3));
+        System.out.println(Path(testcase4));
+        System.out.println(Path(testcase5));
+
+    }
+    public static String Path(String s){
+
+        Stack<String> sb = new Stack<>();
+        String arr [] =s.split("/");
+
+
+        for(String change : arr){
+            
+            if(change.equals(".") || change.isBlank()){
+                continue;
+            } else if (change.equals("..")) {
+
+                if(!sb.empty()){
+                    sb.pop();
+                }
+                
+            } else {
+                sb.push(change);
+            }
+
+        }
+   return "/" + String.join("/",sb);
+    }
+}
+
+// 33. Search in Rotated Sorted Array (01.10.2025)======================================================================
+//Solved
+//Medium
+//Topics
+//premium lock icon
+//Companies
+//There is an integer array nums sorted in ascending order (with distinct values).
+//
+//Prior to being passed to your function, nums is possibly left rotated at an unknown index k (1 <= k < nums.length)
+// such that the resulting array is [nums[k], nums[k+1], ..., nums[n-1], nums[0], nums[1], ..., nums[k-1]] (0-indexed).
+// For example, [0,1,2,4,5,6,7] might be left rotated by 3 indices and become [4,5,6,7,0,1,2].
+//
+//Given the array nums after the possible rotation and an integer target, return the index of target if it is in nums,
+// or -1 if it is not in nums.
+//
+//You must write an algorithm with O(log n) runtime complexity.
+//
+//
+//
+//Example 1:
+//
+//Input: nums = [4,5,6,7,0,1,2], target = 0
+//Output: 4
+//Example 2:
+//
+//Input: nums = [4,5,6,7,0,1,2], target = 3
+//Output: -1
+//Example 3:
+//
+//Input: nums = [1], target = 0
+//Output: -1
+
+
+class Rotated{
+    public static void main(String[] args) {
+         int testcase1[]={4,5,6,7,0,1,2};
+         int target1=0;
+         int teatcase2[]={5,4,5,6,7,0,1,2};
+         int target2=5;
+        System.out.println(Search(testcase1,target1));
+        System.out.println(Search(teatcase2,target2));
+    }
+
+    public static int Search(int arr[],int target){
+       int left=0,right=arr.length-1;
+
+        if(arr.length==0)
+            return -1;
+        if(arr.length==1 && arr[0]==target)
+            return 0;
+
+       while (left<=right){
+           int mid =(left+right)/2;
+
+           if(arr[mid]==target){
+               return mid;
+           }
+           if(arr[left]<=arr[mid]){
+
+               if(arr[left] <=target && target< arr[mid]){
+                   right=mid-1;
+               } else {
+                   left=mid+1;
+               }
+
+           } else {
+               if(arr[mid] < target && target <= arr[right]){
+                   left=mid+1;
+               } else {
+                   right=mid-1;
+               }
+           }
+       }
+   return -1;
+    }
+}
+
+
+// 1518. Water Bottles  (01.10.2025)==================================================================================
+//Solved
+//Easy
+//Topics
+//premium lock icon
+//Companies
+//Hint
+//There are numBottles water bottles that are initially full of water. You can exchange numExchange
+// empty water bottles from the market with one full water bottle.
+//
+//The operation of drinking a full water bottle turns it into an empty bottle.
+//
+//Given the two integers numBottles and numExchange, return the maximum number of water bottles you can drink.
+//
+//
+//
+//Example 1:
+//
+//
+//Input: numBottles = 9, numExchange = 3
+//Output: 13
+//Explanation: You can exchange 3 empty bottles to get 1 full water bottle.
+//Number of water bottles you can drink: 9 + 3 + 1 = 13.
+//Example 2:
+//
+//
+//Input: numBottles = 15, numExchange = 4
+//Output: 19
+//Explanation: You can exchange 4 empty bottles to get 1 full water bottle.
+//Number of water bottles you can drink: 15 + 3 + 1 = 19.
+
+class Water {
+    public static void main(String[] args) {
+        int numBottles1=9;
+        int numExchaneg1=3;
+        int numBottles2=15;
+        int numExchange2=4;
+
+        System.out.println(Bottles(numBottles1,numExchaneg1));
+        System.out.println(Bottles(numBottles2,numExchange2));
+
+    }
+    public static int Bottles(int numBottles,int numExchange){
+
+        int ans= numBottles;
+
+        while (true){
+          int  Q=numBottles/numExchange;
+          int R=numBottles%numExchange;
+
+          if(Q==0){
+              break;
+          }
+
+          ans +=Q;
+          numBottles=Q+R;
+        }
+
+    return ans;
     }
 }
