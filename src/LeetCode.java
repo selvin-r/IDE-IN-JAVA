@@ -626,3 +626,196 @@ class Water {
     return ans;
     }
 }
+
+// 153. Find Minimum in Rotated Sorted Array  (3.10.2025)=============================================================
+//Solved
+//Medium
+//Topics
+//premium lock icon
+//Companies
+//Hint
+//Suppose an array of length n sorted in ascending order is rotated between 1 and n times. For example,
+// the array nums = [0,1,2,4,5,6,7] might become:
+//
+//[4,5,6,7,0,1,2] if it was rotated 4 times.
+//[0,1,2,4,5,6,7] if it was rotated 7 times.
+//Notice that rotating an array [a[0], a[1], a[2], ..., a[n-1]] 1 time results in
+// the array [a[n-1], a[0], a[1], a[2], ..., a[n-2]].
+//
+//Given the sorted rotated array nums of unique elements, return the minimum element of this array.
+//
+//You must write an algorithm that runs in O(log n) time.
+//
+//
+//
+//Example 1:
+//
+//Input: nums = [3,4,5,1,2]
+//Output: 1
+//Explanation: The original array was [1,2,3,4,5] rotated 3 times.
+//Example 2:
+//
+//Input: nums = [4,5,6,7,0,1,2]
+//Output: 0
+//Explanation: The original array was [0,1,2,4,5,6,7] and it was rotated 4 times.
+//Example 3:
+//
+//Input: nums = [11,13,15,17]
+//Output: 11
+//Explanation: The original array was [11,13,15,17] and it was rotated 4 times.
+
+
+class RotatedSorted {
+    public static void main(String[] args) {
+        int testcase1 [] ={3,4,5,1,2};
+        int testcase2[]={4,5,6,7,0,1,2};
+        int testcase3 []={11,13,15,17};
+        System.out.println(Mini(testcase1));
+        System.out.println(Mini(testcase2));
+        System.out.println(Mini(testcase3));
+    }
+
+    public static  int Mini(int arr []){
+
+        int left=0;
+        int right= arr.length-1;
+
+        while (left<right){
+            int mid = (left+right)/2;
+
+            if(arr[mid] < arr[right]){
+                 right=mid;
+            } else {
+                left =mid+1;
+            }
+        }
+      return arr[right];
+    }
+}
+
+// 268. Missing Number  (03-10-2025)=================================================
+//Solved
+//Easy
+//Topics
+//premium lock icon
+//Companies
+//Given an array nums containing n distinct numbers in the range [0, n], return the
+// only number in the range that is missing from the array.
+//
+//
+//
+//Example 1:
+//
+//Input: nums = [3,0,1]
+//
+//Output: 2
+//
+//Explanation:
+//
+//n = 3 since there are 3 numbers, so all numbers are in the range [0,3]. 2 is
+// the missing number in the range since it does not appear in nums.
+//
+//Example 2:
+//
+//Input: nums = [0,1]
+//
+//Output: 2
+//
+//Explanation:
+//
+//n = 2 since there are 2 numbers, so all numbers are in the range [0,2]. 2 is
+// the missing number in the range since it does not appear in nums.
+//
+//Example 3:
+//
+//Input: nums = [9,6,4,2,3,5,7,0,1]
+//
+//Output: 8
+//
+//Explanation:
+
+class MissingNumber {
+    public static void main(String[] args) {
+       int testcase1[]={3,0,1};
+       int testcase2[]={0,1};
+       int testcase3[]={9,6,4,2,3,5,7,0,1};
+        System.out.println(Number(testcase1));
+        System.out.println(Number(testcase2));
+        System.out.println(Number(testcase3));
+    }
+
+    public static int Number(int arr []){
+        Arrays.sort(arr);
+        int n = arr.length;
+
+
+        for(int i=0;i<n;i++){
+            if(i!=arr[i]){
+                return i;
+            }
+        }
+        return n;
+    }
+}
+
+
+// 2114. Maximum Number of Words Found in Sentences (03-10-2025)===========================
+//Solved
+//Easy
+//Topics
+//premium lock icon
+//Companies
+//Hint
+//A sentence is a list of words that are separated by a single space with no leading or trailing spaces.
+//
+//You are given an array of strings sentences, where each sentences[i] represents a single sentence.
+//
+//Return the maximum number of words that appear in a single sentence.
+//
+//
+//
+//Example 1:
+//
+//Input: sentences = ["alice and bob love leetcode", "i think so too", "this is great thanks very much"]
+//Output: 6
+//Explanation:
+//- The first sentence, "alice and bob love leetcode", has 5 words in total.
+//- The second sentence, "i think so too", has 4 words in total.
+//- The third sentence, "this is great thanks very much", has 6 words in total.
+//Thus, the maximum number of words in a single sentence comes from the third sentence, which has 6 words.
+//Example 2:
+//
+//Input: sentences = ["please wait", "continue to fight", "continue to win"]
+//Output: 3
+//Explanation: It is possible that multiple sentences contain the same number of words.
+//In this example, the second and third sentences (underlined) have the same number of words.
+//
+
+
+class WordsFound {
+    public static void main(String[] args) {
+        String testcase1 []={"alice and bob love leetcode", "i think so too", "this is great thanks very much"};
+        String testcase2 [] ={"please wait", "continue to fight", "continue to win"};
+        String testcase3 [] ={"please wait", "continue to fight", "continue to win"};
+
+        System.out.println(MaximumNumber(testcase1));
+        System.out.println(MaximumNumber(testcase2));
+        System.out.println(MaximumNumber(testcase3));
+    }
+
+    public static int MaximumNumber(String [] arr){
+        int maxx=Integer.MIN_VALUE;
+
+        for(String c : arr ) {
+            int count=0;
+
+            for(char ch :c.toCharArray()){
+                if(ch==' '){
+                    count++;
+                }
+            }
+            maxx=Math.max(maxx,count+1);
+        }
+        return maxx;
+    }
+}
