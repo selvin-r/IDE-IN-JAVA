@@ -949,7 +949,7 @@ class  Waterr {
 }
 
 
-// 394. Decode String
+// 394. Decode String (08-10-2025)===
 //Solved
 //Medium
 //Topics
@@ -977,3 +977,234 @@ class  Waterr {
 //
 //Input: s = "2[abc]3[cd]ef"
 //Output: "abcabccdcdcdef"
+
+class Decode {
+    public static void main(String[] args) {
+        String testcase ="3[a]2[bc]";
+        System.out.println(DecodeString(testcase));
+    }
+
+    public  static String DecodeString(String s) {
+        Stack<Integer> st1 = new Stack<>();
+        Stack<String> st2 = new Stack<>();
+        String str = "";
+        int k = 0;
+
+        for (char c : s.toCharArray()) {
+            if (Character.isDigit(c)) {
+                k = k * 10 + (c - '0');
+            } else if (c == '[') {
+                st1.push(k);
+                st2.push(str);
+                str = "";
+                k = 0;
+            } else if (c == ']') {
+                int n = st1.pop();
+                String prew = st2.pop();
+                String temp = "";
+                for (int i = 0; i < n; i++) {
+                    temp += str;
+                }
+                str = prew + temp;
+            } else {
+                str += c;
+            }
+        }
+
+        return str;
+    }
+}
+
+// 1700. Number of Students Unable to Eat Lunch (08-10-2025)====
+//Solved
+//Easy
+//Topics
+//premium lock icon
+//Companies
+//Hint
+//The school cafeteria offers circular and square sandwiches at lunch break, referred to by numbers 0 and 1 respectively. All students stand in a queue. Each student either prefers square or circular sandwiches.
+//
+//The number of sandwiches in the cafeteria is equal to the number of students. The sandwiches are placed in a stack. At each step:
+//
+//If the student at the front of the queue prefers the sandwich on the top of the stack, they will take it and leave the queue.
+//Otherwise, they will leave it and go to the queue's end.
+//This continues until none of the queue students want to take the top sandwich and are thus unable to eat.
+//
+//You are given two integer arrays students and sandwiches where sandwiches[i] is the type of the i​​​​​​th sandwich in the stack (i = 0 is the top of the stack) and students[j] is the preference of the j​​​​​​th student in the initial queue (j = 0 is the front of the queue). Return the number of students that are unable to eat.
+//
+//
+//
+//Example 1:
+//
+//Input: students = [1,1,0,0], sandwiches = [0,1,0,1]
+//Output: 0
+//Explanation:
+//- Front student leaves the top sandwich and returns to the end of the line making students = [1,0,0,1].
+//- Front student leaves the top sandwich and returns to the end of the line making students = [0,0,1,1].
+//- Front student takes the top sandwich and leaves the line making students = [0,1,1] and sandwiches = [1,0,1].
+//- Front student leaves the top sandwich and returns to the end of the line making students = [1,1,0].
+//- Front student takes the top sandwich and leaves the line making students = [1,0] and sandwiches = [0,1].
+//- Front student leaves the top sandwich and returns to the end of the line making students = [0,1].
+//- Front student takes the top sandwich and leaves the line making students = [1] and sandwiches = [1].
+//- Front student takes the top sandwich and leaves the line making students = [] and sandwiches = [].
+//Hence all students are able to eat.
+//Example 2:
+//
+//Input: students = [1,1,1,0,0,1], sandwiches = [1,0,0,0,1,1]
+//Output: 3
+
+//
+//class EatLunch {
+//    public static void main(String[] args) {
+//        int students[]={1,1,1,0,0,1};
+//        int sandwiches []={1,0,0,0,1,1};
+//        System.out.println(Number(students,sandwiches));
+//    }
+//    public static int Number(int[] students, int[] sandwiches){
+//        Queue<Integer> q = new LinkedList<>();
+//
+//        for(int c : students){
+//
+//
+//        }
+//    }
+//}
+
+// 844. Backspace String Compare (08-10-2025)===
+//Solved
+//Easy
+//Topics
+//premium lock icon
+//Companies
+//Given two strings s and t, return true if they are equal when both are typed into empty text editors. '#' means a backspace character.
+//
+//Note that after backspacing an empty text, the text will continue empty.
+//
+//
+//
+//Example 1:
+//
+//Input: s = "ab#c", t = "ad#c"
+//Output: true
+//Explanation: Both s and t become "ac".
+//Example 2:
+//
+//Input: s = "ab##", t = "c#d#"
+//Output: true
+//Explanation: Both s and t become "".
+//Example 3:
+//
+//Input: s = "a#c", t = "b"
+//Output: false
+//Explanation: s becomes "c" while t becomes "b".
+
+class Backspace {
+    public static void main(String[] args) {
+        String testcase1s="ab#c";
+        String testcase1t="ad#c";
+        String testcase2s="ab##";
+        String testcase2t="c#d#";
+        String testcase3s="a#c";
+        String testcase3t="b";
+
+
+        System.out.println(Becomes(testcase1s,testcase1t));
+        System.out.println(Becomes(testcase2s,testcase2t));
+        System.out.println(Becomes(testcase3s,testcase3t));
+    }
+
+    public static boolean Becomes(String s,String t){
+        s=Remove(s);
+        t=Remove(t);
+
+        return s.equals(t);
+
+    }
+
+    public static String Remove(String s){
+
+        Stack<Character> st = new Stack<>();
+
+        for(int i=0;i<s.length();i++){
+
+            if(st.size() > 0 && s.charAt(i)=='#'){
+                st.pop();
+            } else if (s.charAt(i)!='#') {
+
+                st.push(s.charAt(i));
+            }
+        }
+   return st.toString();
+    }
+}
+
+
+// 1021. Remove Outermost Parentheses (08-10-2025)==
+//Solved
+//Easy
+//Topics
+//premium lock icon
+//Companies
+//Hint
+//A valid parentheses string is either empty "", "(" + A + ")", or A + B, where A and B are valid parentheses strings, and + represents string concatenation.
+//
+//For example, "", "()", "(())()", and "(()(()))" are all valid parentheses strings.
+//A valid parentheses string s is primitive if it is nonempty, and there does not exist a way to split it into s = A + B, with A and B nonempty valid parentheses strings.
+//
+//Given a valid parentheses string s, consider its primitive decomposition: s = P1 + P2 + ... + Pk, where Pi are primitive valid parentheses strings.
+//
+//Return s after removing the outermost parentheses of every primitive string in the primitive decomposition of s.
+//
+//
+//
+//Example 1:
+//
+//Input: s = "(()())(())"
+//Output: "()()()"
+//Explanation:
+//The input string is "(()())(())", with primitive decomposition "(()())" + "(())".
+//After removing outer parentheses of each part, this is "()()" + "()" = "()()()".
+//Example 2:
+//
+//Input: s = "(()())(())(()(()))"
+//Output: "()()()()(())"
+//Explanation:
+//The input string is "(()())(())(()(()))", with primitive decomposition "(()())" + "(())" + "(()(()))".
+//After removing outer parentheses of each part, this is "()()" + "()" + "()(())" = "()()()()(())".
+//Example 3:
+//
+//Input: s = "()()"
+//Output: ""
+//Explanation:
+//The input string is "()()", with primitive decomposition "()" + "()".
+//After removing outer parentheses of each part, this is "" + "" = "".
+
+
+class RemoveOutermostParentheses {
+    public static void main(String[] args) {
+        String testcase1 = "(()())(())";
+
+        StringBuffer st = new StringBuffer();
+
+        int open=0;
+
+        for(char c : testcase1.toCharArray()){
+
+            if(c=='('){
+                if(open!=0){
+                    st.append(c);
+                }
+                open++;
+            }
+            else {
+                open--;
+                if(open!=0){
+                    st.append(c);
+                }
+
+            }
+
+        }
+        System.out.println(st.toString());
+    }
+}
