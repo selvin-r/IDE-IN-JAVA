@@ -819,3 +819,161 @@ class WordsFound {
         return maxx;
     }
 }
+
+
+//53. Maximum Subarray (07-10-2025)======================================
+//Solved
+//        Medium
+//Topics
+//premium lock icon
+//        Companies
+//Given an integer array nums, find the subarray with the largest sum, and return its sum.
+//
+//
+//
+//Example 1:
+//
+//Input: nums = [-2,1,-3,4,-1,2,1,-5,4]
+//Output: 6
+//Explanation: The subarray [4,-1,2,1] has the largest sum 6.
+//Example 2:
+//
+//Input: nums = [1]
+//Output: 1
+//Explanation: The subarray [1] has the largest sum 1.
+//Example 3:
+//
+//Input: nums = [5,4,-1,7,8]
+//Output: 23
+//Explanation: The subarray [5,4,-1,7,8] has the largest sum 23.
+//
+
+class Maximum {
+    public static void main(String[] args) {
+
+        int testcase1[]={-2,1,-3,4,-1,2,1,-5,4};
+        int testcase2 []={1};
+        int testcase3 []={5,4,-1,7,8};
+        System.out.println(Subarray(testcase1));
+        System.out.println(Subarray(testcase2));
+        System.out.println(Subarray(testcase3));
+    }
+
+    public static int Subarray(int arr []){
+        int cursum=0;
+        int maxsum=arr[0];
+
+        for(int i=0;i< arr.length;i++){
+            cursum = cursum + arr[i];
+
+            if(maxsum< cursum){
+                maxsum = cursum;
+
+            }
+            if(cursum<0){
+                cursum=0;
+            }
+        }
+        return maxsum;
+    }
+}
+
+// 365. Water and Jug Problem
+//Solved
+//Medium
+//Topics
+//premium lock icon
+//Companies
+//You are given two jugs with capacities x liters and y liters. You have an infinite water supply. Return whether the total amount of water in both jugs may reach target using the following operations:
+//
+//Fill either jug completely with water.
+//Completely empty either jug.
+//Pour water from one jug into another until the receiving jug is full, or the transferring jug is empty.
+//
+//
+//Example 1:
+//
+//Input: x = 3, y = 5, target = 4
+//
+//Output: true
+//
+//Explanation:
+//
+//Follow these steps to reach a total of 4 liters:
+//
+//Fill the 5-liter jug (0, 5).
+//Pour from the 5-liter jug into the 3-liter jug, leaving 2 liters (3, 2).
+//Empty the 3-liter jug (0, 2).
+//Transfer the 2 liters from the 5-liter jug to the 3-liter jug (2, 0).
+//Fill the 5-liter jug again (2, 5).
+//Pour from the 5-liter jug into the 3-liter jug until the 3-liter jug is full. This leaves 4 liters in the 5-liter jug (3, 4).
+//Empty the 3-liter jug. Now, you have exactly 4 liters in the 5-liter jug (0, 4).
+//Reference: The Die Hard example.
+//
+//Example 2:
+//
+//Input: x = 2, y = 6, target = 5
+//
+//Output: false
+//
+//Example 3:
+//
+//Input: x = 1, y = 2, target = 3
+//
+//Output: true
+//
+//Explanation: Fill both jugs. The total amount of water in both jugs is equal to 3 now.
+
+class  Waterr {
+    public static void main(String[] args) {
+       int x= 3,y=6,target=6;
+        System.out.println(Jugs(x,y,target));
+    }
+
+    public static  boolean Jugs(int x,int y,int target){
+
+        if(x+y<target){
+            return  false;
+        }
+        return target % gcd(x,y)==0;
+    }
+    private static int gcd(int a, int b){
+
+        while (b!=0){
+            int temp=b;
+            b=a%b;
+            a=temp;
+        }
+        return a;
+    }
+}
+
+
+// 394. Decode String
+//Solved
+//Medium
+//Topics
+//premium lock icon
+//Companies
+//Given an encoded string, return its decoded string.
+//
+//The encoding rule is: k[encoded_string], where the encoded_string inside the square brackets is being repeated exactly k times. Note that k is guaranteed to be a positive integer.
+//
+//You may assume that the input string is always valid; there are no extra white spaces, square brackets are well-formed, etc. Furthermore, you may assume that the original data does not contain any digits and that digits are only for those repeat numbers, k. For example, there will not be input like 3a or 2[4].
+//
+//The test cases are generated so that the length of the output will never exceed 105.
+//
+//
+//
+//Example 1:
+//
+//Input: s = "3[a]2[bc]"
+//Output: "aaabcbc"
+//Example 2:
+//
+//Input: s = "3[a2[c]]"
+//Output: "accaccacc"
+//Example 3:
+//
+//Input: s = "2[abc]3[cd]ef"
+//Output: "abcabccdcdcdef"
