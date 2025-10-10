@@ -1208,3 +1208,129 @@ class RemoveOutermostParentheses {
         System.out.println(st.toString());
     }
 }
+
+// 136. Single Number (09-10-2025)======
+//Solved
+//Easy
+//Topics
+//premium lock icon
+//Companies
+//Hint
+//Given a non-empty array of integers nums, every element appears twice except for one. Find that single one.
+//
+//You must implement a solution with a linear runtime complexity and use only constant extra space.
+//
+//
+//
+//Example 1:
+//
+//Input: nums = [2,2,1]
+//
+//Output: 1
+//
+//Example 2:
+//
+//Input: nums = [4,1,2,1,2]
+//
+//Output: 4
+//
+//Example 3:
+//
+//Input: nums = [1]
+//
+//Output: 1
+
+
+class SingleNumber {
+    public static void main(String[] args) {
+        int testcase [] ={2,2,1};
+        System.out.println(Number(testcase));
+    }
+
+    public static  int Number(int nums []){
+        int n=0;
+
+        for(int i=0;i<nums.length;i++){
+
+            n = nums[i] ^ n;
+
+        }
+        return n;
+    }
+}
+
+// 3304. Find the K-th Character in String Game I (10-10-2025)======
+//Solved
+//Easy
+//Topics
+//premium lock icon
+//Companies
+//Hint
+//Alice and Bob are playing a game. Initially, Alice has a string word = "a".
+//
+//You are given a positive integer k.
+//
+//Now Bob will ask Alice to perform the following operation forever:
+//
+//Generate a new string by changing each character in word to its next character in the
+// English alphabet, and append it to the original word.
+//For example, performing the operation on "c" generates "cd" and performing the operation on "zb" generates "zbac".
+//
+//Return the value of the kth character in word, after enough operations have been done for
+// word to have at least k characters.
+//
+//
+//
+//Example 1:
+//
+//Input: k = 5
+//
+//Output: "b"
+//
+//Explanation:
+//
+//Initially, word = "a". We need to do the operation three times:
+//
+//Generated string is "b", word becomes "ab".
+//Generated string is "bc", word becomes "abbc".
+//Generated string is "bccd", word becomes "abbcbccd".
+//Example 2:
+//
+//Input: k = 10
+//
+//Output: "c"
+
+
+
+class Solutionn{
+
+    public char kthCharacterrr(int k) {
+        String word = "a";
+
+        while (word.length() < k) {
+            String temp = "";
+
+            for (int i = 0; i < word.length(); i++) {
+                temp += (char) (word.charAt(i) + 1);
+            }
+
+            word += temp;
+        }
+
+        return word.charAt(k - 1);
+    }
+
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.print("Enter value for k: ");
+        int k = scanner.nextInt();
+
+        Solutionn sol = new Solutionn();
+        char result = sol.kthCharacterrr(k);
+
+        System.out.println("The " + k + "th character is: " + result);
+
+
+    }
+}

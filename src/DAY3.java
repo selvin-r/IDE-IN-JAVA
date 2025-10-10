@@ -37,6 +37,10 @@ class Solution {
             }
         }
     }
+
+    public char kthCharacter(int k) {
+        return 0;
+    }
 }
 
 // 57. Largest Substring Between Two Equal Characters  (24-09-25)===========
