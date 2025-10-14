@@ -1365,10 +1365,10 @@ class Solutionn{
 
 class Sqrt {
     public static void main(String[] args) {
-//        int testcase1 = 4;
-        int testcase2= 8;
-//        System.out.println(Root(testcase1));
-        System.out.println(Root(testcase2));
+       int testcase1 = 4;
+       // int testcase2= 8;
+     System.out.println(Root(testcase1));
+      //   System.out.println(Root(testcase2));
     }
 
     public static int Root(int x){
