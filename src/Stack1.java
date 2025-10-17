@@ -61,8 +61,10 @@ public class Stack1 {
         obj.pop();
         obj.push(50500);
         obj.push(490);
+        System.out.println( obj.isEmpty());
         System.out.println( " " + obj.peek());
         obj.display();
+
 
     }
 }
