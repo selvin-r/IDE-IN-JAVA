@@ -1366,9 +1366,9 @@ class Solutionn{
 class Sqrt {
     public static void main(String[] args) {
        int testcase1 = 4;
-       // int testcase2= 8;
+       int testcase2= 8;
      System.out.println(Root(testcase1));
-      //   System.out.println(Root(testcase2));
+      System.out.println(Root(testcase2));
     }
 
     public static int Root(int x){
@@ -1394,5 +1394,68 @@ class Sqrt {
             }
         }
         return ans;
+    }
+}
+
+
+// 3304. Find the K-th Character in String Game I (14-10-25)=====
+//Solved
+//Easy
+//Topics
+//premium lock icon
+//Companies
+//Hint
+//Alice and Bob are playing a game. Initially, Alice has a string word = "a".
+//
+//You are given a positive integer k.
+//
+//Now Bob will ask Alice to perform the following operation forever:
+//
+//Generate a new string by changing each character in word to its next character in the English alphabet,
+// and append it to the original word.
+//For example, performing the operation on "c" generates "cd" and performing the operation on "zb" generates "zbac".
+//
+//Return the value of the kth character in word, after enough operations have been done for word to have at least k characters.
+//
+//
+//
+//Example 1:
+//
+//Input: k = 5
+//
+//Output: "b"
+//
+//Explanation:
+//
+//Initially, word = "a". We need to do the operation three times:
+//Generated string is "b", word becomes "ab".
+//Generated string is "bc", word becomes "abbc".
+//Generated string is "bccd", word becomes "abbcbccd".
+//Example 2:
+//
+//Input: k = 10
+//
+//Output: "c"
+
+
+class Kth  {
+    public static void main (String [] args){
+         int k =5;
+        System.out.println(kthCharacter(k));
+    }
+    public static char kthCharacter(int k) {
+        String word = "a";
+
+        while (word.length() < k) {
+            String temp = "";
+
+            for (int i = 0; i < word.length(); i++) {
+                temp += (char) (word.charAt(i) + 1);
+            }
+
+            word += temp;
+        }
+
+        return word.charAt(k - 1);
     }
 }

@@ -116,3 +116,27 @@ class FunnyString {
         return "Funny";
     }
 }
+
+class HackerrankString {
+    public static void main(String[] args) {
+        String c = "haacckkerrannkk";
+        System.out.println(Hackrrank(c));
+    }
+
+    public static String Hackrrank(String c) {
+        String s = "hackerrank";
+        int right = 0;
+
+        for (int left = 0; left < c.length(); left++) {
+            if (right < s.length() && c.charAt(left) == s.charAt(right)) {
+                right++;
+            }
+        }
+
+        if (right == s.length()) {
+            return "yes";
+        } else {
+            return "no";
+        }
+    }
+}

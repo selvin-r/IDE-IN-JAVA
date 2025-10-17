@@ -176,42 +176,40 @@ class Pattan1{
 //        ["sd-ds", "hij-ijh"]
 
 
-class Pairs {
-    public static void main(String[] args)  throws ExportException {
-        String s= "asdfghil";
-        String s1="adsfgijh";
-
-        List<String> sb = new ArrayList<>();
-
-        String value1="";
-        String value2="";
-
-        boolean check =false;
-
-
-        for(int i=0;i<s.length();i++){
-
-            if(s.charAt(i)!=s1.charAt(i)){
-
-                value1 += s.charAt(i);
-                value2 += s1.charAt(i);
-
-                check = true;
-
-            } else {
-                if(check){
-
-                    sb.add(value1 + "-" + value2);
-                    check = false;
-
-                    value1 = "";
-                    value2 ="";
-                }
-            }
-        }if(check){
-            sb.add(value2 + " -" + value1);
-        }
-
-        System.out.println(sb);
-    }
-}
+//class Pairs {
+//    public static void main(String[] args)  throws ExportException {
+//        String s= "asdfghil";
+//        String s1="adsfgijh";
+//
+//        String value1="";
+//        String value2="";
+//
+//        boolean check =false;
+//
+//
+//        for(int i=0;i<s.length();i++){
+//
+//            if(s.charAt(i)!=s1.charAt(i)){
+//
+//                value1 += s.charAt(i);
+//                value2 += s1.charAt(i);
+//
+//                check = true;
+//
+//            } else {
+//                if(check){
+//
+//                    sb.add(value1 + "-" + value2);
+//                    check = false;
+//
+//                    value1 = "";
+//                    value2 ="";
+//                }
+//            }
+//        }if(check){
+//            sb.add(value2 + " -" + value1);
+//        }
+//
+//        System.out.println(sb);
+//    }
+//}
