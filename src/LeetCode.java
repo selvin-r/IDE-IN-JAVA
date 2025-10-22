@@ -119,38 +119,38 @@ class CountPrimes {
 }
 
 // 70. Climbing Stairs DP (26-09-2025)
-
-class  ClimbingStairs {
-    public static void main(String[] args) {
-
-        Scanner sc = new Scanner(System.in);
-        System.out.print("Enter number of stairs: ");
-        int n = sc.nextInt();
-
-
-        Stairs sol = new Stairs();
-        int ways = sol.climbStairs(n);
-
-
-        System.out.println("Number of ways to climb stairs: " + ways);
-    }
-}
-
-
-class Stairs{
-    public int climbStairs(int n) {
-        if(n <= 1){
-            return 1;
-        }
-        int arr[] = new int[n+1];
-        arr[0]=1;
-        arr[1]=1;
-        for(int i = 2; i <= n; i++){
-            arr[i] = arr[i-1] + arr[i-2];
-        }
-        return arr[n];
-    }
-}
+//
+//class  ClimbingStairs {
+//    public static void main(String[] args) {
+//
+//        Scanner sc = new Scanner(System.in);
+//        System.out.print("Enter number of stairs: ");
+//        int n = sc.nextInt();
+//
+//
+//        Stairs sol = new Stairs();
+//        int ways = sol.climbStairs(n);
+//
+//
+//        System.out.println("Number of ways to climb stairs: " + ways);
+//    }
+//}
+//
+//
+//class Stairs{
+//    public int climbStairs(int n) {
+//        if(n <= 1){
+//            return 1;
+//        }
+//        int arr[] = new int[n+1];
+//        arr[0]=1;
+//        arr[1]=1;
+//        for(int i = 2; i <= n; i++){
+//            arr[i] = arr[i-1] + arr[i-2];
+//        }
+//        return arr[n];
+//    }
+//}
 
 
 // 209. Minimum Size Subarray Sum  (27-09-2025)=========================================================================
@@ -1457,5 +1457,55 @@ class Kth  {
         }
 
         return word.charAt(k - 1);
+    }
+}
+
+// 1941. Check if All Characters Have Equal Number of Occurrences
+//Solved
+//Easy
+//Topics
+//premium lock icon
+//Companies
+//Hint
+//Given a string s, return true if s is a good string, or false otherwise.
+//
+//A string s is good if all the characters that appear in s have the same number of occurrences (i.e., the same frequency).
+//
+//
+//
+//Example 1:
+//
+//Input: s = "abacbc"
+//Output: true
+//Explanation: The characters that appear in s are 'a', 'b', and 'c'. All characters occur 2 times in s.
+//Example 2:
+//
+//Input: s = "aaabb"
+//Output: false
+//Explanation: The characters that appear in s are 'a' and 'b'.
+//'a' occurs 3 times while 'b' occurs 2 times, which is not the same number of times.
+
+class EqualValue{
+   static void main() {
+        String s ="abacbc";
+        System.out.println(Conterol(s));
+    }
+    public static boolean Conterol(String s) {
+        Map<Character, Integer> map = new HashMap<>();
+
+        for (char c : s.toCharArray()) {
+            map.put(c, map.getOrDefault(c, 0) + 1);
+        }
+
+
+        int freq = map.values().iterator().next();
+
+        for (int val : map.values()) {
+            if (val != freq) {
+                return false;
+            }
+        }
+
+        return true;
     }
 }
