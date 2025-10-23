@@ -1302,7 +1302,7 @@ class SingleNumber {
 
 
 
-class Solutionn{
+static class Solutionn{
 
     public char kthCharacterrr(int k) {
         String word = "a";
@@ -1625,4 +1625,54 @@ class CountBinary {
         c +=Math.min(i,j);
         return c;
     }
+}
+
+// 633. Sum of Square Numbers
+//Solved
+//Medium
+//Topics
+//premium lock icon
+//Companies
+//Given a non-negative integer c, decide whether there're two integers a and b such that a2 + b2 = c.
+//
+//
+//
+//Example 1:
+//
+//Input: c = 5
+//Output: true
+//Explanation: 1 * 1 + 2 * 2 = 5
+//Example 2:
+//
+//Input: c = 3
+//Output: false
+//
+
+void main() {
+   int testcase1 =5;
+   int testcase2=3;
+    System.out.println(Square(testcase1));
+    System.out.println(Square(testcase2));
+}
+static boolean Square(int c){
+
+    long left=0;
+    long right=(long) Math.sqrt(c);
+
+
+    while (left<=right){
+
+        long sum = left*left + right * right;
+
+        if(sum==c){
+            return true;
+
+        } else if (sum < c) {
+            left++;
+
+        } else {
+            right--;
+        }
+    }
+    return false;
 }
