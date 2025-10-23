@@ -1460,7 +1460,7 @@ class Kth  {
     }
 }
 
-// 1941. Check if All Characters Have Equal Number of Occurrences
+// 1941. Check if All Characters Have Equal Number of Occurrences (23-10-2025)==============
 //Solved
 //Easy
 //Topics
@@ -1507,5 +1507,64 @@ class EqualValue{
         }
 
         return true;
+    }
+}
+
+
+// 917. Reverse Only Letters
+//Solved
+//Easy
+//Topics
+//premium lock icon
+//Companies
+//Hint
+//Given a string s, reverse the string according to the following rules:
+//
+//All the characters that are not English letters remain in the same position.
+//All the English letters (lowercase or uppercase) should be reversed.
+//Return s after reversing it.
+//
+//
+//
+//Example 1:
+//
+//Input: s = "ab-cd"
+//Output: "dc-ba"
+//Example 2:
+//
+//Input: s = "a-bC-dEf-ghIj"
+//Output: "j-Ih-gfE-dCba"
+//Example 3:
+//
+//Input: s = "Test1ng-Leet=code-Q!"
+//Output: "Qedo1ct-eeLg=ntse-T!"
+//
+
+class ReverseOnlyLetters{
+    static void main() {
+        String testcase1="ab-cd";
+        System.out.println(Letters(testcase1));
+    }
+
+    static String Letters(String s){
+
+        char arr [] =s.toCharArray();
+        int i=0;
+        int j=s.length()-1;
+
+        while (i<j){
+            if(!Character.isLetter(arr[i])){
+                i++;
+            } else if (!Character.isLetter(arr[j])) {
+                j--;
+            } else {
+                char temp = arr[i];
+                arr[i]=arr[j];
+                arr[j]=temp;
+                i++;
+                j--;
+            }
+        }
+        return new String(arr);
     }
 }
