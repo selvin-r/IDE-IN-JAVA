@@ -1600,10 +1600,10 @@ class ReverseOnlyLetters{
 
 class CountBinary {
     static void main() {
-//       String testcase1="00110011";
+   String testcase1="00110011";
        String testcase2="10101";
 
-//        System.out.println(Binary(testcase1));
+  System.out.println(Binary(testcase1));
         System.out.println(Binary(testcase2));
     }
     static int Binary(String s){
