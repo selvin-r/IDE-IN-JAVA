@@ -1739,3 +1739,135 @@ class Smaller {
         return ans;
     }
 }
+
+// 506. Relative Ranks (25-10-2025)=======================================================
+//Solved
+//Easy
+//Topics
+//premium lock icon
+//Companies
+//You are given an integer array score of size n, where score[i] is the score of the ith athlete in a competition.
+// All the scores are guaranteed to be unique.
+//
+//The athletes are placed based on their scores, where the 1st place athlete has the highest score, the 2nd place
+// athlete has the 2nd highest score, and so on. The placement of each athlete determines their rank:
+//
+//The 1st place athlete's rank is "Gold Medal".
+//The 2nd place athlete's rank is "Silver Medal".
+//The 3rd place athlete's rank is "Bronze Medal".
+//For the 4th place to the nth place athlete, their rank is their placement number (i.e., the xth
+// place athlete's rank is "x").
+//Return an array answer of size n where answer[i] is the rank of the ith athlete.
+//
+//
+//
+//Example 1:
+//
+//Input: score = [5,4,3,2,1]
+//Output: ["Gold Medal","Silver Medal","Bronze Medal","4","5"]
+//Explanation: The placements are [1st, 2nd, 3rd, 4th, 5th].
+//Example 2:
+//
+//Input: score = [10,3,8,9,4]
+//Output: ["Gold Medal","5","Bronze Medal","Silver Medal","4"]
+//Explanation: The placements are [1st, 5th, 3rd, 2nd, 4th].
+
+
+class RelativeRanks {
+    static void main() {
+        int testcase1 []={5,4,3,2,1};
+        System.out.println(Arrays.toString(Rank(testcase1)));
+    }
+    public static  String[] Rank(int arr []){
+
+        Map<Integer,Integer> map = new HashMap<>();
+
+        String result [] = new String[arr.length];
+
+        for(int i=0;i<arr.length;i++){
+
+            map.put(arr[i],i);
+        }
+        Arrays.sort(arr);
+
+        for (int i=arr.length-1;i>=0;i--){
+            int rank= arr.length-i;
+//            System.out.println(rank + "This is Rank Value :: ");
+//            System.out.println(arr[i]);
+
+            if(rank==1){
+                result[map.get(arr[i])]="Gold Medal";
+            } else if (rank==2) {
+                result[map.get(arr[i])]="Silver Medal";
+
+            } else if (rank==3) {
+                result[map.get(arr[i])]="Bronze Medal";
+
+            } else {
+
+                result[map.get(arr[i])]= rank+"";
+            }
+        }
+
+
+        return result;
+
+    }
+}
+
+
+// 190. Reverse Bits
+//Solved
+//Easy
+//Topics
+//premium lock icon
+//Companies
+//Reverse bits of a given 32 bits signed integer.
+//
+//
+//
+//Example 1:
+//
+//Input: n = 43261596
+//
+//Output: 964176192
+//
+//Explanation:
+//
+//Integer	Binary
+//43261596	00000010100101000001111010011100
+//964176192	00111001011110000010100101000000
+//Example 2:
+//
+//Input: n = 2147483644
+//
+//Output: 1073741822
+//
+//Explanation:
+//
+//Integer	Binary
+//2147483644	01111111111111111111111111111100
+//1073741822	00111111111111111111111111111110
+
+
+
+class ReverseBits {
+    static void main() {
+        int testcase1= 128;
+        System.out.println(Reverse(testcase1));
+    }
+
+    public static  int Reverse(int n){
+         int ans=0;
+        for(int i=0;i<32;i++){
+
+            ans=ans << 1;
+
+            if((n&1)==1){
+                ans =ans |1;
+            }
+            n =n >>>1;
+        }
+        return ans;
+    }
+}
