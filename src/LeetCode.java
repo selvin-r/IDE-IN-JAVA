@@ -1302,7 +1302,7 @@ class SingleNumber {
 
 
 
-static class Solutionn{
+class Solutionn{
 
     public char kthCharacterrr(int k) {
         String word = "a";
@@ -1647,34 +1647,38 @@ class CountBinary {
 //Input: c = 3
 //Output: false
 //
-
-void main() {
-   int testcase1 =5;
-   int testcase2=3;
-    System.out.println(Square(testcase1));
-    System.out.println(Square(testcase2));
-}
-static boolean Square(int c){
-
-    long left=0;
-    long right=(long) Math.sqrt(c);
+class Sq {
 
 
-    while (left<=right){
-
-        long sum = left*left + right * right;
-
-        if(sum==c){
-            return true;
-
-        } else if (sum < c) {
-            left++;
-
-        } else {
-            right--;
-        }
+    public static void main(String[] args) {
+        int testcase1 = 5;
+        int testcase2 = 3;
+        System.out.println(Square(testcase1));
+        System.out.println(Square(testcase2));
     }
-    return false;
+
+    static boolean Square(int c) {
+
+        long left = 0;
+        long right = (long) Math.sqrt(c);
+
+
+        while (left <= right) {
+
+            long sum = left * left + right * right;
+
+            if (sum == c) {
+                return true;
+
+            } else if (sum < c) {
+                left++;
+
+            } else {
+                right--;
+            }
+        }
+        return false;
+    }
 }
 // 1365. How Many Numbers Are Smaller Than the Current Number (24-01-2025)===========
 //Solved
@@ -1710,25 +1714,28 @@ static boolean Square(int c){
 //
 
 class Smaller {
-    static void main() {
-   int testcase1[]={8,1,2,2,3};
-        System.out.println(Many(testcase1));
-    }
-    static  int Many(int arr []) {
+    public static void main(String[] args) {
+        int testcase1[] = {8, 1, 2, 2, 3};
+        int result[] = Many(testcase1);
 
+        for (int num : result) {
+            System.out.print(num + " ");
+        }
+    }
+
+    static int[] Many(int arr[]) {
         int ans[] = new int[arr.length];
 
-        int count = 0;
         for (int i = 0; i < arr.length; i++) {
-            count = 0;
+            int count = 0;
             for (int j = 0; j < arr.length; j++) {
-
                 if (arr[j] < arr[i]) {
                     count++;
                 }
-                arr[i] = count;
             }
+            ans[i] = count; // store result, not overwrite input
         }
-        return count;
+
+        return ans;
     }
 }
