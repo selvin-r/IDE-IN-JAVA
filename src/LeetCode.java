@@ -1872,7 +1872,7 @@ class ReverseBits {
     }
 }
 
-// 1221. Split a String in Balanced Strings
+// 1221. Split a String in Balanced Strings (27-10-2025)=-============================
 //Solved
 //Easy
 //Topics
@@ -1926,5 +1926,120 @@ class BalancedStrings {
 
         }
         return max;
+    }
+}
+
+// 2485. Find the Pivot Integer (27-10-2025)====================================
+//Easy
+//Topics
+//premium lock icon
+//Companies
+//Hint
+//Given a positive integer n, find the pivot integer x such that:
+//
+//The sum of all elements between 1 and x inclusively equals the sum of all elements between x and n inclusively.
+//Return the pivot integer x. If no such integer exists, return -1. It is guaranteed that there will be at most
+// one pivot index for the given input.
+//
+//
+//
+//Example 1:
+//
+//Input: n = 8
+//Output: 6
+//Explanation: 6 is the pivot integer since: 1 + 2 + 3 + 4 + 5 + 6 = 6 + 7 + 8 = 21.
+//Example 2:
+//
+//Input: n = 1
+//Output: 1
+//Explanation: 1 is the pivot integer since: 1 = 1.
+//Example 3:
+//
+//Input: n = 4
+//Output: -1
+//Explanation: It can be proved that no such integer exist.
+
+
+class PivotInteger {
+    static void main() {
+     int testcase1=8;
+        System.out.println(Pivot(testcase1));
+    }
+    public static int Pivot(int n){
+       int sum = n *(n+1)/2;
+       int left=0;
+       for (int x=1;x<=n;x++){
+
+           left +=x;
+
+           if(left==sum-left+x){
+               return x;
+           }
+       }
+    return -1;
+    }
+}
+
+// 1423. Maximum Points You Can Obtain from Cards (27-10-2025)=================================================
+//Solved
+//Medium
+//Topics
+//premium lock icon
+//Companies
+//Hint
+//There are several cards arranged in a row, and each card has an associated number of points. The points
+// are given in the integer array cardPoints.
+//
+//In one step, you can take one card from the beginning or from the end of the row. You have to take exactly k cards.
+//
+//Your score is the sum of the points of the cards you have taken.
+//
+//Given the integer array cardPoints and the integer k, return the maximum score you can obtain.
+//
+//
+//
+//Example 1:
+//
+//Input: cardPoints = [1,2,3,4,5,6,1], k = 3
+//Output: 12
+//Explanation: After the first step, your score will always be 1. However, choosing the rightmost card first
+// will maximize your total score. The optimal strategy is to take the three cards on the right, giving a final
+// score of 1 + 6 + 5 = 12.
+//Example 2:
+//
+//Input: cardPoints = [2,2,2], k = 2
+//Output: 4
+//Explanation: Regardless of which two cards you take, your score will always be 4.
+//Example 3:
+//
+//Input: cardPoints = [9,7,7,9,7,7,9], k = 7
+//Output: 55
+//Explanation: You have to take all the cards. Your score is the sum of points of all cards.
+//
+
+class CardPoints{
+    static void main() {
+        int testcase1[]={1,2,3,4,5,6,1};
+        int k=3;
+        System.out.println(Card(testcase1,k));
+    }
+    public static  int Card(int arr [],int k){
+
+        int n= arr.length;
+
+        int sum =0;
+        for(int i=0;i<k;i++){
+
+
+            sum +=arr[i];
+        }
+        int ans=sum;
+
+        for(int i=0;i<k;i++){
+
+            sum =sum - arr[k-i-1] + arr[n-i-1];
+            ans=Math.max(ans,sum);
+        }
+        return ans;
     }
 }
