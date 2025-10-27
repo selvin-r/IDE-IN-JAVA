@@ -48,3 +48,23 @@ class FileExample2 {
     }
 }
 
+
+
+// quiz =====================
+
+//class A {
+//    A() {
+//        System.out.println("A constructoe");
+//    }
+//    class B extends  A {
+//        B(){
+//            System.out.println("B Constructoe");
+//        }
+//    }
+//}
+//class manipoint{
+//    static void main() {
+//        B obj = new B();
+//    }
+//}
+
