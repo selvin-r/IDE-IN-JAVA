@@ -2192,7 +2192,7 @@ class PlsuOne {
 class CountingSort{
     static void main() {
 
-        int testcase1[]={5,2,3,1};
+        int testcase1[]={5,2,3,1,1,1};
         System.out.println(Arrays.toString(SortCount(testcase1)));
     }
 
@@ -2205,6 +2205,7 @@ class CountingSort{
         for(int i=0;i< num.length;i++){
 
             map.put(num[i], map.getOrDefault(num[i],0)+1);
+            System.out.println(map);
 
             if (num[i]<min){
                 min=num[i];
