@@ -2162,3 +2162,67 @@ class PlsuOne {
      return arr;
     }
 }
+
+// 912. Sort an Array (28-10-2025)========
+//Solved
+//Medium
+//Topics
+//premium lock icon
+//Companies
+//Given an array of integers nums, sort the array in ascending order and return it.
+//
+//You must solve the problem without using any built-in functions in O(nlog(n)) time complexity and with the smallest
+// space complexity possible.
+//
+//
+//
+//Example 1:
+//
+//Input: nums = [5,2,3,1]
+//Output: [1,2,3,5]
+//Explanation: After sorting the array, the positions of some numbers are not changed (for example, 2 and 3), while
+// the positions of other numbers are changed (for example, 1 and 5).
+//Example 2:
+//
+//Input: nums = [5,1,1,2,0,0]
+//Output: [0,0,1,1,2,5]
+//Explanation: Note that the values of nums are not necessarily unique.
+
+
+class CountingSort{
+    static void main() {
+
+        int testcase1[]={5,2,3,1};
+        System.out.println(Arrays.toString(SortCount(testcase1)));
+    }
+
+    public static  int [] SortCount(int num []){
+
+        Map<Integer,Integer> map = new HashMap<>();
+
+        int min=num[0],max=num[0];
+
+        for(int i=0;i< num.length;i++){
+
+            map.put(num[i], map.getOrDefault(num[i],0)+1);
+
+            if (num[i]<min){
+                min=num[i];
+            }if(num[i]>max){
+                max=num[i];
+            }
+        }
+        int index=0;
+
+        for(int i=min;i<=max;i++){
+
+            while (map.getOrDefault(i, 0) > 0){
+                num[index++]=i;
+
+                map.put(i,map.get(i)-1);
+            }
+
+        }
+        return num;
+    }
+}
