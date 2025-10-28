@@ -2045,3 +2045,120 @@ class CardPoints{
 }
 
 
+// 905. Sort Array By Parity (28-10-2025)===========================================
+//Solved
+//Easy
+//Topics
+//premium lock icon
+//Companies
+//Given an integer array nums, move all the even integers at the beginning of the array followed by
+// all the odd integers.
+//
+//Return any array that satisfies this condition.
+//
+//
+//
+//Example 1:
+//
+//Input: nums = [3,1,2,4]
+//Output: [2,4,3,1]
+//Explanation: The outputs [4,2,3,1], [2,4,1,3], and [4,2,1,3] would also be accepted.
+//Example 2:
+//
+//Input: nums = [0]
+//Output: [0]
+//
+
+class ArrayByParity {
+    static void main() {
+        int testcase1 [] ={3,1,2,4};
+        System.out.println(Arrays.toString(Partiy(testcase1)));
+    }
+    public static int[] Partiy(int[] nums){
+        int left=0,right=nums.length-1;
+
+        int [] result = new int[nums.length];
+
+        for (int num : nums){
+
+            if(num % 2==0){
+                result[left++]=num;
+            } else {
+                result[right--]=num;
+            }
+        }
+        return result;
+    }
+}
+
+// 66. Plus One (28-10-2025)============================================
+//Solved
+//Easy
+//Topics
+//premium lock icon
+//Companies
+//You are given a large integer represented as an integer array digits, where each digits[i] is the ith digit of the integer.
+// The digits are ordered from most significant to least significant in left-to-right order. The large integer does
+// not contain any leading 0's.
+//
+//Increment the large integer by one and return the resulting array of digits.
+//
+//
+//
+//Example 1:
+//
+//Input: digits = [1,2,3]
+//Output: [1,2,4]
+//Explanation: The array represents the integer 123.
+//Incrementing by one gives 123 + 1 = 124.
+//Thus, the result should be [1,2,4].
+//Example 2:
+//
+//Input: digits = [4,3,2,1]
+//Output: [4,3,2,2]
+//Explanation: The array represents the integer 4321.
+//Incrementing by one gives 4321 + 1 = 4322.
+//Thus, the result should be [4,3,2,2].
+//Example 3:
+//
+//Input: digits = [9]
+//Output: [1,0]
+//Explanation: The array represents the integer 9.
+//Incrementing by one gives 9 + 1 = 10.
+//Thus, the result should be [1,0].
+
+
+class PlsuOne {
+    static void main() {
+//        int testcase1 [] = {1,2,3};
+        int testcase2 [] ={9};
+//        System.out.println(Arrays.toString(One(testcase1)));
+        System.out.println(Arrays.toString(One(testcase2)));
+
+    }
+    public static int[] One(int[] arr){
+
+        int n= arr.length-1;
+
+        for(int x=n; x>=0;x--){
+
+            if(arr[x]<9){
+
+                arr[x]=arr[x] +1;
+                return arr;
+
+            } else {
+                arr[x]=0;
+            }
+        }
+
+        int zero [] = new int[n+2];
+
+        if(arr[0]==0){
+            zero[0]=1;
+            return zero;
+        }
+
+     return arr;
+    }
+}
