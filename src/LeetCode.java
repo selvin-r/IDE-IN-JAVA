@@ -2300,3 +2300,124 @@ class IslandPerimeter {
         return perimeter;
     }
 }
+
+// 1046. Last Stone Weight (30-10-2025)======================================================================
+//Solved
+//Easy
+//Topics
+//premium lock icon
+//Companies
+//Hint
+//You are given an array of integers stones where stones[i] is the weight of the ith stone.
+//
+//We are playing a game with the stones. On each turn, we choose the heaviest two stones and smash them together.
+// Suppose the heaviest two stones have weights x and y with x <= y. The result of this smash is:
+//
+//If x == y, both stones are destroyed, and
+//If x != y, the stone of weight x is destroyed, and the stone of weight y has new weight y - x.
+//At the end of the game, there is at most one stone left.
+//
+//Return the weight of the last remaining stone. If there are no stones left, return 0.
+//
+//
+//
+//Example 1:
+//
+//Input: stones = [2,7,4,1,8,1]
+//Output: 1
+//Explanation:
+//We combine 7 and 8 to get 1 so the array converts to [2,4,1,1,1] then,
+//we combine 2 and 4 to get 2 so the array converts to [2,1,1,1] then,
+//we combine 2 and 1 to get 1 so the array converts to [1,1,1] then,
+//we combine 1 and 1 to get 0 so the array converts to [1] then that's the value of the last stone.
+//Example 2:
+//
+//Input: stones = [1]
+//Output: 1
+
+
+class Stones {
+    static void main() {
+        int [] testcase1 ={2,7,4,1,8,1};
+        int [] testcase2 ={31,26,33,21,40};
+        int [] testcase3 ={-1,-1};
+        System.out.println(Weight(testcase1));
+        System.out.println(Weight(testcase2));
+        System.out.println(Weight(testcase3));
+    }
+
+    public static int Weight(int arr []){
+
+        List<Integer> list = new ArrayList<>();
+
+        for(int c : arr){
+            list.add(c);
+
+        }
+        System.out.println("list value :: " +list);
+
+        while (list.size() >1){
+            Collections.sort(list);
+
+            System.out.println("list value  sort :: " +list);
+
+            int max1 = list.remove(list.size()-1);
+            int max2 = list.remove(list.size()-1);
+
+            if(max1!=max2){
+                list.add(max1-max2);
+            }
+        }
+        return list.isEmpty() ? 0 : list.get(0);
+    }
+}
+
+
+// 1464. Maximum Product of Two Elements in an Array
+//Easy
+//Topics
+//premium lock icon
+//Companies
+//Hint
+//Given the array of integers nums, you will choose two different indices i and j of that array. Return the maximum value
+// of (nums[i]-1)*(nums[j]-1).
+//
+//
+//Example 1:
+//
+//Input: nums = [3,4,5,2]
+//Output: 12
+//Explanation: If you choose the indices i=1 and j=2 (indexed from 0), you will get the maximum value, that is,
+// (nums[1]-1)*(nums[2]-1) = (4-1)*(5-1) = 3*4 = 12.
+//Example 2:
+//
+//Input: nums = [1,5,4,5]
+//Output: 16
+//Explanation: Choosing the indices i=1 and j=3 (indexed from 0), you will get the maximum value of (5-1)*(5-1) = 16.
+//Example 3:
+//
+//Input: nums = [3,7]
+//Output: 12
+
+
+class MaximumProduct {
+    static void main() {
+        int testcase1 [] = {3,4,5,2};
+        System.out.println(Product(testcase1));
+    }
+
+    public static int Product(int [] nums){
+
+        int max1 = 0, max2 = 0;
+        for (int n : nums) {
+            if (n > max1) {
+                max2 = max1;
+                max1 = n;
+            } else if (n > max2) {
+                max2 = n;
+            }
+        }
+        return (max1 - 1) * (max2 - 1);
+
+    }
+}
