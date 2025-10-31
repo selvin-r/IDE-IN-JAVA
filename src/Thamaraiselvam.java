@@ -68,3 +68,45 @@ class FileExample2 {
 //    }
 //}
 
+
+//class ExceptDemo {
+//    void hello(){
+//        System.out.println("1");
+//        Object o = null;
+//        o.toString();
+//        System.out.println("3");
+//    }
+//
+//    static void main() {
+//
+//        try {
+//            new ExceptDemo().hello();
+//
+//        } catch (ArithmeticException e) {
+//            System.out.println("2");
+//
+//        } finally (){
+//            System.out.println("4");
+//        }
+//    }
+//}
+
+class Selvin{
+    static void main(String [] args) {
+        String s ="";
+        try {
+       s +="g";
+       System.exit(0);
+//       String t =args[0];
+        } catch (Exception e){
+            s +="o";
+//             return;
+        } finally {
+            s +="o";
+            System.out.println(s);
+
+        }
+        s +="d";
+        System.out.println(s);
+    }
+}
