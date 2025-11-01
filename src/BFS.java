@@ -2,6 +2,9 @@ import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.Queue;
 
+
+// BFS Level oder  DFS Preorder
+
 public class BFS {
     public static void main(String[] args) {
 
@@ -16,7 +19,8 @@ public class BFS {
 
         g.printAdjList();
         System.out.println("\nBFS traversal starting from vertex 0:");
-        g.bfs(0);
+//        g.bfs(0);
+        g.dfs(0);
     }
 
     static class Graph {
@@ -24,7 +28,7 @@ public class BFS {
         ArrayList<ArrayList<Integer>>  adjlist = new ArrayList<>();
 
         Graph(int v) {
-            // initialize list for all vertices
+
             for (int i = 0; i < v; i++) {
                 adjlist.add(new ArrayList<>());
             }
@@ -32,7 +36,7 @@ public class BFS {
 
         public void addEdge(int u, int v) {
             adjlist.get(u).add(v);
-            adjlist.get(v).add(u); // undirected graph
+            adjlist.get(v).add(u);
         }
 
         public void printAdjList() {
@@ -46,7 +50,7 @@ public class BFS {
         }
 
         public void bfs(int start) {
-            int V = adjlist.size(); // total vertices
+            int V = adjlist.size();
             boolean[] visited = new boolean[V];
             Queue<Integer> q = new LinkedList<>();
 
@@ -65,5 +69,31 @@ public class BFS {
                 }
             }
         }
+
+        public void dfs (int start){
+
+            int V = adjlist.size();
+            boolean[] visited = new boolean[V];
+
+            dfs2(start,visited);
+
+        }
+        public void dfs2(int start, boolean[] visited){
+
+            visited[start]= true;
+            System.out.print(start + " ");
+
+            for(int i=0;i<adjlist.get(start).size();i++){
+
+                int av = adjlist.get(start).get(i);
+
+                if(!visited[av]){
+
+                    dfs2(av,visited);
+                }
+            }
+        }
     }
+
+
 }
