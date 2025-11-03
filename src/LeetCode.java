@@ -2874,3 +2874,143 @@ class SummaryRanges {
         return result;
     }
     }
+
+
+// 693. Binary Number with Alternating Bits (03-11-2025)=================================
+//Easy
+//Topics
+//premium lock icon
+//Companies
+//Given a positive integer, check whether it has alternating bits: namely, if two adjacent bits will always have
+// different values.
+//
+//
+//
+//Example 1:
+//
+//Input: n = 5
+//Output: true
+//Explanation: The binary representation of 5 is: 101
+//Example 2:
+//
+//Input: n = 7
+//Output: false
+//Explanation: The binary representation of 7 is: 111.
+//Example 3:
+//
+//Input: n = 11
+//Output: false
+//Explanation: The binary representation of 11 is: 1011.
+//
+
+
+class BinaryNumber {
+    public static void main(String[] args) {
+        int testcase1 = 5;
+        System.out.println(Bites(testcase1));
+    }
+
+    public static boolean Bites(int n) {
+        while(n!=0){
+            int a=(n&1);
+            n>>=1;
+            int b=(n&1);
+            if(a==b)
+                return false;
+        }
+        return true;
+    }
+}
+
+
+// 287. Find the Duplicate Number (03-11-2025)=====================================================
+//Medium
+//Topics
+//premium lock icon
+//Companies
+//Given an array of integers nums containing n + 1 integers where each integer is in the range [1, n] inclusive.
+//
+//There is only one repeated number in nums, return this repeated number.
+//
+//You must solve the problem without modifying the array nums and using only constant extra space.
+//
+//
+//
+//Example 1:
+//
+//Input: nums = [1,3,4,2,2]
+//Output: 2
+//Example 2:
+//
+//Input: nums = [3,1,3,4,2]
+//Output: 3
+//Example 3:
+//
+//Input: nums = [3,3,3,3,3]
+//Output: 3
+
+
+class FindtheDuplicate {                   //      xxxxxxxxxx Answer
+    static void main() {
+   int testcase1 [] = {1,3,4,2,2};
+
+        System.out.println(Find(testcase1));
+    }
+
+    public static  int Find(int nums []) {
+
+        int slow = nums[0];
+        int fast = nums[0];
+
+
+        while (slow != fast) {
+            slow = nums[slow];
+            fast = nums[fast];
+        }
+
+        return slow;
+    }
+}
+
+// Binary Search Approach
+
+class FindtheDuplicate1 {
+    public static void main(String[] args) {
+//        int[] testcase1 = {1, 3, 4, 2, 2};
+        int[] testcase2 = {3, 1, 3, 4, 2};
+        int[] testcase3 = {3, 3, 3, 3, 3};
+
+//        System.out.println(findDuplicate(testcase1));
+        System.out.println(findDuplicate(testcase2));
+        System.out.println(findDuplicate(testcase3));
+    }
+
+    public static int findDuplicate(int[] nums) {
+        int low = 1;
+        int high = nums.length - 1;
+        int duplicate = -1;
+
+        while (low <= high) {
+            int mid =  (high +low) / 2;
+
+
+            int count = 0;
+            for (int num : nums) {
+                if (num <= mid) {
+                    count++;
+                }
+            }
+
+            if (count > mid) {
+
+                duplicate = mid;
+                high = mid - 1;
+            } else {
+
+                low = mid + 1;
+            }
+        }
+
+        return duplicate;
+    }
+}
