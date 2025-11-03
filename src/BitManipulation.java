@@ -109,3 +109,64 @@ class Cleartheithbit {
 
 
 }
+
+// 5️⃣ Toggle the i-th bit (flip)
+
+class Toggletheithbit {
+    static void main() {
+        int n = 5;  // 0101
+        int i = 2;
+        int result = n ^ (1 << i);
+        System.out.println(result);// Output: 1 (0001)
+
+    }
+}
+
+// 6️⃣ Count set bits (number of 1’s)
+
+
+class Countsetbuits {
+    static void main() {
+
+        int count = 0, n = 13; // 1101
+        while (n > 0) {
+            count += (n & 1);
+            n >>= 1;
+        }
+        System.out.println(count);  // Output: 3
+
+    }
+}
+
+//7️⃣ Check if a number is power of 2
+
+class NumberisPower {
+    static void main() {
+
+        int n=4;
+
+        if ((n & (n - 1)) == 0)
+            System.out.println("Power of 2");
+        else
+            System.out.println("Not power of 2");
+
+
+    }
+}
+
+// 8️⃣ Swap two numbers without using a temp variable
+
+
+class Swap {
+    static void main() {
+
+        int a = 5, b = 7;
+        a = a ^ b;
+        b = a ^ b;
+        a = a ^ b;
+        System.out.println(a + " " + b); // 7 5
+
+
+    }
+}
+
