@@ -3335,7 +3335,7 @@ class CountingBits
 }
 
 
-// 724. Find Pivot Index
+// 724. Find Pivot Index   (07-11-2025)==================================================
 //Solved
 //Easy
 //Topics
@@ -3407,5 +3407,160 @@ class FindPivot
             left +=arr[i];
         }
         return  -1;
+    }
+}
+
+//1991. Find the Middle Index in Array (07-11-2025)====================================
+//Solved
+//Easy
+//Topics
+//premium lock icon
+//Companies
+//Hint
+//Given a 0-indexed integer array nums, find the leftmost middleIndex (i.e., the smallest amongst all the possible ones).
+//
+//A middleIndex is an index where nums[0] + nums[1] + ... + nums[middleIndex-1] == nums[middleIndex+1] + nums[middleIndex+2]
+// + ... + nums[nums.length-1].
+//
+//If middleIndex == 0, the left side sum is considered to be 0. Similarly, if middleIndex == nums.length - 1, the right side
+// sum is considered to be 0.
+//
+//Return the leftmost middleIndex that satisfies the condition, or -1 if there is no such index.
+//
+//
+//
+//Example 1:
+//
+//Input: nums = [2,3,-1,8,4]
+//Output: 3
+//Explanation: The sum of the numbers before index 3 is: 2 + 3 + -1 = 4
+//The sum of the numbers after index 3 is: 4 = 4
+//Example 2:
+//
+//Input: nums = [1,-1,4]
+//Output: 2
+//Explanation: The sum of the numbers before index 2 is: 1 + -1 = 0
+//The sum of the numbers after index 2 is: 0
+//Example 3:
+//
+//Input: nums = [2,5]
+//Output: -1
+//Explanation: There is no valid middleIndex.
+//
+//
+//Constraints:
+//
+//1 <= nums.length <= 100
+//-1000 <= nums[i] <= 1000
+
+
+class FindPivott
+{
+    static void main()
+    {
+
+        int testcase1 []={2,3,-1,8,4};
+        System.out.println(Find(testcase1));
+    }
+
+    public static  int Find(int arr [])
+    {
+        int sum=0;
+        for(int c : arr){
+            sum +=c;
+        }
+
+        int left=0;
+
+        for(int i=0;i< arr.length;i++){
+
+            int right =sum -left-arr[i];
+
+            if(right==left){
+                return i;
+            }
+            left +=arr[i];
+        }
+        return  -1;
+    }
+}
+
+
+// 1422. Maximum Score After Splitting a String  (07-11-2025)==============================
+//Solved
+//Easy
+//Topics
+//premium lock icon
+//Companies
+//Hint
+//Given a string s of zeros and ones, return the maximum score after splitting the string into two non-empty substrings
+// (i.e. left substring and right substring).
+//
+//The score after splitting a string is the number of zeros in the left substring plus the number of ones in the right
+// substring.
+//
+//
+//
+//Example 1:
+//
+//Input: s = "011101"
+//Output: 5
+//Explanation:
+//All possible ways of splitting s into two non-empty substrings are:
+//left = "0" and right = "11101", score = 1 + 4 = 5
+//left = "01" and right = "1101", score = 1 + 3 = 4
+//left = "011" and right = "101", score = 1 + 2 = 3
+//left = "0111" and right = "01", score = 1 + 1 = 2
+//left = "01110" and right = "1", score = 2 + 1 = 3
+//Example 2:
+//
+//Input: s = "00111"
+//Output: 5
+//Explanation: When left = "00" and right = "111", we get the maximum score = 2 + 3 = 5
+//Example 3:
+//
+//Input: s = "1111"
+//Output: 3
+//
+
+
+class ScoreAfteSplitting
+{
+    static void main()
+    {
+        String testcase1 ="011101";
+        System.out.println(ScoreAfter(testcase1));
+    }
+
+    public static  int ScoreAfter(String s)
+    {
+
+        int max=0,zero=0,ones=0;
+        int n =s.length();
+
+
+        for(char c : s.toCharArray())
+        {
+
+            if(c=='1')
+            {
+                ones++;
+            }
+        }
+
+
+        for(int i=0;i<n-1;i++)
+        {
+            if(s.charAt(i)=='0')
+            {
+                zero++;
+            } else
+            {
+                ones--;
+            }
+            max=Math.max(max,ones + zero);
+        }
+        return max;
+
     }
 }
