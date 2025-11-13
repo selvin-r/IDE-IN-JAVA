@@ -3738,7 +3738,7 @@ class SearchInsert
 
 
 
-// 832. Flipping an Image
+// 832. Flipping an Image  (12-11-2025)=============================================
 //Solved
 //Easy
 //Topics
@@ -3796,27 +3796,27 @@ class Image
         int n =image.length;
 
         for(int i=0;i<n;i++)
+    {
+        int left=0,right=image[i].length-1;
+
+
+        while (left<=right)
         {
-            int left=0,right=image[i].length-1;
-
-
-            while (left<=right)
+            if(left==right)
             {
-                if(left==right)
-                {
-                    image[i][left] ^=1;
-                }
-                else
-                {
-                    int templeft=image[i][left] ^=1;
-                    image[i][left]=image[i][right]^=1;
-                    image[i][right]=templeft;
-                }
-                left++;
-                right--;
+                image[i][left] ^=1;
             }
-
+            else
+            {
+                int templeft=image[i][left] ^=1;
+                image[i][left]=image[i][right]^=1;
+                image[i][right]=templeft;
+            }
+            left++;
+            right--;
         }
-        return image;
+
     }
+        return image;
+}
 }
