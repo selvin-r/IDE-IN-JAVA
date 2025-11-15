@@ -3820,3 +3820,254 @@ class Image
         return image;
 }
 }
+
+// 485. Max Consecutive Ones   (12-11-2025)=========================================================================
+//Solved
+//Easy
+//Topics
+//premium lock icon
+//Companies
+//Hint
+//Given a binary array nums, return the maximum number of consecutive 1's in the array.
+//
+//
+//
+//Example 1:
+//
+//Input: nums = [1,1,0,1,1,1]
+//Output: 3
+//Explanation: The first two digits or the last three digits are consecutive 1s. The maximum number of consecutive 1s is 3.
+//Example 2:
+//
+//Input: nums = [1,0,1,1,0,1]
+//Output: 2
+//
+//
+//Constraints:
+//
+//1 <= nums.length <= 105
+//nums[i] is either 0 or 1.
+
+
+class Max1s
+{
+    static void main()
+    {
+     int testcase [] ={1,0,1,1,1,1,0};
+        System.out.println(ConsecutiveOnes(testcase));
+    }
+
+    static int ConsecutiveOnes(int arr [])
+    {
+        int count=0,res=0,max=0;
+
+        for(int i=0;i< arr.length;i++)
+        {
+            if(arr[i]==1)
+            {
+                count++;
+            } else {
+
+                res=Math.max(res,count);
+                count=0;
+            }
+        }
+    return Math.max(res,max);
+    }
+}
+
+// 1281. Subtract the Product and Sum of Digits of an Integer  (13-11-2025)============================================
+//Easy
+//Topics
+//premium lock icon
+//Companies
+//Hint
+//Given an integer number n, return the difference between the product of its digits and the sum of its digits.
+//
+//
+//Example 1:
+//
+//Input: n = 234
+//Output: 15
+//Explanation:
+//Product of digits = 2 * 3 * 4 = 24
+//Sum of digits = 2 + 3 + 4 = 9
+//Result = 24 - 9 = 15
+//Example 2:
+//
+//Input: n = 4421
+//Output: 21
+//Explanation:
+//Product of digits = 4 * 4 * 2 * 1 = 32
+//Sum of digits = 4 + 4 + 2 + 1 = 11
+//Result = 32 - 11 = 21
+//
+//
+//Constraints:
+//
+//1 <= n <= 10^5
+
+
+class SumofDigits
+{
+    static void main()
+    {
+        int testcase =234;
+        System.out.println(SubtractProduct(testcase));
+    }
+
+    static int  SubtractProduct(int n)
+    {
+            int sum = 0;
+                int pro = 1;
+
+                while (n > 0) {
+                    int digit = n % 10;
+                    sum += digit;
+                    pro *= digit;
+                    n /= 10;
+                }
+
+        return pro - sum;
+    }
+}
+
+
+// 316. Remove Duplicate Letters
+//Medium
+//Topics
+//premium lock icon
+//Companies
+//Hint
+//Given a string s, remove duplicate letters so that every letter appears once and only once. You must make sure your
+// result is the smallest in lexicographical order among all possible results.
+//
+//
+//
+//Example 1:
+//
+//Input: s = "bcabc"
+//Output: "abc"
+//Example 2:
+//
+//Input: s = "cbacdcbc"
+//Output: "acdb"
+//
+//
+//Constraints:
+//
+//1 <= s.length <= 104
+//s consists of lowercase English letters.
+
+
+class RemoveDuplicatee
+{
+    static void main()
+    {
+        String testcase ="bcabc";
+        System.out.println(Remo(testcase));
+    }
+
+    public static  String Remo(String s)
+    {
+
+        int[] arr = new int[26];
+
+       for(char c : s.toCharArray()){
+
+             arr[c-'a']++;
+       }
+
+       StringBuilder sb = new StringBuilder();
+
+       char ch = 'a';
+
+       for(int i : arr){
+           if(i>=1){
+               sb.append(ch);
+           }
+           ch++;
+       }
+
+       return sb.toString();
+    }
+}
+
+
+// 1768. Merge Strings Alternately (15-11-2025)=======================================
+//Solved
+//Easy
+//Topics
+//premium lock icon
+//Companies
+//Hint
+//You are given two strings word1 and word2. Merge the strings by adding letters in alternating order, starting with word1.
+// If a string is longer than the other, append the additional letters onto the end of the merged string.
+//
+//Return the merged string.
+//
+//
+//
+//Example 1:
+//
+//Input: word1 = "abc", word2 = "pqr"
+//Output: "apbqcr"
+//Explanation: The merged string will be merged as so:
+//word1:  a   b   c
+//word2:    p   q   r
+//merged: a p b q c r
+//Example 2:
+//
+//Input: word1 = "ab", word2 = "pqrs"
+//Output: "apbqrs"
+//Explanation: Notice that as word2 is longer, "rs" is appended to the end.
+//word1:  a   b
+//word2:    p   q   r   s
+//merged: a p b q   r   s
+//Example 3:
+//
+//Input: word1 = "abcd", word2 = "pq"
+//Output: "apbqcd"
+//Explanation: Notice that as word1 is longer, "cd" is appended to the end.
+//word1:  a   b   c   d
+//word2:    p   q
+//merged: a p b q c   d
+//
+//
+//Constraints:
+//
+//1 <= word1.length, word2.length <= 100
+//word1 and word2 consist of lowercase English letters.
+
+
+class MergeStrings {
+    static void main() {
+
+        String word1 = "abc", word2 = "pqr";
+
+        System.out.println(Merge(word1,word2));
+
+    }
+
+    public static String Merge(String s ,String s1){
+
+        String result = " ";
+
+
+        int max =Math.max(s.length(),s1.length());
+
+
+        for (int i=0;i<max;i++){
+
+            if(i<s.length()){
+
+                result  +=s.charAt(i);
+            }if(i<s1.length()){
+                result +=s1.charAt(i);
+            }
+        }
+
+        return result;
+
+    }
+}
