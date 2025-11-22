@@ -4206,7 +4206,7 @@ class FindDifference {
 //Companies
 //You are given an n x n 2D matrix representing an image, rotate the image by 90 degrees (clockwise).
 //
-//You have to rotate the image in-place, which means you have to modify the input 2D matrix directly. DO NOT allocate
+//You have to rotate the image in-place, which means you have to modify the input 2D matrix directly. DO NOT alloca
 // another 2D matrix and do the rotation.
 //
 //
@@ -4354,4 +4354,64 @@ class  ObtainedRotation {
       }
     }
 
+}
+
+// 2154. Keep Multiplying Found Values by Two (22-11-2025)====================================================
+//Easy
+//Topics
+//premium lock icon
+//Companies
+//Hint
+//You are given an array of integers nums. You are also given an integer original which is the first number that needs to be searched for in nums.
+//
+//You then do the following steps:
+//
+//If original is found in nums, multiply it by two (i.e., set original = 2 * original).
+//Otherwise, stop the process.
+//Repeat this process with the new number as long as you keep finding the number.
+//Return the final value of original.
+//
+//
+//
+//Example 1:
+//
+//Input: nums = [5,3,6,1,12], original = 3
+//Output: 24
+//Explanation:
+//- 3 is found in nums. 3 is multiplied by 2 to obtain 6.
+//- 6 is found in nums. 6 is multiplied by 2 to obtain 12.
+//- 12 is found in nums. 12 is multiplied by 2 to obtain 24.
+//- 24 is not found in nums. Thus, 24 is returned.
+//Example 2:
+//
+//Input: nums = [2,7,9], original = 4
+//Output: 4
+//Explanation:
+//- 4 is not found in nums. Thus, 4 is returned.
+
+class MultiplyingFoundValues {
+    static void main() {
+
+        int nums [] ={5,3,6,1,12};
+        int original =3;
+        System.out.println(Found(nums,original));
+    }
+
+    public static int Found(int nums [],int original){
+        boolean found = true;
+
+        while (found) {
+            found = false;
+
+            for (int num : nums) {
+                if (num == original) {
+                    original = original * 2;
+                    found = true;
+                    break;
+                }
+            }
+        }
+
+        return original;
+    }
 }
