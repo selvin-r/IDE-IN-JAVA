@@ -4654,21 +4654,18 @@ class ReversStringII{
 
     static String ReversII(String s,int k){
 
-        char arr []=s.toCharArray();
-
-
-        int left = 0;
-        int right=1;
-
-        while (left<arr.length){
-
-            char cb=arr[left];
-            arr[left]=arr[right];
-            arr[right]=cb;
-            left +=k;
-            right++;
+                char c[]=s.toCharArray();
+                for(int i=0;i<s.length();i+=2*k){
+                    int left=i;
+                    int right=Math.min(i+k-1,s.length()-1);
+                    while(left<right){
+                        char temp=c[right];
+                        c[right]=c[left];
+                        c[left]=temp;
+                        right--;
+                        left++;
+                    }
+                }
+                return new String(c);
+            }
         }
-
-        return Arrays.toString(arr);
-    }
-}
