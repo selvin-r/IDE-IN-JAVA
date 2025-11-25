@@ -1,5 +1,8 @@
 public class StringBuliders {
-        public static void main(String[] args) {
+    public StringBuliders(String str) {
+    }
+
+    public static void main(String[] args) {
 
 
             StringBuilder sb = new StringBuilder("GeeksforGeeks");
@@ -58,5 +61,9 @@ public class StringBuliders {
             String result = sb.toString();
             System.out.println("Final String: " + result);
         }
+
+    public Object revers() {
+        return null;
     }
+}
 

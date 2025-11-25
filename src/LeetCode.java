@@ -4479,3 +4479,137 @@ class FindMinimumOperations{
         return count;
     }
 }
+
+
+// 1018. Binary Prefix Divisible By 5  *  *(24.11.2025)=================================================
+//Easy
+//Topics
+//premium lock icon
+//Companies
+//Hint
+//You are given a binary array nums (0-indexed).
+//
+//We define xi as the number whose binary representation is the subarray nums[0..i] (from most-significant-bit to least-significant-bit).
+//
+//For example, if nums = [1,0,1], then x0 = 1, x1 = 2, and x2 = 5.
+//Return an array of booleans answer where answer[i] is true if xi is divisible by 5.
+//
+//
+//
+//Example 1:
+//
+//Input: nums = [0,1,1]
+//Output: [true,false,false]
+//Explanation: The input numbers in binary are 0, 01, 011; which are 0, 1, and 3 in base-10.
+//Only the first number is divisible by 5, so answer[0] is true.
+//Example 2:
+//
+//Input: nums = [1,1,1]
+//Output: [false,false,false]
+//
+//
+//Constraints:
+//
+//1 <= nums.length <= 105
+//nums[i] is either 0 or 1.
+
+
+
+class BinaryPrefix {
+
+    static void main() {
+
+        int nums [] ={0,1,1};
+        System.out.println(Prefix(nums));
+    }
+
+    public static  List<Boolean> Prefix(int nums []){
+
+                List<Boolean> ans=new ArrayList<>();
+                int msb=0;
+                for(int x: nums){
+                    msb=((msb<<1)+x)%5;
+                    ans.add(msb==0);
+                }
+                return ans;
+            }
+        }
+
+        // 2810. Faulty Keyboard (25-11-2025)===================================================
+//Easy
+//Topics
+//premium lock icon
+//Companies
+//Hint
+//Your laptop keyboard is faulty, and whenever you type a character 'i' on it, it reverses the string that you have
+// written. Typing other characters works as expected.
+//
+//You are given a 0-indexed string s, and you type each character of s using your faulty keyboard.
+//
+//Return the final string that will be present on your laptop screen.
+//
+//
+//
+//Example 1:
+//
+//Input: s = "string"
+//Output: "rtsng"
+//Explanation:
+//After typing first character, the text on the screen is "s".
+//After the second character, the text is "st".
+//After the third character, the text is "str".
+//Since the fourth character is an 'i', the text gets reversed and becomes "rts".
+//After the fifth character, the text is "rtsn".
+//After the sixth character, the text is "rtsng".
+//Therefore, we return "rtsng".
+//Example 2:
+//
+//Input: s = "poiinter"
+//Output: "ponter"
+//Explanation:
+//After the first character, the text on the screen is "p".
+//After the second character, the text is "po".
+//Since the third character you type is an 'i', the text gets reversed and becomes "op".
+//Since the fourth character you type is an 'i', the text gets reversed and becomes "po".
+//After the fifth character, the text is "pon".
+//After the sixth character, the text is "pont".
+//After the seventh character, the text is "ponte".
+//After the eighth character, the text is "ponter".
+//Therefore, we return "ponter".
+//
+//
+//Constraints:
+//
+//1 <= s.length <= 100
+//s consists of lowercase English letters.
+//s[0] != 'i'
+
+
+class FaultyKeyboard {
+
+    static void main() {
+
+        String s = "poiinter";
+        System.out.println(Keyboard(s));
+    }
+
+    static String Keyboard(String s){
+
+
+        String str ="";
+
+
+        for (int i=0;i<s.length();i++){
+
+            if(s.charAt(i)!='i'){
+
+                str =str+s.charAt(i);
+            }
+            else {
+
+                str = new StringBuilder(str).reverse().toString();
+            }
+        }
+        return str;
+    }
+}
