@@ -1,3 +1,4 @@
+import java.math.BigInteger;
 import java.util.*;
 
 public class LeetCode {
@@ -4837,22 +4838,16 @@ class MinimumOperations{
 class AddString{
     static void main() {
 
-        String s ="11",s1="123";
+        String s ="6913259244",s1="71103343";
         System.out.println(Add(s,s1));
     }
 
-    static String Add(String s,String s1){
+    static String Add(String num1,String num2){
 
-        int sum=Integer.parseInt(s);
-        int sum1=Integer.parseInt(s1);
-
-           int count=sum+sum1;
-
-
-        return String.valueOf(count);
-
-
-
+        BigInteger no1 = new BigInteger(num1);
+        BigInteger no2 = new BigInteger(num2);
+        BigInteger sum = no1.add(no2);
+        return sum.toString();
 
 
 
