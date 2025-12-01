@@ -4741,3 +4741,122 @@ class MinimumOperations{
         return sum %k;
     }
 }
+
+// 316. Remove Duplicate Letters   (1-12-2025)===============================================
+//Attempted
+//Medium
+//Topics
+//premium lock icon
+//Companies
+//Hint
+//Given a string s, remove duplicate letters so that every letter appears once and only once. You must make sure
+// your result is the smallest in lexicographical order among all possible results.
+//
+//
+//
+//Example 1:
+//
+//Input: s = "bcabc"
+//Output: "abc"
+//Example 2:
+//
+//Input: s = "cbacdcbc"
+//Output: "acdb"
+//
+//
+//Constraints:
+//
+//1 <= s.length <= 104
+//s consists of lowercase English letters.
+//
+//
+//Note: This question is the same as 1081: https://leetcode.com/problems/smallest-subsequence-of-distinct-characters/
+//
+//
+//Seen this question in a real interview before?
+//1/5
+//Yes
+//No
+//Accepted
+//416,736/796.8K
+//Acceptance Rate
+//52.3%
+
+
+//class RemoveDuplicate1 {
+//    static void main() {
+//        String s ="bcabc";
+//        System.out.println();
+//    }
+//    static String Letters(String s){
+//
+//        Map<Character,Integer> count = new HashMap<>();
+//
+//        for(char c :s.toCharArray()){
+//             count.put(c)++
+//        }
+//    }
+//}
+
+
+
+// 415. Add Strings  (01-12-2025)===============================================================
+//Easy
+//Topics
+//premium lock icon
+//Companies
+//Given two non-negative integers, num1 and num2 represented as string, return the sum of num1 and num2 as a string.
+//
+//You must solve the problem without using any built-in library for handling large integers (such as BigInteger).
+// You must also not convert the inputs to integers directly.
+//
+//
+//
+//Example 1:
+//
+//Input: num1 = "11", num2 = "123"
+//Output: "134"
+//Example 2:
+//
+//Input: num1 = "456", num2 = "77"
+//Output: "533"
+//Example 3:
+//
+//Input: num1 = "0", num2 = "0"
+//Output: "0"
+//
+//
+//Constraints:
+//
+//1 <= num1.length, num2.length <= 104
+//num1 and num2 consist of only digits.
+//num1 and num2 don't have any leading zeros except for the zero itself.
+
+
+
+class AddString{
+    static void main() {
+
+        String s ="11",s1="123";
+        System.out.println(Add(s,s1));
+    }
+
+    static String Add(String s,String s1){
+
+        int sum=Integer.parseInt(s);
+        int sum1=Integer.parseInt(s1);
+
+           int count=sum+sum1;
+
+
+        return String.valueOf(count);
+
+
+
+
+
+
+
+
+    }
+}
