@@ -9,47 +9,48 @@ public class LeetCode {
 
 // 1935. Maximum Number of Words You Can Type  (Date 15-09-20025 )===========================================
 
-class MaxNumber{
-    public static void main(String[] args)  throws Exception {
+class MaxNumber {
+    public static void main(String[] args) throws Exception {
 
-        String text ="hello World";
+        String text = "hello World";
         String brokenLetters = "ad";
-        String text1 = "leet code",brokenLetters1 = "lt";
+        String text1 = "leet code", brokenLetters1 = "lt";
 
-       String text2 = "leet code", brokenLetters2 = "e";
+        String text2 = "leet code", brokenLetters2 = "e";
 
-        System.out.println(" Test Case one  count " +Count(text,brokenLetters));
-        System.out.println(" Test Case Two  count " +Count(text1,brokenLetters1));
-        System.out.println("Test Case 3  count " +Count(text2,brokenLetters2));
+        System.out.println(" Test Case one  count " + Count(text, brokenLetters));
+        System.out.println(" Test Case Two  count " + Count(text1, brokenLetters1));
+        System.out.println("Test Case 3  count " + Count(text2, brokenLetters2));
 
     }
-    public static int Count(String text,String brokenletters){
+
+    public static int Count(String text, String brokenletters) {
 
         Set<Character> sb = new HashSet<>();
 
-        for(char c : brokenletters.toCharArray()){
+        for (char c : brokenletters.toCharArray()) {
             sb.add(c);
 
         }
-        String [] arr = text.split(" ");
-        int sum=0;
+        String[] arr = text.split(" ");
+        int sum = 0;
 
-        for(String world : arr){
-            boolean value =true;
+        for (String world : arr) {
+            boolean value = true;
 
-            for(char s : world.toCharArray()){
-                if(sb.contains(s)){
-                    value=false;
+            for (char s : world.toCharArray()) {
+                if (sb.contains(s)) {
+                    value = false;
                     break;
                 }
 
             }
-            if(value){
+            if (value) {
                 sum++;
             }
         }
 
-   return sum;
+        return sum;
 
     }
 }
@@ -58,21 +59,21 @@ class MaxNumber{
 
 class NumberBits {
     public static void main(String[] args) {
-        int testcase1=11;
-        int testcase2=128;
-        int testcase3=2147483645;
+        int testcase1 = 11;
+        int testcase2 = 128;
+        int testcase3 = 2147483645;
         System.out.println(Bits(testcase1));
         System.out.println(Bits(testcase2));
         System.out.println(Bits(testcase3));
     }
 
-    public static int Bits(int n){
+    public static int Bits(int n) {
 
-        int count=0;
-        String s=Integer.toBinaryString(n);
+        int count = 0;
+        String s = Integer.toBinaryString(n);
 
-        for(int i=0;i<s.length();i++){
-            if(s.charAt(i)=='1'){
+        for (int i = 0; i < s.length(); i++) {
+            if (s.charAt(i) == '1') {
                 count++;
             }
         }
@@ -85,37 +86,37 @@ class NumberBits {
 class CountPrimes {
     public static void main(String[] args) {
 
-        int testcase1=10;
-        int testcase2=0;
+        int testcase1 = 10;
+        int testcase2 = 0;
 
         System.out.println(Primes(testcase1));
         System.out.println(Primes(testcase2));
 
     }
 
-    public static  int Primes(int n){
+    public static int Primes(int n) {
 
-        boolean check [] = new boolean[n];
+        boolean check[] = new boolean[n];
 
         int limit = (int) Math.sqrt(n);
 
-        for(int i=2;i<=limit;i++){
+        for (int i = 2; i <= limit; i++) {
 
-            if(check[i]==false){
+            if (check[i] == false) {
 
-                for(int j=i*i;j<n;j+=i){
-                    check[j]=true;
+                for (int j = i * i; j < n; j += i) {
+                    check[j] = true;
                 }
             }
         }
-        int count=0;
+        int count = 0;
 
-        for(int i=2;i<n;i++){
-            if(check[i]==false){
+        for (int i = 2; i < n; i++) {
+            if (check[i] == false) {
                 count++;
             }
         }
-   return count;
+        return count;
     }
 }
 
@@ -174,39 +175,39 @@ class CountPrimes {
 //Input: target = 11, nums = [1,1,1,1,1,1,1,1]
 //Output: 0
 
-class MinimumSize{
+class MinimumSize {
     public static void main(String[] args) {
 
-        int testcase1 [] ={2,3,1,2,4,3};
-        int target1 =7;
-        int [] testcase2= {1,4,4};
+        int testcase1[] = {2, 3, 1, 2, 4, 3};
+        int target1 = 7;
+        int[] testcase2 = {1, 4, 4};
         int target2 = 4;
 
-        int testcase3 [] ={1,1,1,1,1,1,1,1};
-        int target3 =11;
+        int testcase3[] = {1, 1, 1, 1, 1, 1, 1, 1};
+        int target3 = 11;
 
-        System.out.println(SubarraySum(testcase1,target1));
-        System.out.println(SubarraySum(testcase2,target2));
-        System.out.println(SubarraySum(testcase3,target3));
+        System.out.println(SubarraySum(testcase1, target1));
+        System.out.println(SubarraySum(testcase2, target2));
+        System.out.println(SubarraySum(testcase3, target3));
     }
 
-    public static int  SubarraySum(int [] nums ,int target){
+    public static int SubarraySum(int[] nums, int target) {
 
-        int left=0,right=0,sum=0,min=Integer.MAX_VALUE;
+        int left = 0, right = 0, sum = 0, min = Integer.MAX_VALUE;
 
-        while (right < nums.length){
+        while (right < nums.length) {
 
-            sum +=nums[right];
+            sum += nums[right];
 
-            while (sum >= target){
+            while (sum >= target) {
 
-                min=Math.min(min,right - left +1);
+                min = Math.min(min, right - left + 1);
                 sum -= nums[left];
                 left++;
             }
             right++;
         }
-        return  (min==Integer.MAX_VALUE) ?0: min;
+        return (min == Integer.MAX_VALUE) ? 0 : min;
     }
 }
 
@@ -251,46 +252,46 @@ class MinimumSize{
 
 class Evaluate {
     public static void main(String[] args) {
-        String testcase1 [] = {"2","1","+","3","*"};
-        String testcase2 [] ={"4","13","5","/","+"};
-        String testcase3 [] ={"10","6","9","3","+","-11","*","/","*","17","+","5","+"};
+        String testcase1[] = {"2", "1", "+", "3", "*"};
+        String testcase2[] = {"4", "13", "5", "/", "+"};
+        String testcase3[] = {"10", "6", "9", "3", "+", "-11", "*", "/", "*", "17", "+", "5", "+"};
         System.out.println(ReversePolish(testcase1));
         System.out.println(ReversePolish(testcase2));
         System.out.println(ReversePolish(testcase3));
     }
 
-    public static int ReversePolish (String str []){
+    public static int ReversePolish(String str[]) {
 
-        int res [] = new int[str.length/2+1];
-        int i=0;
+        int res[] = new int[str.length / 2 + 1];
+        int i = 0;
 
-        for(String poin : str){
+        for (String poin : str) {
 
-            switch (poin){
+            switch (poin) {
                 case "+":
-                    res[i-2]=res[i-2] + res[i-1];
+                    res[i - 2] = res[i - 2] + res[i - 1];
                     i--;
                     break;
 
                 case "-":
-                    res[i-2]=res[i-2]-res[i-1];
+                    res[i - 2] = res[i - 2] - res[i - 1];
                     i--;
                     break;
-                case  "*":
-                    res[i-2]=res[i-2]*res[i-1];
+                case "*":
+                    res[i - 2] = res[i - 2] * res[i - 1];
                     i--;
                     break;
-                case  "/":
-                    res[i-2]=res[i-2]/res[i-1];
+                case "/":
+                    res[i - 2] = res[i - 2] / res[i - 1];
                     i--;
                     break;
                 default:
-                    res[i++]=Integer.parseInt(poin);
+                    res[i++] = Integer.parseInt(poin);
                     break;
 
             }
         }
-      return res[0];
+        return res[0];
     }
 }
 
@@ -332,46 +333,45 @@ class Evaluate {
 class DefuseBomb {
     public static void main(String[] args) {
 
-        int testcase1 [] = {5,7,1,4};
-        int k1 =2;
-        int testcase2 [] ={1,2,3,4};
-        int k2 =0;
-        int testcase3 [] ={2,4,9,3};
-        int k3=-2;
-        System.out.println(Arrays.toString(Bomb(testcase1,k1)));
-      System.out.println(Arrays.toString(Bomb(testcase2,k2)));
-        System.out.println(Arrays.toString(Bomb(testcase3,k3)));
+        int testcase1[] = {5, 7, 1, 4};
+        int k1 = 2;
+        int testcase2[] = {1, 2, 3, 4};
+        int k2 = 0;
+        int testcase3[] = {2, 4, 9, 3};
+        int k3 = -2;
+        System.out.println(Arrays.toString(Bomb(testcase1, k1)));
+        System.out.println(Arrays.toString(Bomb(testcase2, k2)));
+        System.out.println(Arrays.toString(Bomb(testcase3, k3)));
     }
 
-    public static  int[] Bomb(int arr [] ,int k){
+    public static int[] Bomb(int arr[], int k) {
 
-        int n= arr.length;
-        int[] result  = new int[n];
+        int n = arr.length;
+        int[] result = new int[n];
 
 
+        for (int i = 0; i < n; i++) {
 
-        for(int i=0;i<n;i++){
+            if (k > 0) {
+                int sum = 0;
 
-            if(k >0){
-                int sum=0;
-
-                for(int j=1;j<=k;j++){
-                    sum += arr[(i+j)%n];
-                        result[i]=sum;
+                for (int j = 1; j <= k; j++) {
+                    sum += arr[(i + j) % n];
+                    result[i] = sum;
                 }
             }
-            if(k<0){
-                int sum=0;
-                int start = i+n+k;
+            if (k < 0) {
+                int sum = 0;
+                int start = i + n + k;
                 int count = 0;
-                for(int j=start;count<Math.abs(k);j++,count++){
-                    sum +=arr[j%n];
-                    result[i]=sum;
+                for (int j = start; count < Math.abs(k); j++, count++) {
+                    sum += arr[j % n];
+                    result[i] = sum;
 
                 }
             }
         }
-       return  result;
+        return result;
     }
 }
 
@@ -450,11 +450,11 @@ class DefuseBomb {
 
 class Directory {
     public static void main(String[] args) {
-      String testcase1="/home/";
-      String testcase2 ="/home//foo/";
-      String testcase3 ="/home/user/Documents/../Pictures";
-      String testcase4 = "/../";
-      String testcase5 ="/.../a/../b/c/../d/./";
+        String testcase1 = "/home/";
+        String testcase2 = "/home//foo/";
+        String testcase3 = "/home/user/Documents/../Pictures";
+        String testcase4 = "/../";
+        String testcase5 = "/.../a/../b/c/../d/./";
 
         System.out.println(Path(testcase1));
         System.out.println(Path(testcase2));
@@ -463,28 +463,29 @@ class Directory {
         System.out.println(Path(testcase5));
 
     }
-    public static String Path(String s){
+
+    public static String Path(String s) {
 
         Stack<String> sb = new Stack<>();
-        String arr [] =s.split("/");
+        String arr[] = s.split("/");
 
 
-        for(String change : arr){
-            
-            if(change.equals(".") || change.isBlank()){
+        for (String change : arr) {
+
+            if (change.equals(".") || change.isBlank()) {
                 continue;
             } else if (change.equals("..")) {
 
-                if(!sb.empty()){
+                if (!sb.empty()) {
                     sb.pop();
                 }
-                
+
             } else {
                 sb.push(change);
             }
 
         }
-   return "/" + String.join("/",sb);
+        return "/" + String.join("/", sb);
     }
 }
 
@@ -521,47 +522,47 @@ class Directory {
 //Output: -1
 
 
-class Rotated{
+class Rotated {
     public static void main(String[] args) {
-         int testcase1[]={4,5,6,7,0,1,2};
-         int target1=0;
-         int teatcase2[]={5,4,5,6,7,0,1,2};
-         int target2=5;
-        System.out.println(Search(testcase1,target1));
-        System.out.println(Search(teatcase2,target2));
+        int testcase1[] = {4, 5, 6, 7, 0, 1, 2};
+        int target1 = 0;
+        int teatcase2[] = {5, 4, 5, 6, 7, 0, 1, 2};
+        int target2 = 5;
+        System.out.println(Search(testcase1, target1));
+        System.out.println(Search(teatcase2, target2));
     }
 
-    public static int Search(int arr[],int target){
-       int left=0,right=arr.length-1;
+    public static int Search(int arr[], int target) {
+        int left = 0, right = arr.length - 1;
 
-        if(arr.length==0)
+        if (arr.length == 0)
             return -1;
-        if(arr.length==1 && arr[0]==target)
+        if (arr.length == 1 && arr[0] == target)
             return 0;
 
-       while (left<=right){
-           int mid =(left+right)/2;
+        while (left <= right) {
+            int mid = (left + right) / 2;
 
-           if(arr[mid]==target){
-               return mid;
-           }
-           if(arr[left]<=arr[mid]){
+            if (arr[mid] == target) {
+                return mid;
+            }
+            if (arr[left] <= arr[mid]) {
 
-               if(arr[left] <=target && target< arr[mid]){
-                   right=mid-1;
-               } else {
-                   left=mid+1;
-               }
+                if (arr[left] <= target && target < arr[mid]) {
+                    right = mid - 1;
+                } else {
+                    left = mid + 1;
+                }
 
-           } else {
-               if(arr[mid] < target && target <= arr[right]){
-                   left=mid+1;
-               } else {
-                   right=mid-1;
-               }
-           }
-       }
-   return -1;
+            } else {
+                if (arr[mid] < target && target <= arr[right]) {
+                    left = mid + 1;
+                } else {
+                    right = mid - 1;
+                }
+            }
+        }
+        return -1;
     }
 }
 
@@ -599,32 +600,33 @@ class Rotated{
 
 class Water {
     public static void main(String[] args) {
-        int numBottles1=9;
-        int numExchaneg1=3;
-        int numBottles2=15;
-        int numExchange2=4;
+        int numBottles1 = 9;
+        int numExchaneg1 = 3;
+        int numBottles2 = 15;
+        int numExchange2 = 4;
 
-        System.out.println(Bottles(numBottles1,numExchaneg1));
-        System.out.println(Bottles(numBottles2,numExchange2));
+        System.out.println(Bottles(numBottles1, numExchaneg1));
+        System.out.println(Bottles(numBottles2, numExchange2));
 
     }
-    public static int Bottles(int numBottles,int numExchange){
 
-        int ans= numBottles;
+    public static int Bottles(int numBottles, int numExchange) {
 
-        while (true){
-          int  Q=numBottles/numExchange;
-          int R=numBottles%numExchange;
+        int ans = numBottles;
 
-          if(Q==0){
-              break;
-          }
+        while (true) {
+            int Q = numBottles / numExchange;
+            int R = numBottles % numExchange;
 
-          ans +=Q;
-          numBottles=Q+R;
+            if (Q == 0) {
+                break;
+            }
+
+            ans += Q;
+            numBottles = Q + R;
         }
 
-    return ans;
+        return ans;
     }
 }
 
@@ -668,29 +670,29 @@ class Water {
 
 class RotatedSorted {
     public static void main(String[] args) {
-        int testcase1 [] ={3,4,5,1,2};
-        int testcase2[]={4,5,6,7,0,1,2};
-        int testcase3 []={11,13,15,17};
+        int testcase1[] = {3, 4, 5, 1, 2};
+        int testcase2[] = {4, 5, 6, 7, 0, 1, 2};
+        int testcase3[] = {11, 13, 15, 17};
         System.out.println(Mini(testcase1));
         System.out.println(Mini(testcase2));
         System.out.println(Mini(testcase3));
     }
 
-    public static  int Mini(int arr []){
+    public static int Mini(int arr[]) {
 
-        int left=0;
-        int right= arr.length-1;
+        int left = 0;
+        int right = arr.length - 1;
 
-        while (left<right){
-            int mid = (left+right)/2;
+        while (left < right) {
+            int mid = (left + right) / 2;
 
-            if(arr[mid] < arr[right]){
-                 right=mid;
+            if (arr[mid] < arr[right]) {
+                right = mid;
             } else {
-                left =mid+1;
+                left = mid + 1;
             }
         }
-      return arr[right];
+        return arr[right];
     }
 }
 
@@ -737,21 +739,21 @@ class RotatedSorted {
 
 class MissingNumber {
     public static void main(String[] args) {
-       int testcase1[]={3,0,1};
-       int testcase2[]={0,1};
-       int testcase3[]={9,6,4,2,3,5,7,0,1};
+        int testcase1[] = {3, 0, 1};
+        int testcase2[] = {0, 1};
+        int testcase3[] = {9, 6, 4, 2, 3, 5, 7, 0, 1};
         System.out.println(Number(testcase1));
         System.out.println(Number(testcase2));
         System.out.println(Number(testcase3));
     }
 
-    public static int Number(int arr []){
+    public static int Number(int arr[]) {
         Arrays.sort(arr);
         int n = arr.length;
 
 
-        for(int i=0;i<n;i++){
-            if(i!=arr[i]){
+        for (int i = 0; i < n; i++) {
+            if (i != arr[i]) {
                 return i;
             }
         }
@@ -795,27 +797,27 @@ class MissingNumber {
 
 class WordsFound {
     public static void main(String[] args) {
-        String testcase1 []={"alice and bob love leetcode", "i think so too", "this is great thanks very much"};
-        String testcase2 [] ={"please wait", "continue to fight", "continue to win"};
-        String testcase3 [] ={"please wait", "continue to fight", "continue to win"};
+        String testcase1[] = {"alice and bob love leetcode", "i think so too", "this is great thanks very much"};
+        String testcase2[] = {"please wait", "continue to fight", "continue to win"};
+        String testcase3[] = {"please wait", "continue to fight", "continue to win"};
 
         System.out.println(MaximumNumber(testcase1));
         System.out.println(MaximumNumber(testcase2));
         System.out.println(MaximumNumber(testcase3));
     }
 
-    public static int MaximumNumber(String [] arr){
-        int maxx=Integer.MIN_VALUE;
+    public static int MaximumNumber(String[] arr) {
+        int maxx = Integer.MIN_VALUE;
 
-        for(String c : arr ) {
-            int count=0;
+        for (String c : arr) {
+            int count = 0;
 
-            for(char ch :c.toCharArray()){
-                if(ch==' '){
+            for (char ch : c.toCharArray()) {
+                if (ch == ' ') {
                     count++;
                 }
             }
-            maxx=Math.max(maxx,count+1);
+            maxx = Math.max(maxx, count + 1);
         }
         return maxx;
     }
@@ -852,27 +854,27 @@ class WordsFound {
 class Maximum {
     public static void main(String[] args) {
 
-        int testcase1[]={-2,1,-3,4,-1,2,1,-5,4};
-        int testcase2 []={1};
-        int testcase3 []={5,4,-1,7,8};
+        int testcase1[] = {-2, 1, -3, 4, -1, 2, 1, -5, 4};
+        int testcase2[] = {1};
+        int testcase3[] = {5, 4, -1, 7, 8};
         System.out.println(Subarray(testcase1));
         System.out.println(Subarray(testcase2));
         System.out.println(Subarray(testcase3));
     }
 
-    public static int Subarray(int arr []){
-        int cursum=0;
-        int maxsum=arr[0];
+    public static int Subarray(int arr[]) {
+        int cursum = 0;
+        int maxsum = arr[0];
 
-        for(int i=0;i< arr.length;i++){
+        for (int i = 0; i < arr.length; i++) {
             cursum = cursum + arr[i];
 
-            if(maxsum< cursum){
+            if (maxsum < cursum) {
                 maxsum = cursum;
 
             }
-            if(cursum<0){
-                cursum=0;
+            if (cursum < 0) {
+                cursum = 0;
             }
         }
         return maxsum;
@@ -925,25 +927,26 @@ class Maximum {
 //
 //Explanation: Fill both jugs. The total amount of water in both jugs is equal to 3 now.
 
-class  Waterr {
+class Waterr {
     public static void main(String[] args) {
-       int x= 3,y=6,target=6;
-        System.out.println(Jugs(x,y,target));
+        int x = 3, y = 6, target = 6;
+        System.out.println(Jugs(x, y, target));
     }
 
-    public static  boolean Jugs(int x,int y,int target){
+    public static boolean Jugs(int x, int y, int target) {
 
-        if(x+y<target){
-            return  false;
+        if (x + y < target) {
+            return false;
         }
-        return target % gcd(x,y)==0;
+        return target % gcd(x, y) == 0;
     }
-    private static int gcd(int a, int b){
 
-        while (b!=0){
-            int temp=b;
-            b=a%b;
-            a=temp;
+    private static int gcd(int a, int b) {
+
+        while (b != 0) {
+            int temp = b;
+            b = a % b;
+            a = temp;
         }
         return a;
     }
@@ -981,11 +984,11 @@ class  Waterr {
 
 class Decode {
     public static void main(String[] args) {
-        String testcase ="3[a]2[bc]";
+        String testcase = "3[a]2[bc]";
         System.out.println(DecodeString(testcase));
     }
 
-    public  static String DecodeString(String s) {
+    public static String DecodeString(String s) {
         Stack<Integer> st1 = new Stack<>();
         Stack<String> st2 = new Stack<>();
         String str = "";
@@ -1101,41 +1104,41 @@ class Decode {
 
 class Backspace {
     public static void main(String[] args) {
-        String testcase1s="ab#c";
-        String testcase1t="ad#c";
-        String testcase2s="ab##";
-        String testcase2t="c#d#";
-        String testcase3s="a#c";
-        String testcase3t="b";
+        String testcase1s = "ab#c";
+        String testcase1t = "ad#c";
+        String testcase2s = "ab##";
+        String testcase2t = "c#d#";
+        String testcase3s = "a#c";
+        String testcase3t = "b";
 
 
-        System.out.println(Becomes(testcase1s,testcase1t));
-        System.out.println(Becomes(testcase2s,testcase2t));
-        System.out.println(Becomes(testcase3s,testcase3t));
+        System.out.println(Becomes(testcase1s, testcase1t));
+        System.out.println(Becomes(testcase2s, testcase2t));
+        System.out.println(Becomes(testcase3s, testcase3t));
     }
 
-    public static boolean Becomes(String s,String t){
-        s=Remove(s);
-        t=Remove(t);
+    public static boolean Becomes(String s, String t) {
+        s = Remove(s);
+        t = Remove(t);
 
         return s.equals(t);
 
     }
 
-    public static String Remove(String s){
+    public static String Remove(String s) {
 
         Stack<Character> st = new Stack<>();
 
-        for(int i=0;i<s.length();i++){
+        for (int i = 0; i < s.length(); i++) {
 
-            if(st.size() > 0 && s.charAt(i)=='#'){
+            if (st.size() > 0 && s.charAt(i) == '#') {
                 st.pop();
-            } else if (s.charAt(i)!='#') {
+            } else if (s.charAt(i) != '#') {
 
                 st.push(s.charAt(i));
             }
         }
-   return st.toString();
+        return st.toString();
     }
 }
 
@@ -1187,19 +1190,18 @@ class RemoveOutermostParentheses {
 
         StringBuffer st = new StringBuffer();
 
-        int open=0;
+        int open = 0;
 
-        for(char c : testcase1.toCharArray()){
+        for (char c : testcase1.toCharArray()) {
 
-            if(c=='('){
-                if(open!=0){
+            if (c == '(') {
+                if (open != 0) {
                     st.append(c);
                 }
                 open++;
-            }
-            else {
+            } else {
                 open--;
-                if(open!=0){
+                if (open != 0) {
                     st.append(c);
                 }
 
@@ -1244,14 +1246,14 @@ class RemoveOutermostParentheses {
 
 class SingleNumber {
     public static void main(String[] args) {
-        int testcase [] ={2,2,1};
+        int testcase[] = {2, 2, 1};
         System.out.println(Number(testcase));
     }
 
-    public static  int Number(int nums []){
-        int n=0;
+    public static int Number(int nums[]) {
+        int n = 0;
 
-        for(int i=0;i<nums.length;i++){
+        for (int i = 0; i < nums.length; i++) {
 
             n = nums[i] ^ n;
 
@@ -1302,8 +1304,7 @@ class SingleNumber {
 //Output: "c"
 
 
-
-class Solutionn{
+class Solutionn {
 
     public char kthCharacterrr(int k) {
         String word = "a";
@@ -1366,32 +1367,32 @@ class Solutionn{
 
 class Sqrt {
     public static void main(String[] args) {
-       int testcase1 = 4;
-       int testcase2= 8;
-     System.out.println(Root(testcase1));
-      System.out.println(Root(testcase2));
+        int testcase1 = 4;
+        int testcase2 = 8;
+        System.out.println(Root(testcase1));
+        System.out.println(Root(testcase2));
     }
 
-    public static int Root(int x){
-        int left=1;
-        int right=x;
-        int ans=0;
+    public static int Root(int x) {
+        int left = 1;
+        int right = x;
+        int ans = 0;
 
-        while (left <= right){
+        while (left <= right) {
 
-            int mid = left + (right-left)/2;
+            int mid = left + (right - left) / 2;
 
-            long m =(long) mid * mid;
-            
-            if(m==x){
-                return  mid;
+            long m = (long) mid * mid;
+
+            if (m == x) {
+                return mid;
             } else if (m < x) {
 
-                ans=mid;
-                left=mid+1;
-                
+                ans = mid;
+                left = mid + 1;
+
             } else {
-                right=mid-1;
+                right = mid - 1;
             }
         }
         return ans;
@@ -1439,11 +1440,12 @@ class Sqrt {
 //Output: "c"
 
 
-class Kth  {
-    public static void main (String [] args){
-         int k =5;
+class Kth {
+    public static void main(String[] args) {
+        int k = 5;
         System.out.println(kthCharacter(k));
     }
+
     public static char kthCharacter(int k) {
         String word = "a";
 
@@ -1486,11 +1488,12 @@ class Kth  {
 //Explanation: The characters that appear in s are 'a' and 'b'.
 //'a' occurs 3 times while 'b' occurs 2 times, which is not the same number of times.
 
-class EqualValue{
-   static void main() {
-        String s ="abacbc";
+class EqualValue {
+    static void main() {
+        String s = "abacbc";
         System.out.println(Conterol(s));
     }
+
     public static boolean Conterol(String s) {
         Map<Character, Integer> map = new HashMap<>();
 
@@ -1541,27 +1544,27 @@ class EqualValue{
 //Output: "Qedo1ct-eeLg=ntse-T!"
 //
 
-class ReverseOnlyLetters{
+class ReverseOnlyLetters {
     static void main() {
-        String testcase1="ab-cd";
+        String testcase1 = "ab-cd";
         System.out.println(Letters(testcase1));
     }
 
-    static String Letters(String s){
+    static String Letters(String s) {
 
-        char arr [] =s.toCharArray();
-        int i=0;
-        int j=s.length()-1;
+        char arr[] = s.toCharArray();
+        int i = 0;
+        int j = s.length() - 1;
 
-        while (i<j){
-            if(!Character.isLetter(arr[i])){
+        while (i < j) {
+            if (!Character.isLetter(arr[i])) {
                 i++;
             } else if (!Character.isLetter(arr[j])) {
                 j--;
             } else {
                 char temp = arr[i];
-                arr[i]=arr[j];
-                arr[j]=temp;
+                arr[i] = arr[j];
+                arr[j] = temp;
                 i++;
                 j--;
             }
@@ -1601,29 +1604,30 @@ class ReverseOnlyLetters{
 
 class CountBinary {
     static void main() {
-   String testcase1="00110011";
-       String testcase2="10101";
+        String testcase1 = "00110011";
+        String testcase2 = "10101";
 
-  System.out.println(Binary(testcase1));
+        System.out.println(Binary(testcase1));
         System.out.println(Binary(testcase2));
     }
-    static int Binary(String s){
-        int i=0;
-        int j=1;
-        int c=0;
 
-        for(int k=1;k<s.length();k++){
+    static int Binary(String s) {
+        int i = 0;
+        int j = 1;
+        int c = 0;
 
-            if(s.charAt(k)==s.charAt(k-1)){
+        for (int k = 1; k < s.length(); k++) {
+
+            if (s.charAt(k) == s.charAt(k - 1)) {
                 j++;
             } else {
-                c +=Math.min(i,j);
+                c += Math.min(i, j);
                 i = j;
-                j=1;
+                j = 1;
             }
 
         }
-        c +=Math.min(i,j);
+        c += Math.min(i, j);
         return c;
     }
 }
@@ -1776,37 +1780,38 @@ class Smaller {
 
 class RelativeRanks {
     static void main() {
-        int testcase1 []={5,4,3,2,1};
+        int testcase1[] = {5, 4, 3, 2, 1};
         System.out.println(Arrays.toString(Rank(testcase1)));
     }
-    public static  String[] Rank(int arr []){
 
-        Map<Integer,Integer> map = new HashMap<>();
+    public static String[] Rank(int arr[]) {
 
-        String result [] = new String[arr.length];
+        Map<Integer, Integer> map = new HashMap<>();
 
-        for(int i=0;i<arr.length;i++){
+        String result[] = new String[arr.length];
 
-            map.put(arr[i],i);
+        for (int i = 0; i < arr.length; i++) {
+
+            map.put(arr[i], i);
         }
         Arrays.sort(arr);
 
-        for (int i=arr.length-1;i>=0;i--){
-            int rank= arr.length-i;
+        for (int i = arr.length - 1; i >= 0; i--) {
+            int rank = arr.length - i;
 //            System.out.println(rank + "This is Rank Value :: ");
 //            System.out.println(arr[i]);
 
-            if(rank==1){
-                result[map.get(arr[i])]="Gold Medal";
-            } else if (rank==2) {
-                result[map.get(arr[i])]="Silver Medal";
+            if (rank == 1) {
+                result[map.get(arr[i])] = "Gold Medal";
+            } else if (rank == 2) {
+                result[map.get(arr[i])] = "Silver Medal";
 
-            } else if (rank==3) {
-                result[map.get(arr[i])]="Bronze Medal";
+            } else if (rank == 3) {
+                result[map.get(arr[i])] = "Bronze Medal";
 
             } else {
 
-                result[map.get(arr[i])]= rank+"";
+                result[map.get(arr[i])] = rank + "";
             }
         }
 
@@ -1851,23 +1856,22 @@ class RelativeRanks {
 //1073741822	00111111111111111111111111111110
 
 
-
 class ReverseBits {
     static void main() {
-        int testcase1= 12;
+        int testcase1 = 12;
         System.out.println(Reverse(testcase1));
     }
 
-    public static  int Reverse(int n){
-         int ans=0;
-        for(int i=0;i<4;i++){
+    public static int Reverse(int n) {
+        int ans = 0;
+        for (int i = 0; i < 4; i++) {
 
-            ans=ans << 1;
+            ans = ans << 1;
 
-            if((n&1)==1){
-                ans =ans |1;
+            if ((n & 1) == 1) {
+                ans = ans | 1;
             }
-            n =n >>>1;
+            n = n >>> 1;
         }
         return ans;
     }
@@ -1909,19 +1913,21 @@ class ReverseBits {
 
 class BalancedStrings {
     static void main() {
-          String testcase1 ="RLRRLLRLRL";
+        String testcase1 = "RLRRLLRLRL";
         System.out.println(Balanced(testcase1));
     }
-    public static int Balanced(String s){
-        int l=0,r=0,max=0;
 
-        for(int i=0;i<s.length();i++){
+    public static int Balanced(String s) {
+        int l = 0, r = 0, max = 0;
 
-            if(s.charAt(i)=='R'){
+        for (int i = 0; i < s.length(); i++) {
+
+            if (s.charAt(i) == 'R') {
                 r++;
             } else {
                 l++;
-            }if(l==r){
+            }
+            if (l == r) {
                 max++;
             }
 
@@ -1963,21 +1969,22 @@ class BalancedStrings {
 
 class PivotInteger {
     static void main() {
-     int testcase1=8;
+        int testcase1 = 8;
         System.out.println(Pivot(testcase1));
     }
-    public static int Pivot(int n){
-       int sum = n *(n+1)/2;
-       int left=0;
-       for (int x=1;x<=n;x++){
 
-           left +=x;
+    public static int Pivot(int n) {
+        int sum = n * (n + 1) / 2;
+        int left = 0;
+        for (int x = 1; x <= n; x++) {
 
-           if(left==sum-left+x){
-               return x;
-           }
-       }
-    return -1;
+            left += x;
+
+            if (left == sum - left + x) {
+                return x;
+            }
+        }
+        return -1;
     }
 }
 
@@ -2018,28 +2025,29 @@ class PivotInteger {
 //Explanation: You have to take all the cards. Your score is the sum of points of all cards.
 //
 
-class CardPoints{
+class CardPoints {
     static void main() {
-        int testcase1[]={1,2,3,4,5,6,1};
-        int k=3;
-        System.out.println(Card(testcase1,k));
+        int testcase1[] = {1, 2, 3, 4, 5, 6, 1};
+        int k = 3;
+        System.out.println(Card(testcase1, k));
     }
-    public static  int Card(int arr [],int k){
 
-        int n= arr.length;
+    public static int Card(int arr[], int k) {
 
-        int sum =0;
-        for(int i=0;i<k;i++){
+        int n = arr.length;
+
+        int sum = 0;
+        for (int i = 0; i < k; i++) {
 
 
-            sum +=arr[i];
+            sum += arr[i];
         }
-        int ans=sum;
+        int ans = sum;
 
-        for(int i=0;i<k;i++){
+        for (int i = 0; i < k; i++) {
 
-            sum =sum - arr[k-i-1] + arr[n-i-1];
-            ans=Math.max(ans,sum);
+            sum = sum - arr[k - i - 1] + arr[n - i - 1];
+            ans = Math.max(ans, sum);
         }
         return ans;
     }
@@ -2072,20 +2080,21 @@ class CardPoints{
 
 class ArrayByParity {
     static void main() {
-        int testcase1 [] ={3,1,2,4};
+        int testcase1[] = {3, 1, 2, 4};
         System.out.println(Arrays.toString(Partiy(testcase1)));
     }
-    public static int[] Partiy(int[] nums){
-        int left=0,right=nums.length-1;
 
-        int [] result = new int[nums.length];
+    public static int[] Partiy(int[] nums) {
+        int left = 0, right = nums.length - 1;
 
-        for (int num : nums){
+        int[] result = new int[nums.length];
 
-            if(num % 2==0){
-                result[left++]=num;
+        for (int num : nums) {
+
+            if (num % 2 == 0) {
+                result[left++] = num;
             } else {
-                result[right--]=num;
+                result[right--] = num;
             }
         }
         return result;
@@ -2132,35 +2141,36 @@ class ArrayByParity {
 class PlsuOne {
     static void main() {
 //        int testcase1 [] = {1,2,3};
-        int testcase2 [] ={9};
+        int testcase2[] = {9};
 //        System.out.println(Arrays.toString(One(testcase1)));
         System.out.println(Arrays.toString(One(testcase2)));
 
     }
-    public static int[] One(int[] arr){
 
-        int n= arr.length-1;
+    public static int[] One(int[] arr) {
 
-        for(int x=n; x>=0;x--){
+        int n = arr.length - 1;
 
-            if(arr[x]<9){
+        for (int x = n; x >= 0; x--) {
 
-                arr[x]=arr[x] +1;
+            if (arr[x] < 9) {
+
+                arr[x] = arr[x] + 1;
                 return arr;
 
             } else {
-                arr[x]=0;
+                arr[x] = 0;
             }
         }
 
-        int zero [] = new int[n+2];
+        int zero[] = new int[n + 2];
 
-        if(arr[0]==0){
-            zero[0]=1;
+        if (arr[0] == 0) {
+            zero[0] = 1;
             return zero;
         }
 
-     return arr;
+        return arr;
     }
 }
 
@@ -2190,38 +2200,39 @@ class PlsuOne {
 //Explanation: Note that the values of nums are not necessarily unique.
 
 
-class CountingSort{
+class CountingSort {
     static void main() {
 
-        int testcase1[]={5,2,3,1,1,1};
+        int testcase1[] = {5, 2, 3, 1, 1, 1};
         System.out.println(Arrays.toString(SortCount(testcase1)));
     }
 
-    public static  int [] SortCount(int num []){
+    public static int[] SortCount(int num[]) {
 
-        Map<Integer,Integer> map = new HashMap<>();
+        Map<Integer, Integer> map = new HashMap<>();
 
-        int min=num[0],max=num[0];
+        int min = num[0], max = num[0];
 
-        for(int i=0;i< num.length;i++){
+        for (int i = 0; i < num.length; i++) {
 
-            map.put(num[i], map.getOrDefault(num[i],0)+1);
+            map.put(num[i], map.getOrDefault(num[i], 0) + 1);
             System.out.println(map);
 
-            if (num[i]<min){
-                min=num[i];
-            }if(num[i]>max){
-                max=num[i];
+            if (num[i] < min) {
+                min = num[i];
+            }
+            if (num[i] > max) {
+                max = num[i];
             }
         }
-        int index=0;
+        int index = 0;
 
-        for(int i=min;i<=max;i++){
+        for (int i = min; i <= max; i++) {
 
-            while (map.getOrDefault(i, 0) > 0){
-                num[index++]=i;
+            while (map.getOrDefault(i, 0) > 0) {
+                num[index++] = i;
 
-                map.put(i,map.get(i)-1);
+                map.put(i, map.get(i) - 1);
             }
 
         }
@@ -2264,36 +2275,36 @@ class CountingSort{
 class IslandPerimeter {
     static void main() {
 
-        int testcase1[][]={
-                {0,1,0,0},
-                {1,1,1,0},
-                {0,1,0,0},
-                {1,1,0,0}
+        int testcase1[][] = {
+                {0, 1, 0, 0},
+                {1, 1, 1, 0},
+                {0, 1, 0, 0},
+                {1, 1, 0, 0}
         };
         System.out.println((Island(testcase1)));
 
     }
 
-    public static int Island(int [][] gird){
+    public static int Island(int[][] gird) {
 
-        int perimeter=0;
+        int perimeter = 0;
 
         int row = gird.length;
         int col = gird[0].length;
 
-        for(int i=0;i<row;i++){
+        for (int i = 0; i < row; i++) {
 
-            for(int j=0;j<col;j++){
+            for (int j = 0; j < col; j++) {
 
-                if(gird[i][j]==1){
+                if (gird[i][j] == 1) {
 
-                    perimeter +=4;
+                    perimeter += 4;
 
-                    if(i>0 && gird[i-1][j]==1){
-                        perimeter -=2;
+                    if (i > 0 && gird[i - 1][j] == 1) {
+                        perimeter -= 2;
                     }
-                    if(j>0 && gird[i][j-1]==1){
-                        perimeter -=2;
+                    if (j > 0 && gird[i][j - 1] == 1) {
+                        perimeter -= 2;
                     }
                 }
             }
@@ -2339,34 +2350,34 @@ class IslandPerimeter {
 
 class Stones {
     static void main() {
-        int [] testcase1 ={2,7,4,1,8,1};
-        int [] testcase2 ={31,26,33,21,40};
-        int [] testcase3 ={-1,-1};
+        int[] testcase1 = {2, 7, 4, 1, 8, 1};
+        int[] testcase2 = {31, 26, 33, 21, 40};
+        int[] testcase3 = {-1, -1};
         System.out.println(Weight(testcase1));
         System.out.println(Weight(testcase2));
         System.out.println(Weight(testcase3));
     }
 
-    public static int Weight(int arr []){
+    public static int Weight(int arr[]) {
 
         List<Integer> list = new ArrayList<>();
 
-        for(int c : arr){
+        for (int c : arr) {
             list.add(c);
 
         }
-        System.out.println("list value :: " +list);
+        System.out.println("list value :: " + list);
 
-        while (list.size() >1){
+        while (list.size() > 1) {
             Collections.sort(list);
 
-            System.out.println("list value  sort :: " +list);
+            System.out.println("list value  sort :: " + list);
 
-            int max1 = list.remove(list.size()-1);
-            int max2 = list.remove(list.size()-1);
+            int max1 = list.remove(list.size() - 1);
+            int max2 = list.remove(list.size() - 1);
 
-            if(max1!=max2){
-                list.add(max1-max2);
+            if (max1 != max2) {
+                list.add(max1 - max2);
             }
         }
         return list.isEmpty() ? 0 : list.get(0);
@@ -2403,11 +2414,11 @@ class Stones {
 
 class MaximumProduct {
     static void main() {
-        int testcase1 [] = {3,4,5,2};
+        int testcase1[] = {3, 4, 5, 2};
         System.out.println(Product(testcase1));
     }
 
-    public static int Product(int [] nums){
+    public static int Product(int[] nums) {
 
         int max1 = 0, max2 = 0;
         for (int n : nums) {
@@ -2451,19 +2462,19 @@ class MaximumProduct {
 class KthLargestElement {
     static void main() {
 
-        int testcase1 [] ={3,2,1,5,6,4};
-        int k=2;
-        System.out.println(Kth(testcase1,k));
+        int testcase1[] = {3, 2, 1, 5, 6, 4};
+        int k = 2;
+        System.out.println(Kth(testcase1, k));
     }
 
-    public static  int Kth(int arr [] , int k){
+    public static int Kth(int arr[], int k) {
 
         PriorityQueue<Integer> q = new PriorityQueue<>();
 
-        for(int  c : arr ){
+        for (int c : arr) {
             q.offer(c);
 
-            if(q.size() > k){
+            if (q.size() > k) {
                 q.poll();
             }
         }
@@ -2496,23 +2507,23 @@ class KthLargestElement {
 
 class Intersection {
     static void main() {
-        int nums1[] = {1,2,2,1};
-        int nums2[]={2,2};
+        int nums1[] = {1, 2, 2, 1};
+        int nums2[] = {2, 2};
 
         System.out.println(Arrays.toString(Also(nums1, nums2)));
     }
 
-    public static int [] Also(int nums1 [] ,int nums2 []){
+    public static int[] Also(int nums1[], int nums2[]) {
 
         List<Integer> list = new ArrayList<>();
 
 
-        int i=0;
-        int j=0;
+        int i = 0;
+        int j = 0;
 
-        while (i<nums1.length && j<nums2.length){
+        while (i < nums1.length && j < nums2.length) {
 
-            if(nums1[i]==nums2[j]){
+            if (nums1[i] == nums2[j]) {
                 list.add(nums1[i]);
                 i++;
                 j++;
@@ -2523,12 +2534,12 @@ class Intersection {
                 j++;
             }
         }
-        int [] result = new int[list.size()];
+        int[] result = new int[list.size()];
 
-        int d=0;
+        int d = 0;
 
-        for (int c : list){
-            result[d++]=c;
+        for (int c : list) {
+            result[d++] = c;
 
         }
         return result;
@@ -2581,34 +2592,34 @@ class Intersection {
 
 class Isomorphic {
     static void main() {
-        String  s = "egg", t = "add";
-        System.out.println(Mapping(s,t));
+        String s = "egg", t = "add";
+        System.out.println(Mapping(s, t));
     }
 
-    public static  boolean Mapping(String s,String t){
+    public static boolean Mapping(String s, String t) {
 
         if (s.length() != t.length()) {
             return false;
         }
 
-        int [] maps = new int[256];
-        int [] mapt = new int[256];
+        int[] maps = new int[256];
+        int[] mapt = new int[256];
 
 
-        for(int i=0;i<s.length();i++){
+        for (int i = 0; i < s.length(); i++) {
 
-          char S=s.charAt(i);
-          char T=t.charAt(i);
+            char S = s.charAt(i);
+            char T = t.charAt(i);
 
-          if(maps[S]!=mapt[T]){
-              return false;
-          } else {
-             maps[S]=i+1;
-             mapt[T]=i+1;
+            if (maps[S] != mapt[T]) {
+                return false;
+            } else {
+                maps[S] = i + 1;
+                mapt[T] = i + 1;
 
-          }
+            }
         }
-      return true;
+        return true;
     }
 }
 
@@ -2640,32 +2651,31 @@ class Isomorphic {
 class LongestConsecutiveSequence {
     static void main() {
 
-        int testcase1 [] = {100,4,200,1,3,2};
+        int testcase1[] = {100, 4, 200, 1, 3, 2};
         System.out.println(Sequence(testcase1));
     }
 
-    public static int Sequence(int nums []){
+    public static int Sequence(int nums[]) {
 
         if (nums.length == 0) {
             return 0;
         }
         Arrays.sort(nums);
         int curr = 1;
-        int longest= 1 ;
+        int longest = 1;
 
-        for(int i=1; i<nums.length;i++){
-            if(nums[i]==nums[i-1]){
+        for (int i = 1; i < nums.length; i++) {
+            if (nums[i] == nums[i - 1]) {
                 continue;
             }
-            if(nums[i]==nums[i-1]+1){
+            if (nums[i] == nums[i - 1] + 1) {
                 curr++;
-            }else{
-                longest=Math.max(longest, curr);
-                curr =1;
+            } else {
+                longest = Math.max(longest, curr);
+                curr = 1;
             }
         }
         return Math.max(longest, curr);
-
 
 
     }
@@ -2720,25 +2730,26 @@ class LongestConsecutiveSequence {
 
 class TwoSneakyNumbers {
     static void main() {
-        int testcase1 [] = {0,1,1,0};
+        int testcase1[] = {0, 1, 1, 0};
         System.out.println(Arrays.toString(Digitville(testcase1)));
     }
-    public static int[] Digitville(int[] nums){
 
-      int ans [] = new int[2];
+    public static int[] Digitville(int[] nums) {
 
-      int count=0;
+        int ans[] = new int[2];
 
-      for(int i=0;i<nums.length;i++){
+        int count = 0;
 
-          for(int j=i+1;j< nums.length;j++){
+        for (int i = 0; i < nums.length; i++) {
 
-              if(nums[i]==nums[j]){
-                  ans[count++]=nums[i];
-              }
-          }
-      }
-      return  ans;
+            for (int j = i + 1; j < nums.length; j++) {
+
+                if (nums[i] == nums[j]) {
+                    ans[count++] = nums[i];
+                }
+            }
+        }
+        return ans;
 
     }
 }
@@ -2777,30 +2788,30 @@ class TwoSneakyNumbers {
 //
 //
 
-class  MountainArray {
+class MountainArray {
 
     static void main() {
 
-        int testcase1 [] ={0,1,2,1};
+        int testcase1[] = {0, 1, 2, 1};
         System.out.println(Mountain(testcase1));
     }
 
-    public static  int Mountain(int arr []){
+    public static int Mountain(int arr[]) {
 
-        int l=0;
-        int r= arr.length-1;
+        int l = 0;
+        int r = arr.length - 1;
 
-        while (l<r){
+        while (l < r) {
 
-            int mid = (l+r)/2;
+            int mid = (l + r) / 2;
 
-            if(arr[mid]<arr[mid+1]){
-                l=mid+1;
+            if (arr[mid] < arr[mid + 1]) {
+                l = mid + 1;
             } else {
-                r=mid;
+                r = mid;
             }
         }
-       return l;
+        return l;
     }
 }
 
@@ -2845,11 +2856,11 @@ class  MountainArray {
 
 class SummaryRanges {
     static void main() {
-         int testcas1 [] = {0,1,2,4,5,7};
+        int testcas1[] = {0, 1, 2, 4, 5, 7};
         System.out.println(Ranges(testcas1));
     }
 
-    public static List<String> Ranges(int [] nums) {
+    public static List<String> Ranges(int[] nums) {
         List<String> result = new ArrayList<>();
 
         if (nums.length == 0) return result;
@@ -2874,7 +2885,7 @@ class SummaryRanges {
         }
         return result;
     }
-    }
+}
 
 
 // 693. Binary Number with Alternating Bits (03-11-2025)=================================
@@ -2912,11 +2923,11 @@ class BinaryNumber {
     }
 
     public static boolean Bites(int n) {
-        while(n!=0){
-            int a=(n&1);
-            n>>=1;
-            int b=(n&1);
-            if(a==b)
+        while (n != 0) {
+            int a = (n & 1);
+            n >>= 1;
+            int b = (n & 1);
+            if (a == b)
                 return false;
         }
         return true;
@@ -2953,12 +2964,12 @@ class BinaryNumber {
 
 class FindtheDuplicate {                   //      xxxxxxxxxx Answer
     static void main() {
-   int testcase1 [] = {1,3,4,2,2};
+        int testcase1[] = {1, 3, 4, 2, 2};
 
         System.out.println(Find(testcase1));
     }
 
-    public static  int Find(int nums []) {
+    public static int Find(int nums[]) {
 
         int slow = nums[0];
         int fast = nums[0];
@@ -2992,7 +3003,7 @@ class FindtheDuplicate1 {
         int duplicate = -1;
 
         while (low <= high) {
-            int mid =  (high +low) / 2;
+            int mid = (high + low) / 2;
 
 
             int count = 0;
@@ -3048,22 +3059,22 @@ class FindtheDuplicate1 {
 //Explanation: 10 is "1010" in binary, with complement "0101" in binary, which is 5 in base-10.
 
 
-class Complement{
+class Complement {
     static void main() {
-        int testcase1 =5;
+        int testcase1 = 5;
         System.out.println(Bits(testcase1));
     }
 
-    public static  int Bits(int n){
+    public static int Bits(int n) {
 
-        int m =0;
-        int temp=n;
+        int m = 0;
+        int temp = n;
 
-        while (temp >0){
+        while (temp > 0) {
 
             m = (m << 1) | 1;
 
-            temp >>=1;
+            temp >>= 1;
         }
 
         return n ^ m;
@@ -3098,25 +3109,25 @@ class Complement{
 //
 
 
-
 class NumberComplement {
     static void main() {
-        int testcase1 =5;
+        int testcase1 = 5;
         System.out.println(Complement(testcase1));
     }
-    public static int Complement(int n){
 
-        int m=0;
-        int t=n;
+    public static int Complement(int n) {
 
-        while (t>0){
+        int m = 0;
+        int t = n;
 
-            m=(m<<1) |1;
+        while (t > 0) {
 
-            t >>=1;
+            m = (m << 1) | 1;
+
+            t >>= 1;
         }
 
-        return n^m;
+        return n ^ m;
     }
 }
 
@@ -3151,14 +3162,14 @@ class NumberComplement {
 
 class PowerofTwo {
     static void main() {
-        int testcase1 =5;
+        int testcase1 = 5;
         System.out.println(Power(testcase1));
     }
 
-    public static boolean Power(int n){
+    public static boolean Power(int n) {
 
 
-        if(n >0 && (n& (n-1))==0){
+        if (n > 0 && (n & (n - 1)) == 0) {
             return true;
         }
         return false;
@@ -3192,31 +3203,25 @@ class PowerofTwo {
 // to reach the last index.
 
 
-class JumpGame
-{
-    static void main()
-    {
-      int testcase1 [] = {2,3,1,1,4};
+class JumpGame {
+    static void main() {
+        int testcase1[] = {2, 3, 1, 1, 4};
         System.out.println(Game(testcase1));
     }
 
-    public static  boolean Game(int nums [])
-    {
-        int point =0;
-        for(int i=0;i<nums.length;i++)
-        {
-            if(i>point)
-            {
-                return  false;
+    public static boolean Game(int nums[]) {
+        int point = 0;
+        for (int i = 0; i < nums.length; i++) {
+            if (i > point) {
+                return false;
             }
 
-            point =Math.max(point,i+nums[i]);
+            point = Math.max(point, i + nums[i]);
 
         }
         return true;
     }
 }
-
 
 
 // 746. Min Cost Climbing Stairs (04-11-2025)=========================================================
@@ -3256,26 +3261,22 @@ class JumpGame
 //The total cost is 6.
 
 
-class ClimbingStairs
-{
-    static void main()
-    {
+class ClimbingStairs {
+    static void main() {
 //          int testcase1 [] ={10,15,20};
-          int testcase2 [] ={1,100,1,1,1,100,1,1,100,1};
+        int testcase2[] = {1, 100, 1, 1, 1, 100, 1, 1, 100, 1};
 //        System.out.println(Stairs(testcase1));
         System.out.println(Stairs(testcase2));
     }
 
-    public static  int Stairs(int [] cost)
-    {
+    public static int Stairs(int[] cost) {
         int n = cost.length;
-        int dp [] = new int[n+1];
-        dp[0]=0;
-        dp[1]=0;
+        int dp[] = new int[n + 1];
+        dp[0] = 0;
+        dp[1] = 0;
 
-        for(int i=2;i<=n;i++)
-        {
-            dp[i]=Math.min(cost[i-1] + dp[i-1],cost[i-2]+dp[i-2]);
+        for (int i = 2; i <= n; i++) {
+            dp[i] = Math.min(cost[i - 1] + dp[i - 1], cost[i - 2] + dp[i - 2]);
         }
         return dp[n];
     }
@@ -3315,21 +3316,17 @@ class ClimbingStairs
 //5 --> 101
 //
 
-class CountingBits
-{
-    static void main()
-    {
-        int testcase1 =2;
+class CountingBits {
+    static void main() {
+        int testcase1 = 2;
         System.out.println(Arrays.toString(Bitess(testcase1)));
     }
 
-    public static  int [] Bitess(int n)
-    {
-        int f [] = new int[n+1];
+    public static int[] Bitess(int n) {
+        int f[] = new int[n + 1];
 
-        for(int i=1;i<=n;i++)
-        {
-            f[i]=f[i>>1]+(i&1);
+        for (int i = 1; i <= n; i++) {
+            f[i] = f[i >> 1] + (i & 1);
         }
         return f;
     }
@@ -3380,34 +3377,31 @@ class CountingBits
 //
 
 
-class FindPivot
-{
-    static void main()
-    {
+class FindPivot {
+    static void main() {
 
-        int testcase1 []={1,7,3,6,5,6};
+        int testcase1[] = {1, 7, 3, 6, 5, 6};
         System.out.println(Find(testcase1));
     }
 
-    public static  int Find(int arr [])
-    {
-        int sum=0;
-        for(int c : arr){
-            sum +=c;
+    public static int Find(int arr[]) {
+        int sum = 0;
+        for (int c : arr) {
+            sum += c;
         }
 
-        int left=0;
+        int left = 0;
 
-        for(int i=0;i< arr.length;i++){
+        for (int i = 0; i < arr.length; i++) {
 
-            int right =sum -left-arr[i];
+            int right = sum - left - arr[i];
 
-            if(right==left){
+            if (right == left) {
                 return i;
             }
-            left +=arr[i];
+            left += arr[i];
         }
-        return  -1;
+        return -1;
     }
 }
 
@@ -3455,34 +3449,31 @@ class FindPivot
 //-1000 <= nums[i] <= 1000
 
 
-class FindPivott
-{
-    static void main()
-    {
+class FindPivott {
+    static void main() {
 
-        int testcase1 []={2,3,-1,8,4};
+        int testcase1[] = {2, 3, -1, 8, 4};
         System.out.println(Find(testcase1));
     }
 
-    public static  int Find(int arr [])
-    {
-        int sum=0;
-        for(int c : arr){
-            sum +=c;
+    public static int Find(int arr[]) {
+        int sum = 0;
+        for (int c : arr) {
+            sum += c;
         }
 
-        int left=0;
+        int left = 0;
 
-        for(int i=0;i< arr.length;i++){
+        for (int i = 0; i < arr.length; i++) {
 
-            int right =sum -left-arr[i];
+            int right = sum - left - arr[i];
 
-            if(right==left){
+            if (right == left) {
                 return i;
             }
-            left +=arr[i];
+            left += arr[i];
         }
-        return  -1;
+        return -1;
     }
 }
 
@@ -3525,41 +3516,33 @@ class FindPivott
 //
 
 
-class ScoreAfteSplitting
-{
-    static void main()
-    {
-        String testcase1 ="011101";
+class ScoreAfteSplitting {
+    static void main() {
+        String testcase1 = "011101";
         System.out.println(ScoreAfter(testcase1));
     }
 
-    public static  int ScoreAfter(String s)
-    {
+    public static int ScoreAfter(String s) {
 
-        int max=0,zero=0,ones=0;
-        int n =s.length();
+        int max = 0, zero = 0, ones = 0;
+        int n = s.length();
 
 
-        for(char c : s.toCharArray())
-        {
+        for (char c : s.toCharArray()) {
 
-            if(c=='1')
-            {
+            if (c == '1') {
                 ones++;
             }
         }
 
 
-        for(int i=0;i<n-1;i++)
-        {
-            if(s.charAt(i)=='0')
-            {
+        for (int i = 0; i < n - 1; i++) {
+            if (s.charAt(i) == '0') {
                 zero++;
-            } else
-            {
+            } else {
                 ones--;
             }
-            max=Math.max(max,ones + zero);
+            max = Math.max(max, ones + zero);
         }
         return max;
 
@@ -3615,50 +3598,44 @@ class ScoreAfteSplitting
 //tokens[i] is either an operator: "+", "-", "*", or "/", or an integer in the range [-200, 200].
 
 
-class EvaluateReverse
-{
-    static void main()
-    {
-        String testcase1 []={"2","1","+","3","*"};
+class EvaluateReverse {
+    static void main() {
+        String testcase1[] = {"2", "1", "+", "3", "*"};
         System.out.println(Reverse(testcase1));
     }
 
-    public static  int  Reverse(String tokens [])
+    public static int Reverse(String tokens[]) {
+        int arr[] = new int[tokens.length];
 
-    {
-        int arr [] = new int[tokens.length];
-
-        int i=0;
+        int i = 0;
 
 
-        for(String c : tokens)
-        {
-            switch (c)
-            {
+        for (String c : tokens) {
+            switch (c) {
                 case "+":
-                    arr[i-2]=arr[i-2] +arr[i-1];
+                    arr[i - 2] = arr[i - 2] + arr[i - 1];
                     i--;
                     break;
 
                 case "-":
-                    arr[i-2]=arr[i-2]-arr[i-1];
+                    arr[i - 2] = arr[i - 2] - arr[i - 1];
                     i--;
                     break;
                 case "*":
-                    arr[i-2]=arr[i-2]*arr[i-1];
+                    arr[i - 2] = arr[i - 2] * arr[i - 1];
                     i--;
                     break;
                 case "/":
-                    arr[i-2]=arr[i-2]/arr[i-1];
+                    arr[i - 2] = arr[i - 2] / arr[i - 1];
                     i--;
                     break;
                 default:
-                    arr[i++]=Integer.parseInt(c);
+                    arr[i++] = Integer.parseInt(c);
                     break;
 
             }
         }
-       return  arr[0];
+        return arr[0];
     }
 }
 
@@ -3698,45 +3675,36 @@ class EvaluateReverse
 //-104 <= target <= 104
 
 
-class SearchInsert
-{
-    static void main()
-    {
+class SearchInsert {
+    static void main() {
 
-        int testcase1 [] ={1,3,5,6};
+        int testcase1[] = {1, 3, 5, 6};
         int target = 5;
-        System.out.println(Insert(testcase1,target));
+        System.out.println(Insert(testcase1, target));
 
     }
 
-   public static  int Insert(int arr [] ,int n)
-    {
-      int left=0;
-      int right=arr.length-1;
+    public static int Insert(int arr[], int n) {
+        int left = 0;
+        int right = arr.length - 1;
 
-      while (left<right)
-      {
-          int mid = (left+right)/2;
+        while (left < right) {
+            int mid = (left + right) / 2;
 
 
-          if(arr[mid]==n)
-          {
-              return  mid;
-          }
+            if (arr[mid] == n) {
+                return mid;
+            }
 
-          if(arr[mid] < n)
-          {
-              left =mid+1;
-          }
-           else
-          {
-              right=mid-1;
-          }
-      }
-      return left;
+            if (arr[mid] < n) {
+                left = mid + 1;
+            } else {
+                right = mid - 1;
+            }
+        }
+        return left;
     }
 }
-
 
 
 // 832. Flipping an Image  (12-11-2025)=============================================
@@ -3777,49 +3745,40 @@ class SearchInsert
 //images[i][j] is either 0 or 1.
 
 
-
-class Image
-{
-    static void main()
-    {
-        int [][] image ={
-                {1,1,0},
-                {1,0,1},
-                {0,0,0}
+class Image {
+    static void main() {
+        int[][] image = {
+                {1, 1, 0},
+                {1, 0, 1},
+                {0, 0, 0}
         };
 
         System.out.println(Arrays.deepToString(FlippingImage(image)));
 
     }
 
-    public static  int [][] FlippingImage(int[][] image)
-    {
-        int n =image.length;
+    public static int[][] FlippingImage(int[][] image) {
+        int n = image.length;
 
-        for(int i=0;i<n;i++)
-    {
-        int left=0,right=image[i].length-1;
+        for (int i = 0; i < n; i++) {
+            int left = 0, right = image[i].length - 1;
 
 
-        while (left<=right)
-        {
-            if(left==right)
-            {
-                image[i][left] ^=1;
+            while (left <= right) {
+                if (left == right) {
+                    image[i][left] ^= 1;
+                } else {
+                    int templeft = image[i][left] ^= 1;
+                    image[i][left] = image[i][right] ^= 1;
+                    image[i][right] = templeft;
+                }
+                left++;
+                right--;
             }
-            else
-            {
-                int templeft=image[i][left] ^=1;
-                image[i][left]=image[i][right]^=1;
-                image[i][right]=templeft;
-            }
-            left++;
-            right--;
+
         }
-
-    }
         return image;
-}
+    }
 }
 
 // 485. Max Consecutive Ones   (12-11-2025)=========================================================================
@@ -3850,30 +3809,25 @@ class Image
 //nums[i] is either 0 or 1.
 
 
-class Max1s
-{
-    static void main()
-    {
-     int testcase [] ={1,0,1,1,1,1,0};
+class Max1s {
+    static void main() {
+        int testcase[] = {1, 0, 1, 1, 1, 1, 0};
         System.out.println(ConsecutiveOnes(testcase));
     }
 
-    static int ConsecutiveOnes(int arr [])
-    {
-        int count=0,res=0,max=0;
+    static int ConsecutiveOnes(int arr[]) {
+        int count = 0, res = 0, max = 0;
 
-        for(int i=0;i< arr.length;i++)
-        {
-            if(arr[i]==1)
-            {
+        for (int i = 0; i < arr.length; i++) {
+            if (arr[i] == 1) {
                 count++;
             } else {
 
-                res=Math.max(res,count);
-                count=0;
+                res = Math.max(res, count);
+                count = 0;
             }
         }
-    return Math.max(res,max);
+        return Math.max(res, max);
     }
 }
 
@@ -3909,25 +3863,22 @@ class Max1s
 //1 <= n <= 10^5
 
 
-class SumofDigits
-{
-    static void main()
-    {
-        int testcase =234;
+class SumofDigits {
+    static void main() {
+        int testcase = 234;
         System.out.println(SubtractProduct(testcase));
     }
 
-    static int  SubtractProduct(int n)
-    {
-            int sum = 0;
-                int pro = 1;
+    static int SubtractProduct(int n) {
+        int sum = 0;
+        int pro = 1;
 
-                while (n > 0) {
-                    int digit = n % 10;
-                    sum += digit;
-                    pro *= digit;
-                    n /= 10;
-                }
+        while (n > 0) {
+            int digit = n % 10;
+            sum += digit;
+            pro *= digit;
+            n /= 10;
+        }
 
         return pro - sum;
     }
@@ -3961,36 +3912,33 @@ class SumofDigits
 //s consists of lowercase English letters.
 
 
-class RemoveDuplicatee
-{
-    static void main()
-    {
-        String testcase ="bcabc";
+class RemoveDuplicatee {
+    static void main() {
+        String testcase = "bcabc";
         System.out.println(Remo(testcase));
     }
 
-    public static  String Remo(String s)
-    {
+    public static String Remo(String s) {
 
         int[] arr = new int[26];
 
-       for(char c : s.toCharArray()){
+        for (char c : s.toCharArray()) {
 
-             arr[c-'a']++;
-       }
+            arr[c - 'a']++;
+        }
 
-       StringBuilder sb = new StringBuilder();
+        StringBuilder sb = new StringBuilder();
 
-       char ch = 'a';
+        char ch = 'a';
 
-       for(int i : arr){
-           if(i>=1){
-               sb.append(ch);
-           }
-           ch++;
-       }
+        for (int i : arr) {
+            if (i >= 1) {
+                sb.append(ch);
+            }
+            ch++;
+        }
 
-       return sb.toString();
+        return sb.toString();
     }
 }
 
@@ -4046,25 +3994,26 @@ class MergeStrings {
 
         String word1 = "abc", word2 = "pqr";
 
-        System.out.println(Merge(word1,word2));
+        System.out.println(Merge(word1, word2));
 
     }
 
-    public static String Merge(String s ,String s1){
+    public static String Merge(String s, String s1) {
 
         String result = " ";
 
 
-        int max =Math.max(s.length(),s1.length());
+        int max = Math.max(s.length(), s1.length());
 
 
-        for (int i=0;i<max;i++){
+        for (int i = 0; i < max; i++) {
 
-            if(i<s.length()){
+            if (i < s.length()) {
 
-                result  +=s.charAt(i);
-            }if(i<s1.length()){
-                result +=s1.charAt(i);
+                result += s.charAt(i);
+            }
+            if (i < s1.length()) {
+                result += s1.charAt(i);
             }
         }
 
@@ -4119,25 +4068,25 @@ class MergeStrings {
 //s[i] is either '0' or '1'.
 
 
-class MoveOnestheEnd  {
+class MoveOnestheEnd {
     static void main() {
         String s = "1001101";
         System.out.println(MoveOne(s));
     }
 
-    public static int MoveOne(String ss ) {
+    public static int MoveOne(String ss) {
 
-        int count=0;
-        int max=0;
+        int count = 0;
+        int max = 0;
 
 
-        for(int i=0;i<ss.length();i++){
+        for (int i = 0; i < ss.length(); i++) {
 
-            if(ss.charAt(i) == '1'){
+            if (ss.charAt(i) == '1') {
                 max++;
-            } else if (i>0 && ss.charAt(i-1)=='1') {
+            } else if (i > 0 && ss.charAt(i - 1) == '1') {
 
-                count +=max;
+                count += max;
 
             }
         }
@@ -4178,24 +4127,24 @@ class MoveOnestheEnd  {
 
 class FindDifference {
     static void main() {
-        String s ="abcd";
-        String t ="eabcd";
+        String s = "abcd";
+        String t = "eabcd";
 
-        System.out.println(Find(s,t));
+        System.out.println(Find(s, t));
     }
 
-    public static  char Find(String s,String t){
+    public static char Find(String s, String t) {
 
-         char c=0;
-         for(char cs : s.toCharArray())
+        char c = 0;
+        for (char cs : s.toCharArray())
 
-             c ^=cs;
+            c ^= cs;
 
-         for (char ct : t.toCharArray())
+        for (char ct : t.toCharArray())
 
-             c ^=ct;
+            c ^= ct;
 
-         return c;
+        return c;
     }
 }
 
@@ -4229,7 +4178,6 @@ class FindDifference {
 //n == matrix.length == matrix[i].length
 //1 <= n <= 20
 //-1000 <= matrix[i][j] <= 1000
-
 
 
 class RotateImage {
@@ -4311,8 +4259,7 @@ class RotateImage {
 //mat[i][j] and target[i][j] are either 0 or 1.
 
 
-
-class  ObtainedRotation {
+class ObtainedRotation {
     static void main() {
 
         int mat[][] = {
@@ -4335,24 +4282,24 @@ class  ObtainedRotation {
         }
 
 
-        for(int i=0;i<n;i++){
-            for(int j=0,k=n-1;j<k;j++,k--){
+        for (int i = 0; i < n; i++) {
+            for (int j = 0, k = n - 1; j < k; j++, k--) {
 
-                int temp =mat[i][j];
+                int temp = mat[i][j];
 
-                mat[i][j]=mat[i][k];
-                mat[i][k]=temp;
+                mat[i][j] = mat[i][k];
+                mat[i][k] = temp;
             }
         }
 
-        for(int i=0;i<n;i++){
-            for(int j=0;j<n;j++){
+        for (int i = 0; i < n; i++) {
+            for (int j = 0; j < n; j++) {
 
                 System.out.print(mat[i][j]);
             }
             System.out.println();
 
-      }
+        }
     }
 
 }
@@ -4393,12 +4340,12 @@ class  ObtainedRotation {
 class MultiplyingFoundValues {
     static void main() {
 
-        int nums [] ={5,3,6,1,12};
-        int original =3;
-        System.out.println(Found(nums,original));
+        int nums[] = {5, 3, 6, 1, 12};
+        int original = 3;
+        System.out.println(Found(nums, original));
     }
 
-    public static int Found(int nums [],int original){
+    public static int Found(int nums[], int original) {
         boolean found = true;
 
         while (found) {
@@ -4456,24 +4403,24 @@ class MultiplyingFoundValues {
 //1 <= nums[i] <= 50
 
 
-class FindMinimumOperations{
+class FindMinimumOperations {
 
     static void main() {
 
-        int nums []={1,2,3,4};
+        int nums[] = {1, 2, 3, 4};
         System.out.println(Operations(nums));
     }
 
-    public static  int Operations(int nums []){
+    public static int Operations(int nums[]) {
 
-        int count=0;
+        int count = 0;
 
 
-        for(int i=0;i<nums.length;i++){
+        for (int i = 0; i < nums.length; i++) {
 
-            if(nums[i]%3!=0){
+            if (nums[i] % 3 != 0) {
 
-                nums[i]=nums[i]+1;
+                nums[i] = nums[i] + 1;
                 count++;
             }
         }
@@ -4515,28 +4462,27 @@ class FindMinimumOperations{
 //nums[i] is either 0 or 1.
 
 
-
 class BinaryPrefix {
 
     static void main() {
 
-        int nums [] ={0,1,1};
+        int nums[] = {0, 1, 1};
         System.out.println(Prefix(nums));
     }
 
-    public static  List<Boolean> Prefix(int nums []){
+    public static List<Boolean> Prefix(int nums[]) {
 
-                List<Boolean> ans=new ArrayList<>();
-                int msb=0;
-                for(int x: nums){
-                    msb=((msb<<1)+x)%5;
-                    ans.add(msb==0);
-                }
-                return ans;
-            }
+        List<Boolean> ans = new ArrayList<>();
+        int msb = 0;
+        for (int x : nums) {
+            msb = ((msb << 1) + x) % 5;
+            ans.add(msb == 0);
         }
+        return ans;
+    }
+}
 
-        // 2810. Faulty Keyboard (25-11-2025)===================================================
+// 2810. Faulty Keyboard (25-11-2025)===================================================
 //Easy
 //Topics
 //premium lock icon
@@ -4594,19 +4540,18 @@ class FaultyKeyboard {
         System.out.println(Keyboard(s));
     }
 
-    static String Keyboard(String s){
+    static String Keyboard(String s) {
 
 
-        String str ="";
+        String str = "";
 
 
-        for (int i=0;i<s.length();i++){
+        for (int i = 0; i < s.length(); i++) {
 
-            if(s.charAt(i)!='i'){
+            if (s.charAt(i) != 'i') {
 
-                str =str+s.charAt(i);
-            }
-            else {
+                str = str + s.charAt(i);
+            } else {
 
                 str = new StringBuilder(str).reverse().toString();
             }
@@ -4645,31 +4590,31 @@ class FaultyKeyboard {
 //1 <= k <= 104
 
 
-class ReversStringII{
+class ReversStringII {
 
     static void main() {
-        String s ="abcdef";
-        int k=2;
-        System.out.println(ReversII(s,k));
+        String s = "abcdef";
+        int k = 2;
+        System.out.println(ReversII(s, k));
     }
 
-    static String ReversII(String s,int k){
+    static String ReversII(String s, int k) {
 
-                char c[]=s.toCharArray();
-                for(int i=0;i<s.length();i+=2*k){
-                    int left=i;
-                    int right=Math.min(i+k-1,s.length()-1);
-                    while(left<right){
-                        char temp=c[right];
-                        c[right]=c[left];
-                        c[left]=temp;
-                        right--;
-                        left++;
-                    }
-                }
-                return new String(c);
+        char c[] = s.toCharArray();
+        for (int i = 0; i < s.length(); i += 2 * k) {
+            int left = i;
+            int right = Math.min(i + k - 1, s.length() - 1);
+            while (left < right) {
+                char temp = c[right];
+                c[right] = c[left];
+                c[left] = temp;
+                right--;
+                left++;
             }
         }
+        return new String(c);
+    }
+}
 
 
 // 3512. Minimum Operations to Make Array Sum Divisible by K  (29-11-2025)====================
@@ -4724,22 +4669,22 @@ class ReversStringII{
 //1 <= k <= 100
 
 
-class MinimumOperations{
+class MinimumOperations {
     static void main() {
-        int nums [] ={3,9,7};
-        int  k =5;
-        System.out.println(Operations(nums,k));
+        int nums[] = {3, 9, 7};
+        int k = 5;
+        System.out.println(Operations(nums, k));
     }
 
-    static int Operations(int num [],int k){
+    static int Operations(int num[], int k) {
 
-        int sum=0;
+        int sum = 0;
 
-        for(int  x : num){
-            sum +=x;
+        for (int x : num) {
+            sum += x;
         }
 
-        return sum %k;
+        return sum % k;
     }
 }
 
@@ -4800,7 +4745,6 @@ class MinimumOperations{
 //}
 
 
-
 // 415. Add Strings  (01-12-2025)===============================================================
 //Easy
 //Topics
@@ -4834,15 +4778,14 @@ class MinimumOperations{
 //num1 and num2 don't have any leading zeros except for the zero itself.
 
 
-
-class AddString{
+class AddString {
     static void main() {
 
-        String s ="6913259244",s1="71103343";
-        System.out.println(Add(s,s1));
+        String s = "6913259244", s1 = "71103343";
+        System.out.println(Add(s, s1));
     }
 
-    static String Add(String num1,String num2){
+    static String Add(String num1, String num2) {
 
         BigInteger no1 = new BigInteger(num1);
         BigInteger no2 = new BigInteger(num2);
@@ -4850,8 +4793,55 @@ class AddString{
         return sum.toString();
 
 
+    }
+}
+
+// 459. Repeated Substring Pattern  (02-12-2025)==============================================
+//Easy
+//Topics
+//premium lock icon
+//Companies
+//Given a string s, check if it can be constructed by taking a substring of it and appending multiple copies of
+// the substring together.
+//
+//
+//
+//Example 1:
+//
+//Input: s = "abab"
+//Output: true
+//Explanation: It is the substring "ab" twice.
+//Example 2:
+//
+//Input: s = "aba"
+//Output: false
+//Example 3:
+//
+//Input: s = "abcabcabcabc"
+//Output: true
+//Explanation: It is the substring "abc" four times or the substring "abcabc" twice.
+//
+//
+//Constraints:
+//
+//1 <= s.length <= 104
+//s consists of lowercase English letters.
 
 
+class RepeatedSubstring {
+    static void main() {
+        String s = "ababc";
+        System.out.println(Repeated(s));
+    }
+
+    static boolean Repeated(String s) {
+
+        String bron = s + s;
+
+        String sub = bron.substring(1, bron.length() - 1);
+
+        return sub.contains(s);
 
     }
+
 }
