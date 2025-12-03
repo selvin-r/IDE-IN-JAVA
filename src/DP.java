@@ -40,4 +40,8 @@ class Number {
         System.out.println(n);
         print(n+1);
     }
+
+    public double doubleValue() {
+        return 0;
+    }
 }
