@@ -5248,3 +5248,289 @@ class Multiply {
         return sb.length() == 0 ? "0" : sb.toString();
     }
 }
+
+// 171. Excel Sheet Column Number   (09-12-2025)===============
+//Solved
+//Easy
+//Topics
+//premium lock icon
+//Companies
+//Given a string columnTitle that represents the column title as appears in an Excel sheet, return its corresponding
+// column number.
+//
+//For example:
+//
+//A -> 1
+//B -> 2
+//C -> 3
+//...
+//Z -> 26
+//AA -> 27
+//AB -> 28
+//...
+//
+//
+//Example 1:
+//
+//Input: columnTitle = "A"
+//Output: 1
+//Example 2:
+//
+//Input: columnTitle = "AB"
+//Output: 28
+//Example 3:
+//
+//Input: columnTitle = "ZY"
+//Output: 701
+//
+//
+//Constraints:
+//
+//1 <= columnTitle.length <= 7
+//columnTitle consists only of uppercase English letters.
+//columnTitle is in the range ["A", "FXSHRXW"].
+
+
+
+class ExcelSheet {
+    static void main() {
+
+
+        String s = "AB";
+        System.out.println(Sheets(s));
+    }
+
+    static int Sheets(String s){
+
+
+        int result=0;
+        int val;
+
+        for(int i=0;i<s.length();i++){
+
+
+            val = (int) s.charAt(i) -64;
+
+            result =result * 26 +val;
+        }
+        return result;
+    }
+}
+
+// 709. To Lower Case (09-12-2025)===================================
+//Solved
+//Easy
+//Topics
+//premium lock icon
+//Companies
+//Hint
+//Given a string s, return the string after replacing every uppercase letter with the same lowercase letter.
+//
+//
+//
+//Example 1:
+//
+//Input: s = "Hello"
+//Output: "hello"
+//Example 2:
+//
+//Input: s = "here"
+//Output: "here"
+//Example 3:
+//
+//Input: s = "LOVELY"
+//Output: "lovely"
+//
+//
+//Constraints:
+//
+//1 <= s.length <= 100
+//s consists of printable ASCII characters.
+
+
+class LowerCase {
+    static void main() {
+
+        String s ="HELLO SELVIN";
+        System.out.println(Lower(s));
+    }
+
+    static String Lower(String s){
+
+
+        char [] res =s.toCharArray();
+
+
+        for(int i=0;i<s.length();i++){
+
+
+            char result =res[i];
+
+
+            if(result >= 'A' && result <= 'Z'){
+
+
+                res[i] =(char) (result + 32);
+            }
+        }
+
+        return new String(res);
+    }
+}
+
+// 771. Jewels and Stones  (09-12-2025)===============================
+//Easy
+//Topics
+//premium lock icon
+//Companies
+//Hint
+//You're given strings jewels representing the types of stones that are jewels, and stones representing the stones you
+// have. Each character in stones is a type of stone you have. You want to know how many of the stones you have are also jewels.
+//
+//Letters are case sensitive, so "a" is considered a different type of stone from "A".
+//
+//
+//
+//Example 1:
+//
+//Input: jewels = "aA", stones = "aAAbbbb"
+//Output: 3
+//Example 2:
+//
+//Input: jewels = "z", stones = "ZZ"
+//Output: 0
+//
+//
+//Constraints:
+//
+//1 <= jewels.length, stones.length <= 50
+//jewels and stones consist of only English letters.
+//All the characters of jewels are unique.
+
+
+class Jewels{
+    static void main() {
+        String s1 ="aA";
+        String s2 ="aAAbbbb";
+        System.out.println(Unique(s1,s2));
+    }
+
+    static int Unique(String s1,String s2){   //indexOf()
+
+//        int count=0;
+//
+//
+//        for(int i=0;i<s2.length();i++){
+//
+//            if(s1.indexOf(s2.charAt(i))!=-1){
+//                count++;
+//            }
+//        }
+//      return count;
+
+
+
+        boolean arr [] =new boolean[128];
+
+        int count=0;
+
+        for(int i=0;i<s1.length();i++){
+
+            arr[s1.charAt(i)]=true;
+        }
+
+        for(int i=0;i<s2.length();i++){
+
+            if(arr[s2.charAt(i)]){
+                count++;
+            }
+        }
+        return count;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
