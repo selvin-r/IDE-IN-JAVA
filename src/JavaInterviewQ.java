@@ -252,31 +252,237 @@ class Q14 {
     }
 }
 
+// Prakash San Zoho
+
+
+
+class Q15{
+    static void main() {
+        int x=5;
+
+        if(x++==5){
+            System.out.println(x);
+        } else {
+            System.out.println(++x);
+        }
+    }
+}
+
+// Oustion N0 16
+
+
+class Q16{
+    static void main() {
+
+        int i=1;
+
+        i= i++ + ++i;
+        System.out.println(i);
+    }
+}
+
+// Qustion No17
+
+
+class Q17{
+    static void main() {
+
+        int a=5;
+
+        int result = a++ + ++a *2 -a-- /2;
+        System.out.println(result);
+    }
+}
+
+
+
+// Qustion No 18
+
+class Q18{
+    static void main() {
+        int x=1;
+
+        switch (x) {
+            case 1:
+                System.out.println("One");
+            case 2:
+                System.out.println("Two");
+            case 3:
+                System.out.println("Three");
+        }
+    }
+}
+
+// Qustions No19
+//class Q19{
+//    static void main() {
+//
+//        char ch ='A';
+//
+//        switch (ch) {
+//            case '65':
+//                System.out.println("ASCIC");
+//            case 'A':
+//                System.out.println("A");
+//        }
+//    }
+//}
 
 
 
 
 
 
+// Qustion No 20
+
+class Q19{
+    static void main() {
+        for (int i=0;i<5;i=i++){
+            System.out.println(i);   // Nothing
+        }
+    }
+}
+
+
+// Qustion No 21
+
+class Q20{
+    static void main() {
+
+        int i=0;
+
+        while (i<3){
+            System.out.println(i);   // Infinity Print  0000000
+           i= i++;
+        }
+    }
+}
 
 
 
+// Qustion No 21
+
+class Q21{
+    static void main() {
+        int x=0;
+
+        do {
+            System.out.println(x++);
+        }while (x==0);     // 0
+    }
+}
+
+
+// Qustion No 22
+
+class Q22{
+    static void main() {
+
+
+        for (int i=1;i<=3;i++){
+            for (int j=1;j<=3;j++){
+
+
+                if (j==2)
+                    break;
+                System.out.println(i + " " + " " + j);
+            }
+        }
+    }
+}
 
 
 
+// Qustion No 23
+
+
+class Q23{
+    static void main() {
+
+        for(int i=1;i<=2;i++){
+            for(int j=1;j<=3;j++){
+
+
+                if(j==2)
+                    continue;
+                System.out.println(i + " " + j);
+            }
+        }
+    }
+}
+
+// Qustion No24
+
+
+class Q24{
+    static void main() {
+        A a = new B();
+        System.out.println(a.x);
+    }
+
+     static   class A {
+        int x =10;
+    }
+    static class B extends A {
+        int x=20;
+    }
+}
+
+
+// Qustion No 25
+
+//class Q25{
+//    static void main() {
+//        A a = new B();
+//        a.show();
+//    }
+//
+//    class A {
+//        static  void show(){
+//            System.out.println("A");
+//        }
+//    }
+//
+//    class B extends A {
+//        static  void show(){
+//            System.out.println("B");
+//        }
+//    }
+//}
 
 
 
+//class Q25{
+//    static void main() {
+//        for (final  int i=0;i<3;i++){
+//            System.out.println(i);
+//        }
+//    }
+//}
 
 
 
+//class Q25{
+//    static void main() {
+//        final int [] arr ={1,2,3};
+//        arr[0]=10;
+//        arr= new int[] {4,5};
+//        System.out.println(arr);
+//    }
+//}
 
 
+class Q25{
+    static void main() {
 
+        int x=5;
 
+        if(x>4)
+            if (x<4){
+                System.out.println("A");
+            } else {
+                System.out.println("B");
+            }
+        }
 
-
-
-
-
-
+}
