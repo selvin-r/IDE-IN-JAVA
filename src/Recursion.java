@@ -1,3 +1,5 @@
+import java.util.Scanner;
+
 public class Recursion {
     public static void main(String[] args) {
 
@@ -110,5 +112,32 @@ class Digits {
     protected  static  void main (String[] args){
         int n=1234;
         System.out.println(Sum(n));
+    }
+}
+
+
+
+// Fibinace Number
+
+
+class Fibi {
+    static void main() {
+        Scanner scan = new Scanner(System.in);
+        System.out.println("Enter Tha Number ::");
+        int n=scan.nextInt();
+        System.out.println(Find(n));
+    }
+
+
+    static  int Find(int n){
+
+        if(n<2){
+
+            return n;
+        }
+
+
+
+        return Find(n-1) + Find(n-2);
     }
 }
