@@ -4778,7 +4778,7 @@ class MinimumOperations {
 //num1 and num2 don't have any leading zeros except for the zero itself.
 
 
-class  AddString {
+class AddString {
     static void main() {
 
         String s = "6913259244", s1 = "71103343";
@@ -5291,7 +5291,6 @@ class Multiply {
 //columnTitle is in the range ["A", "FXSHRXW"].
 
 
-
 class ExcelSheet {
     static void main() {
 
@@ -5300,18 +5299,18 @@ class ExcelSheet {
         System.out.println(Sheets(s));
     }
 
-    static int Sheets(String s){
+    static int Sheets(String s) {
 
 
-        int result=0;
+        int result = 0;
         int val;
 
-        for(int i=0;i<s.length();i++){
+        for (int i = 0; i < s.length(); i++) {
 
 
-            val = (int) s.charAt(i) -64;
+            val = (int) s.charAt(i) - 64;
 
-            result =result * 26 +val;
+            result = result * 26 + val;
         }
         return result;
     }
@@ -5351,26 +5350,26 @@ class ExcelSheet {
 class LowerCase {
     static void main() {
 
-        String s ="HELLO SELVIN";
+        String s = "HELLO SELVIN";
         System.out.println(Lower(s));
     }
 
-    static String Lower(String s){
+    static String Lower(String s) {
 
 
-        char [] res =s.toCharArray();
+        char[] res = s.toCharArray();
 
 
-        for(int i=0;i<s.length();i++){
+        for (int i = 0; i < s.length(); i++) {
 
 
-            char result =res[i];
+            char result = res[i];
 
 
-            if(result >= 'A' && result <= 'Z'){
+            if (result >= 'A' && result <= 'Z') {
 
 
-                res[i] =(char) (result + 32);
+                res[i] = (char) (result + 32);
             }
         }
 
@@ -5408,14 +5407,14 @@ class LowerCase {
 //All the characters of jewels are unique.
 
 
-class Jewels{
+class Jewels {
     static void main() {
-        String s1 ="aA";
-        String s2 ="aAAbbbb";
-        System.out.println(Unique(s1,s2));
+        String s1 = "aA";
+        String s2 = "aAAbbbb";
+        System.out.println(Unique(s1, s2));
     }
 
-    static int Unique(String s1,String s2){   //indexOf()
+    static int Unique(String s1, String s2) {   //indexOf()
 
 //        int count=0;
 //
@@ -5429,19 +5428,18 @@ class Jewels{
 //  ////    return count;
 
 
+        boolean arr[] = new boolean[128];
 
-        boolean arr [] =new boolean[128];
+        int count = 0;
 
-        int count=0;
+        for (int i = 0; i < s1.length(); i++) {
 
-        for(int i=0;i<s1.length();i++){
-
-            arr[s1.charAt(i)]=true;
+            arr[s1.charAt(i)] = true;
         }
 
-        for(int i=0;i<s2.length();i++){
+        for (int i = 0; i < s2.length(); i++) {
 
-            if(arr[s2.charAt(i)]){
+            if (arr[s2.charAt(i)]) {
                 count++;
             }
         }
@@ -5450,14 +5448,83 @@ class Jewels{
 }
 
 
+// 5. Longest Palindromic Substring    (20-12-2025)=============================================
+//Medium
+//Topics
+//premium lock icon
+//Companies
+//Hint
+//Given a string s, return the longest palindromic substring in s.
+//
+//
+//
+//Example 1:
+//
+//Input: s = "babad"
+//Output: "bab"
+//Explanation: "aba" is also a valid answer.
+//Example 2:
+//
+//Input: s = "cbbd"
+//Output: "bb"
+//
+//
+//Constraints:
+//
+//1 <= s.length <= 1000
+//s consist of only digits and English letters.
 
 
+class Longest {
+    static void main() {
+        String s = "babad";
+        System.out.println(LongestStr(s));
+    }
 
 
+    static String LongestStr(String s) {
+
+        String result = "";
+        for (int i = 1; i < s.length(); i++) {
 
 
+            int l = i;
+            int r = i;
 
 
+            // Odd length
+
+            while (l >= 0 && r < s.length() && s.charAt(l) == s.charAt(r)) {
+
+
+                String temp = s.substring(l, r + 1);
+
+                if (temp.length() > result.length()) {
+
+                    result = temp;
+                }
+                l--;
+                r++;
+            }
+            // Even length
+            l = i - 1;
+            r = i;
+
+            while (l >= 0 && r < s.length() && s.charAt(l) == s.charAt(r)) {
+
+                String temp = s.substring(l, r + 1);
+                if (temp.length() > result.length()) {
+                    result = temp;
+                }
+                l--;
+                r++;
+            }
+
+
+        }
+        return result;
+    }
+}
 
 
 

@@ -141,3 +141,42 @@ class Fibi {
         return Find(n-1) + Find(n-2);
     }
 }
+
+// 1 To N number Print
+
+
+
+class Demos{
+    static void main() {
+        int total=0;
+      int res =main1(1,total);
+      System.out.println(total);
+    }
+
+    static  int main1(int i,int total){
+
+
+     total +=i;
+        i++;
+        if(i<=5){
+            main1(i,total);
+        }
+
+
+        return total;
+    }
+
+
+}
+
+// Reverse a number
+
+
+
+
+
+
+
+
+
+
