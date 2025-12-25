@@ -6212,8 +6212,11 @@ class UniqueCell{
                 if (obs[i][j] == 1) {
                     dp[i][j] = 0;
                 } else {
+                    // Right Side
                     if (i > 0)
                         dp[i][j] += dp[i - 1][j];
+
+                    // Down Side
                     if (j > 0)
                         dp[i][j] += dp[i][j - 1];
                 }
@@ -6235,6 +6238,6 @@ class UniqueCell{
         };
 
         int result = s.uniquePathsWithObstacles(obstacleGrid);
-        System.out.println(result); // Output: 2
+        System.out.println(result);
     }
 }
