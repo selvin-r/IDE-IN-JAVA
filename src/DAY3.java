@@ -41,6 +41,10 @@ class Solution {
     public char kthCharacter(int k) {
         return 0;
     }
+
+    public boolean longestIncreasingPath(int[][] matrix) {
+        return false;
+    }
 }
 
 // 57. Largest Substring Between Two Equal Characters  (24-09-25)===========
