@@ -45,6 +45,10 @@ class Solution {
     public boolean longestIncreasingPath(int[][] matrix) {
         return false;
     }
+
+    public int uniquePathsWithObstacles(int[][] obstacleGrid) {
+        return 0;
+    }
 }
 
 // 57. Largest Substring Between Two Equal Characters  (24-09-25)===========
