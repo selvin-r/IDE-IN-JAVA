@@ -110,3 +110,22 @@ class Selvin{
         System.out.println(s);
     }
 }
+
+
+class Runner{
+    static void main() {
+        System.out.println(s(10,12,1));
+
+    }
+    static int s(int a,int b,int c){ // Min 4;
+        if(a>b)
+            c=a;
+        if(b>c)
+            c=b;
+        if(c>a)
+            c=c;
+
+        return c;
+    }
+}
+

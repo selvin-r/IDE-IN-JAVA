@@ -17,14 +17,20 @@ public class InnerClass {
         public InnerTest(String name) {
             this.name = name;
         }
+
+        @Override
+        public String toString() {
+            return name;
+        }
     }
+
 
 
     static void main() {
         InnerTest t1 = new InnerTest("selvin");
         InnerTest t2 = new InnerTest("David");
-        System.out.println(t1.name);
-        System.out.println(t2.name);
+        System.out.println(t1);
+
     }
 }
 
