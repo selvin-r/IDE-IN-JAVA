@@ -6241,3 +6241,86 @@ class UniqueCell{
         System.out.println(result);
     }
 }
+// 64. Minimum Path Sum  (26-12-2025)===============================================================================
+//Medium
+//Topics
+//premium lock icon
+//Companies
+//Given a m x n grid filled with non-negative numbers, find a path from top left to bottom right, which minimizes the
+// sum of all numbers along its path.
+//
+//Note: You can only move either down or right at any point in time.
+//
+//
+//
+//Example 1:
+//
+//
+//Input: grid = [[1,3,1],[1,5,1],[4,2,1]]
+//Output: 7
+//Explanation: Because the path 1 → 3 → 1 → 1 → 1 minimizes the sum.
+//Example 2:
+//
+//Input: grid = [[1,2,3],[4,5,6]]
+//Output: 12
+//
+//
+//Constraints:
+//
+//m == grid.length
+//n == grid[i].length
+//1 <= m, n <= 200
+//0 <= grid[i][j] <= 200
+
+
+
+class MinimumPathSum {
+    static void main() {
+
+        int grid [][] ={
+                {1,3,1},
+                {1,5,1},
+                {4,2,1}
+        };
+        System.out.println(MinimumPath(grid));
+    }
+
+   static  int MinimumPath(int [][] arr ){
+
+
+        int rowlen=arr.length;
+        int collen=arr[0].length;
+       int[][] dp = new int[rowlen][collen];
+
+
+     dp[0][0]=arr[0][0];
+
+       System.out.println(Arrays.deepToString(dp));
+
+     // FirstRow
+
+
+       for(int j=1;j<collen;j++){
+
+           dp[0][j]=dp[0][j-1]+arr[0][j];
+         //   System.out.println(dp[0][j] + "First Row");
+       }
+
+       // First Col
+
+
+       for(int i=1;i<rowlen;i++){
+
+           dp[i][0]=dp[i-1][0]+arr[i][0];
+         //   System.out.println(dp[i][0] + "First Col");
+       }
+
+       for(int i=1;i<rowlen;i++){
+           for(int j=1;j<collen;j++){
+               dp[i][j] =arr[i][j] +Math.min(dp[i-1][j],dp[i][j-1]);
+           }
+       }
+
+       return dp[rowlen-1][collen-1];
+   }
+}
