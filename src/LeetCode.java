@@ -1,3 +1,4 @@
+import javax.swing.tree.TreeNode;
 import java.math.BigInteger;
 import java.util.*;
 
@@ -6323,4 +6324,111 @@ class MinimumPathSum {
 
        return dp[rowlen-1][collen-1];
    }
+}
+
+
+// 144. Binary Tree Preorder Traversal   (27-12-2025)==================================
+//Solved
+//Easy
+//Topics
+//premium lock icon
+//Companies
+//Given the root of a binary tree, return the preorder traversal of its nodes' values.
+//
+//
+//
+//Example 1:
+//
+//Input: root = [1,null,2,3]
+//
+//Output: [1,2,3]
+//
+//Explanation:
+//
+//
+//
+//Example 2:
+//
+//Input: root = [1,2,3,4,5,null,8,null,null,6,7,9]
+//
+//Output: [1,2,4,5,6,7,3,8,9]
+//
+//Explanation:
+//
+//
+//
+//Example 3:
+//
+//Input: root = []
+//
+//Output: []
+//
+//Example 4:
+//
+//Input: root = [1]
+//
+//Output: [1]
+//
+//
+//
+//Constraints:
+//
+//The number of nodes in the tree is in the range [0, 100].
+//-100 <= Node.val <= 100
+//
+//
+//Follow up: Recursive solution is trivial, could you do it iteratively?
+
+
+class BinaryTreePreorder {
+
+
+    static class TreeNode {
+        int val;
+        TreeNode left;
+        TreeNode right;
+
+        TreeNode(int val) {
+            this.val = val;
+        }
+    }
+
+    public static void main(String[] args) {
+
+        /*
+           Example tree:
+               1
+                \
+                 2
+                /
+               3
+        */
+
+        TreeNode root = new TreeNode(1);
+        root.left=null;
+        root.right = new TreeNode(2);
+        root.right.left = new TreeNode(3);
+
+
+//        root.right.right = new TreeNode(4);
+
+        BinaryTreePreorder obj = new BinaryTreePreorder();
+        System.out.println(obj.preorder(root));
+    }
+
+    public List<Integer> preorder(TreeNode root) {
+        List<Integer> res = new ArrayList<>();
+        traverse(root, res);
+        return res;
+    }
+
+    private void traverse(TreeNode root, List<Integer> res) {
+        if (root == null) {
+            return;
+        }
+
+        res.add(root.val);        // Root
+        traverse(root.left, res); // Left
+        traverse(root.right, res);// Right
+    }
 }
