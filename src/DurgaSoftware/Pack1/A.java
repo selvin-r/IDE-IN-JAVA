@@ -6,3 +6,9 @@ public class A {
         System.out.println("I am In A Class Pack1");
     }
 }
+class Test {
+    static void main() {
+        A s = new A();
+        s.A1();
+    }
+}
