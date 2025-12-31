@@ -129,3 +129,19 @@ class Runner{
     }
 }
 
+// Quiz 1
+
+
+class QU1 {
+    static void main() {
+        int n=10;
+        for(int i=1;i<n;i=i*2){
+            System.out.println("Hello");
+        }
+    }
+}
+// Answer O(logn)
+
+
+// Quiz 2
+
