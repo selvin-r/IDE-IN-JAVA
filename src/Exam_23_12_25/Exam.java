@@ -13,7 +13,7 @@ public class Exam {
 // order.
 
 
-class MergeList{
+class MergeList {
     static void main() {
 
         List<Integer> list1 = new ArrayList<>(Arrays.asList(1, 2, 3, 4, 5));
@@ -21,7 +21,7 @@ class MergeList{
 
         list1.addAll(list2);
 
-        Collections.sort(list1,Collections.reverseOrder());
+        Collections.sort(list1, Collections.reverseOrder());
 
 
         System.out.println(list1);
@@ -34,17 +34,16 @@ class MergeList{
 // sort them in lexicographical (dictionary) order.
 
 
-class Lexicographical{
+class Lexicographical {
     static void main() {
 
         List<String> sb = new ArrayList<>(Arrays.asList("apple", "bat", "banana", "cat", "ant"));
 
 
+        Collections.sort(sb, (a, b) -> {
 
-        Collections.sort(sb, (a,b)->{
 
-
-            if(a.length() !=b.length()){
+            if (a.length() != b.length()) {
                 return a.length() - b.length();
             }
             return a.compareTo(b);
@@ -58,24 +57,23 @@ class Lexicographical{
 // the first occurrence of each word
 
 
-
-class RemoveDuplicates{
+class RemoveDuplicates {
     static void main() {
 
         String s = "hello hello world world world java java Selvin";
 
-        String word [] = s.split(" ");
+        String word[] = s.split(" ");
 
         StringBuffer sb = new StringBuffer();
 
-        String prv="";
+        String prv = "";
 
-        for(String words : word){
+        for (String words : word) {
 
-            if(!words.equals(prv)){
+            if (!words.equals(prv)) {
 
                 sb.append(words + " ");
-                prv =words;
+                prv = words;
             }
         }
 
@@ -149,7 +147,7 @@ class FirstNonRepeatingChar {
 //abcdefgh@1Q
 
 
-class PasswordCheck{
+class PasswordCheck {
     static void main() {
         Scanner Scan = new Scanner(System.in);
         System.out.println("Enter a string: ");
@@ -158,23 +156,23 @@ class PasswordCheck{
 
         System.out.println(CheckPassword(password));
     }
-    static String CheckPassword(String pass){
 
-        int score=0;
+    static String CheckPassword(String pass) {
+
+        int score = 0;
 
 
-        if(pass.length()<7 || pass.length() >20){
+        if (pass.length() < 7 || pass.length() > 20) {
             return "Invalid Password";
         }
-        if(pass.contains(" ")){
+        if (pass.contains(" ")) {
             return "Invalid Password";
         }
 
-        boolean upper=false,lower=false,number=false,special=false;
+        boolean upper = false, lower = false, number = false, special = false;
 
 
-        for(int i=0;i<pass.length();i++)
-        {
+        for (int i = 0; i < pass.length(); i++) {
             char c = pass.charAt(i);
 
             if (c >= 'A' && c <= 'Z') {
@@ -187,29 +185,155 @@ class PasswordCheck{
                 special = true;
         }
 
-        if(upper){
-            score +=10;
-        }if(lower){
-            score +=10;
-        } if(number){
-            score +=10;
+        if (upper) {
+            score += 10;
         }
-        if(special){
-            score +=20;
+        if (lower) {
+            score += 10;
         }
-        score +=pass.length() *2;
+        if (number) {
+            score += 10;
+        }
+        if (special) {
+            score += 20;
+        }
+        score += pass.length() * 2;
 
 
-        if(score >=91){
+        if (score >= 91) {
 
             return "very Strong";
-        } else if (score >=76) {
+        } else if (score >= 76) {
             return "Strong";
-        } else if(score >=61) {
+        } else if (score >= 61) {
             return "Good";
-        } else if(score >=41){
+        } else if (score >= 41) {
             return "Fair";
         } else
             return "Weak";
+    }
+}
+
+
+// Problem Understanding (Broken Keyboard Typing)   (05-01-2026)=========
+//
+//You are given:
+//
+//A string
+//
+//A set of broken keys
+//
+//You can type only characters that are NOT broken
+//
+//You must find the longest continuous substring(s) that can be typed
+//
+//If:
+//
+//One longest substring → return it
+//
+//Multiple substrings with same max length → return all
+//
+//No valid substring → return empty string
+//
+//Key Idea (Interview Logic)
+//
+//Traverse the string character by character
+//
+//Maintain:
+//
+//currentLength → length of current valid substring
+//
+//startIndex → start index of current valid substring
+//
+//maxLength → maximum length found so far
+//
+//When a broken character appears:
+//
+//End the current substring
+//
+//Compare its length with maxLength
+//
+//Reset counters
+//
+//This is a single pass (O(n)) solution — very interview friendly.
+//
+//Example 1
+//
+//Input
+//
+//string = "hellointerview"
+//broken = { 'i', 'e' }
+//
+//
+//Valid segments:
+//
+//h | ll | o | nt | rv | w
+//
+//
+//Longest = "llo"
+
+class BrokenKeyboard {
+
+    static void main() {
+        String s = "abxcdyef";
+        char[] broken = {'x', 'y'};
+
+        int maxlen = 0, currlen = 0, start = 0;
+
+        ArrayList<Integer> index = new ArrayList<>();
+
+
+        for (int i = 0; i <= s.length(); i++) {
+
+
+            if (i < s.length() && !isBroken(s.charAt(i), broken)) {
+
+                currlen++;
+            } else {
+
+
+                if (currlen > 0) {
+
+
+                    if (currlen > maxlen) {
+
+                        maxlen = currlen;
+                        index.clear();
+                        index.add(start);
+
+                    } else if (currlen == maxlen) {
+                        index.add(start);
+
+                    }
+                }
+                currlen = 0;
+                start = i + 1;
+            }
+        }
+
+        if (maxlen == 0) {
+            System.out.printf("Empty String");
+            return;
+        }
+
+        for (int idx : index) {
+
+            for (int j = idx; j < idx + maxlen; j++) {
+                System.out.print(s.charAt(j));
+            }
+            System.out.println();
+        }
+    }
+
+    private static boolean isBroken(char c, char[] broken) {
+
+        for (int i = 0; i < broken.length; i++) {
+
+            if (c == broken[i]) {
+                return true;
+            }
+        }
+
+        return false;
     }
 }
