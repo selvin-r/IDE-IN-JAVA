@@ -133,7 +133,7 @@ class SubSubTest extends SubTest{
     }
 
     public void m5() {
-        System.out.println("m5 is called in SubSubTest Class");   // Not Reuse Functi When Call Not Error // Already Implementaion Methods is class Complier Will Thro eror
+        System.out.println("m5 is called in SubSubTest Class");   // Not Reuse Function When Call Not Error // Already Implementation Methods is class Complier Will Throw error
     }
 
     static void main() {

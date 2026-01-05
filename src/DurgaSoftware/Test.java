@@ -3,7 +3,7 @@ package DurgaSoftware;
 
 import java.util.regex.Pattern;
 /*
-* SubClass Is Not Import Defalut Import Main class So Subclass Methods is Manuly Import
+* SubClass Is Not Import Default Import Main class So Subclass Methods is Manually Import
 *
 * */
 
