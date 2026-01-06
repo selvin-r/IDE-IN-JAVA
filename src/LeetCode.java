@@ -1,4 +1,3 @@
-import javax.swing.tree.TreeNode;
 import java.math.BigInteger;
 import java.util.*;
 
@@ -6539,5 +6538,74 @@ class JumpGames {
         }
 
         return count;
+    }
+}
+
+
+
+// 11. Container With Most Water  (06-01-2026)
+//Solved
+//Medium
+//Topics
+//premium lock icon
+//Companies
+//Hint
+//You are given an integer array height of length n. There are n vertical lines drawn such that the two endpoints of
+// the ith line are (i, 0) and (i, height[i]).
+//
+//Find two lines that together with the x-axis form a container, such that the container contains the most water.
+//
+//Return the maximum amount of water a container can store.
+//
+//Notice that you may not slant the container.
+//
+//
+//
+//Example 1:
+//
+//
+//Input: height = [1,8,6,2,5,4,8,3,7]
+//Output: 49
+//Explanation: The above vertical lines are represented by array [1,8,6,2,5,4,8,3,7]. In this case, the max area of
+// water (blue section) the container can contain is 49.
+//Example 2:
+//
+//Input: height = [1,1]
+//Output: 1
+//
+//
+//Constraints:
+//
+//n == height.length
+//2 <= n <= 105
+//0 <= height[i] <= 104
+
+
+class MostWater {
+    static void main() {
+
+        int hight [] ={1,8,6,2,5,4,8,3,7};
+        System.out.printf("%d",Most(hight));
+    }
+
+    private static int Most(int[] hight){
+        int left=0,right=hight.length-1;
+        int maxarray=0;
+
+        while (left<right){
+
+            int c =Math.min(hight[left],hight[right]) * (right-left);
+
+            maxarray=Math.max(maxarray,c);
+
+            if (hight[left] < hight[right]) {
+
+                left++;
+            } else {
+                right--;
+            }
+        }
+
+        return maxarray;
     }
 }
