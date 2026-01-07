@@ -5567,21 +5567,21 @@ class Longest {
 //0 <= prices[i] <= 104
 
 
-class  SellStock {
+class SellStock {
     static void main() {
-        int testcase1 [] ={7,1,5,3,6,4};
+        int testcase1[] = {7, 1, 5, 3, 6, 4};
         System.out.println(Stock(testcase1));
     }
 
-    static int Stock(int arr []){
+    static int Stock(int arr[]) {
 
-        int price=0;
+        int price = 0;
 
-        for(int i=1;i<arr.length;i++){
+        for (int i = 1; i < arr.length; i++) {
 
-            if(arr[i] > arr[i-1]){
+            if (arr[i] > arr[i - 1]) {
 
-                price +=arr[i]-arr[i-1];
+                price += arr[i] - arr[i - 1];
             }
         }
         return price;
@@ -5626,54 +5626,52 @@ class  SellStock {
 class RotateArray {
     static void main() {
 
-     int nums [] ={1,2,3,4,5,6,7};
-     int k=3;
+        int nums[] = {1, 2, 3, 4, 5, 6, 7};
+        int k = 3;
 
 
-
-     if(k>nums.length){
-         k=k%nums.length;
-     }
-     int left=0;
-     int right=nums.length-1-k;
-     int nextleft=right+1;
-
+        if (k > nums.length) {
+            k = k % nums.length;
+        }
+        int left = 0;
+        int right = nums.length - 1 - k;
+        int nextleft = right + 1;
 
 
-     while (left<right){
+        while (left < right) {
 
-         int tepm=nums[left];
-         nums[left]=nums[right];
-         nums[right]=tepm;
-         left++;
-         right--;
-     }
+            int tepm = nums[left];
+            nums[left] = nums[right];
+            nums[right] = tepm;
+            left++;
+            right--;
+        }
         System.out.println(Arrays.toString(nums));
 
-     right=nums.length-1;
+        right = nums.length - 1;
 
-     while (nextleft<right){
+        while (nextleft < right) {
 
-         int temp=nums[nextleft];
-         nums[nextleft]=nums[right];
-         nums[right]=temp;
-         nextleft++;
-         right--;
-     }
+            int temp = nums[nextleft];
+            nums[nextleft] = nums[right];
+            nums[right] = temp;
+            nextleft++;
+            right--;
+        }
         System.out.println(Arrays.toString(nums));
 
-     left=0;
-     right=nums.length-1;
+        left = 0;
+        right = nums.length - 1;
 
 
-     while (left<right){
-         int temp=nums[left];
-         nums[left]=nums[right];
-         nums[right]=temp;
-         left++;
-         right--;
-     }
-    System.out.println(Arrays.toString(nums));
+        while (left < right) {
+            int temp = nums[left];
+            nums[left] = nums[right];
+            nums[right] = temp;
+            left++;
+            right--;
+        }
+        System.out.println(Arrays.toString(nums));
     }
 
 }
@@ -5722,46 +5720,46 @@ class RotateArray {
 
 class StrongPassword {
     static void main() {
-        String password ="IloveLe3tcode!";
+        String password = "IloveLe3tcode!";
         System.out.println(Password(password));
     }
 
     static boolean Password(String pass) {
 
-        if(pass.length()<8){
+        if (pass.length() < 8) {
             return false;
         }
 
-        boolean hasupper=false;
-        boolean haslower=false;
-        boolean hasnumber=false;
-        boolean hasspecial=false;
+        boolean hasupper = false;
+        boolean haslower = false;
+        boolean hasnumber = false;
+        boolean hasspecial = false;
 
-        String specialchar="!@$%^&*()-+";
-
-
-        for(int i=0;i<pass.length();i++){
+        String specialchar = "!@$%^&*()-+";
 
 
-            char c =pass.charAt(i);
+        for (int i = 0; i < pass.length(); i++) {
 
 
-            if(i>0 && pass.charAt(i)==pass.charAt(i-1)){
+            char c = pass.charAt(i);
+
+
+            if (i > 0 && pass.charAt(i) == pass.charAt(i - 1)) {
                 return false;
             }
 
-            if(Character.isUpperCase(c)){
-                hasupper=true;
-            } else if (Character.isLowerCase(c)){
-                haslower=true;
-            } else if (Character.isDigit(c)){
-                hasnumber=true;
-            } else if (specialchar.indexOf(c)!=-1){
-                hasspecial=true;
+            if (Character.isUpperCase(c)) {
+                hasupper = true;
+            } else if (Character.isLowerCase(c)) {
+                haslower = true;
+            } else if (Character.isDigit(c)) {
+                hasnumber = true;
+            } else if (specialchar.indexOf(c) != -1) {
+                hasspecial = true;
             }
         }
 
-        return  hasupper&&haslower&&hasnumber&&hasspecial;
+        return hasupper && haslower && hasnumber && hasspecial;
     }
 }
 
@@ -5810,10 +5808,11 @@ class StrongPassword {
 
 class GroupAnagrams {
     static void main() {
-       String arr [] ={"eat","tea","tan","ate","nat","bat"};
+        String arr[] = {"eat", "tea", "tan", "ate", "nat", "bat"};
         System.out.println(Anagrams(arr));
     }
-    static List<List<String>> Anagrams(String [] strs){
+
+    static List<List<String>> Anagrams(String[] strs) {
 
         HashMap<String, List<String>> map = new HashMap<>();
 
@@ -5871,14 +5870,13 @@ class GroupAnagrams {
 //words[i] consists only of lowercase English letters.
 
 
-
 class FirstPalindromic {
     static void main() {
-        String [] arr ={"abc","car","ada","racecar","cool"};
+        String[] arr = {"abc", "car", "ada", "racecar", "cool"};
         StringBuffer sb = new StringBuffer();
 
 
-        for(int i=0;i<arr.length;i++){
+        for (int i = 0; i < arr.length; i++) {
 
 
             sb.append(arr[i] + " ,");
@@ -5989,29 +5987,29 @@ class Paths {
 //The input is generated such that it's possible to redistribute packs of apples into boxes.
 
 
-
 class Apple {
     static void main() {
 
-        int apple [] ={1,3,2};
-        int capacity [] ={4,3,1,5,2};
-        System.out.println(Capacity(apple,capacity));
+        int apple[] = {1, 3, 2};
+        int capacity[] = {4, 3, 1, 5, 2};
+        System.out.println(Capacity(apple, capacity));
     }
-    static int Capacity(int [] app,int [] capa){
+
+    static int Capacity(int[] app, int[] capa) {
 
 
-        int sum=0;
+        int sum = 0;
 
 
-        for(int i=0;i<app.length;i++){
-            sum +=app[i];
+        for (int i = 0; i < app.length; i++) {
+            sum += app[i];
         }
 
-        int i=capa.length-1;
-        int count=0;
-        while (sum>=1){
+        int i = capa.length - 1;
+        int count = 0;
+        while (sum >= 1) {
 
-            sum-=capa[i];
+            sum -= capa[i];
             i--;
             count++;
         }
@@ -6052,12 +6050,12 @@ class Apple {
 
 
 /*
-*
-*
-*
-*
-*
-* */
+ *
+ *
+ *
+ *
+ *
+ * */
 
 
 // 73. Set Matrix Zeroes   (25-12-2025)=====================
@@ -6100,52 +6098,50 @@ class Apple {
 //Could you devise a constant space solution?
 
 
-
-class setZero{
+class setZero {
     static void main() {
 
-        int matrix [][]={
-                {1,1,1},
-                {1,0,1},
-                {1,1,1}
+        int matrix[][] = {
+                {1, 1, 1},
+                {1, 0, 1},
+                {1, 1, 1}
         };
         System.out.println(Arrays.deepToString(mat(matrix)));
     }
 
-    static int [][] mat(int [][] mat){
+    static int[][] mat(int[][] mat) {
 
 
-        int rowlen=mat.length;
-        int collen=mat[0].length;
+        int rowlen = mat.length;
+        int collen = mat[0].length;
 
-        int row [] = new int[rowlen];
-        int col [] = new int[collen];
-
-
-        for(int i=0;i<rowlen;i++){
-            for(int j=0;j<collen;j++){
+        int row[] = new int[rowlen];
+        int col[] = new int[collen];
 
 
-                if(mat[i][j]==0){
-                    row[i]=1;
-                    col[j]=1;
+        for (int i = 0; i < rowlen; i++) {
+            for (int j = 0; j < collen; j++) {
+
+
+                if (mat[i][j] == 0) {
+                    row[i] = 1;
+                    col[j] = 1;
                 }
             }
         }
 
-        for(int i=0;i<rowlen;i++){
+        for (int i = 0; i < rowlen; i++) {
 
-            for(int j=0;j<collen;j++){
+            for (int j = 0; j < collen; j++) {
 
-                if(row[i]==1 || col[j]==1){
-                    mat[i][j]=0;
+                if (row[i] == 1 || col[j] == 1) {
+                    mat[i][j] = 0;
                 }
             }
         }
         return mat;
     }
 }
-
 
 
 // 63. Unique Paths II   (25-12-25)
@@ -6192,7 +6188,7 @@ class setZero{
 //obstacleGrid[i][j] is 0 or 1.
 
 
-class UniqueCell{
+class UniqueCell {
 
     public int uniquePathsWithObstacles(int[][] obs) {
 
@@ -6273,56 +6269,55 @@ class UniqueCell{
 //0 <= grid[i][j] <= 200
 
 
-
 class MinimumPathSum {
     static void main() {
 
-        int grid [][] ={
-                {1,3,1},
-                {1,5,1},
-                {4,2,1}
+        int grid[][] = {
+                {1, 3, 1},
+                {1, 5, 1},
+                {4, 2, 1}
         };
         System.out.println(MinimumPath(grid));
     }
 
-   static  int MinimumPath(int [][] arr ){
+    static int MinimumPath(int[][] arr) {
 
 
-        int rowlen=arr.length;
-        int collen=arr[0].length;
-       int[][] dp = new int[rowlen][collen];
+        int rowlen = arr.length;
+        int collen = arr[0].length;
+        int[][] dp = new int[rowlen][collen];
 
 
-     dp[0][0]=arr[0][0];
+        dp[0][0] = arr[0][0];
 
-       System.out.println(Arrays.deepToString(dp));
+        System.out.println(Arrays.deepToString(dp));
 
-     // FirstRow
-
-
-       for(int j=1;j<collen;j++){
-
-           dp[0][j]=dp[0][j-1]+arr[0][j];
-         //   System.out.println(dp[0][j] + "First Row");
-       }
-
-       // First Col
+        // FirstRow
 
 
-       for(int i=1;i<rowlen;i++){
+        for (int j = 1; j < collen; j++) {
 
-           dp[i][0]=dp[i-1][0]+arr[i][0];
-         //   System.out.println(dp[i][0] + "First Col");
-       }
+            dp[0][j] = dp[0][j - 1] + arr[0][j];
+            //   System.out.println(dp[0][j] + "First Row");
+        }
 
-       for(int i=1;i<rowlen;i++){
-           for(int j=1;j<collen;j++){
-               dp[i][j] =arr[i][j] +Math.min(dp[i-1][j],dp[i][j-1]);
-           }
-       }
+        // First Col
 
-       return dp[rowlen-1][collen-1];
-   }
+
+        for (int i = 1; i < rowlen; i++) {
+
+            dp[i][0] = dp[i - 1][0] + arr[i][0];
+            //   System.out.println(dp[i][0] + "First Col");
+        }
+
+        for (int i = 1; i < rowlen; i++) {
+            for (int j = 1; j < collen; j++) {
+                dp[i][j] = arr[i][j] + Math.min(dp[i - 1][j], dp[i][j - 1]);
+            }
+        }
+
+        return dp[rowlen - 1][collen - 1];
+    }
 }
 
 
@@ -6404,7 +6399,7 @@ class BinaryTreePreorder {
         */
 
         TreeNode root = new TreeNode(1);
-        root.left=null;
+        root.left = null;
         root.right = new TreeNode(2);
         root.right.left = new TreeNode(3);
 
@@ -6436,17 +6431,17 @@ class BinaryTreePreorder {
 class RotatedDigits {
 
     static void main() {
-      int num=10;
+        int num = 10;
         System.out.println(solve(num));
     }
 
-    public static  int solve(int n){
+    public static int solve(int n) {
 
-        int count=0;
+        int count = 0;
 
 
-        for(int i=1;i<=n;i++){
-            if(IsCheck(i)){
+        for (int i = 1; i <= n; i++) {
+            if (IsCheck(i)) {
 
                 count++;
             }
@@ -6457,24 +6452,25 @@ class RotatedDigits {
     }
 
 
-    public static boolean IsCheck(int num){
+    public static boolean IsCheck(int num) {
 
-        boolean check=false;
+        boolean check = false;
 
-        while (num>0){
+        while (num > 0) {
 
-            int d=num%10;
+            int d = num % 10;
 
-            if(d==3 || d==4 || d==7){
+            if (d == 3 || d == 4 || d == 7) {
 
                 return false;
-            } if(d==2 || d==5 || d==6 || d==9){
+            }
+            if (d == 2 || d == 5 || d == 6 || d == 9) {
 
 
-                check=true;
+                check = true;
             }
 
-            num/=10;
+            num /= 10;
         }
 
         return check;
@@ -6518,29 +6514,28 @@ class RotatedDigits {
 class JumpGames {
     static void main() {
 
-        int nums [] ={2,3,1,1,4};
+        int nums[] = {2, 3, 1, 1, 4};
         System.out.println(Jump(nums));
     }
 
-    static int Jump(int n []){
+    static int Jump(int n[]) {
 
-        int max=0,tempmax=0,count=0;
+        int max = 0, tempmax = 0, count = 0;
 
 
-        for(int i=0;i<=n.length-1;i++){
+        for (int i = 0; i <= n.length - 1; i++) {
 
-            max=Math.max(max,i+n[i]);
+            max = Math.max(max, i + n[i]);
 
-            if(i==tempmax){
+            if (i == tempmax) {
                 count++;
             }
-            tempmax=max;
+            tempmax = max;
         }
 
         return count;
     }
 }
-
 
 
 // 11. Container With Most Water  (06-01-2026)
@@ -6584,19 +6579,19 @@ class JumpGames {
 class MostWater {
     static void main() {
 
-        int hight [] ={1,8,6,2,5,4,8,3,7};
-        System.out.printf("%d",Most(hight));
+        int hight[] = {1, 8, 6, 2, 5, 4, 8, 3, 7};
+        System.out.printf("%d", Most(hight));
     }
 
-    private static int Most(int[] hight){
-        int left=0,right=hight.length-1;
-        int maxarray=0;
+    private static int Most(int[] hight) {
+        int left = 0, right = hight.length - 1;
+        int maxarray = 0;
 
-        while (left<right){
+        while (left < right) {
 
-            int c =Math.min(hight[left],hight[right]) * (right-left);
+            int c = Math.min(hight[left], hight[right]) * (right - left);
 
-            maxarray=Math.max(maxarray,c);
+            maxarray = Math.max(maxarray, c);
 
             if (hight[left] < hight[right]) {
 
@@ -6607,5 +6602,136 @@ class MostWater {
         }
 
         return maxarray;
+    }
+}
+
+
+// 961. N-Repeated Element in Size 2N Array  (06-01-2026)
+//Solved
+//Easy
+//Topics
+//premium lock icon
+//Companies
+//You are given an integer array nums with the following properties:
+//
+//nums.length == 2 * n.
+//nums contains n + 1 unique elements.
+//Exactly one element of nums is repeated n times.
+//Return the element that is repeated n times.
+//
+//
+//
+//Example 1:
+//
+//Input: nums = [1,2,3,3]
+//Output: 3
+//Example 2:
+//
+//Input: nums = [2,1,2,5,3,2]
+//Output: 2
+//Example 3:
+//
+//Input: nums = [5,1,5,2,5,3,5,4]
+//Output: 5
+//
+//
+//Constraints:
+//
+//2 <= n <= 5000
+//nums.length == 2 * n
+//0 <= nums[i] <= 104
+//nums contains n + 1 unique elements and one of them is repeated exactly n times.
+
+
+class NRepeated {
+
+    static void main() {
+
+        int num[] = {1, 2, 3, 3};
+
+        HashSet<Integer> set = new HashSet<>();
+
+        int nums = 0;
+
+
+        for (int n : num) {
+
+            if (set.contains(n)) {
+
+                nums = n;
+            }
+            set.add(n);
+
+        }
+
+        System.out.printf("%d", nums);
+    }
+}
+
+// 42. Trapping Rain Water   (07-01-2025)====
+//Solved
+//Hard
+//Topics
+//premium lock icon
+//Companies
+//Given n non-negative integers representing an elevation map where the width of each bar is 1, compute how much water
+// it can trap after raining.
+//
+//
+//
+//Example 1:
+//
+//
+//Input: height = [0,1,0,2,1,0,1,3,2,1,2,1]
+//Output: 6
+//Explanation: The above elevation map (black section) is represented by array [0,1,0,2,1,0,1,3,2,1,2,1]. In this case,
+// 6 units of rain water (blue section) are being trapped.
+//Example 2:
+//
+//Input: height = [4,2,0,3,2,5]
+//Output: 9
+//
+//
+//Constraints:
+//
+//n == height.length
+//1 <= n <= 2 * 104
+//0 <= height[i] <= 105
+
+
+class TrappingRain {
+    static void main() {
+
+        int height [] = {4, 2, 0, 3, 2, 5};
+        System.out.println(Rain(height));
+    }
+
+    static int Rain(int height[]) {
+
+        int left = 0, right = height.length - 1;
+        int leftMax = 0, rightMax = 0, ans = 0;
+
+        while (left < right) {
+
+            if (height[left] < height[right]) {
+                if (height[left] >= leftMax) {
+                    leftMax = height[left];
+                } else {
+                    ans += leftMax - height[left];
+
+                }
+                left++;
+            } else {
+                if (height[right] >= rightMax) {
+                    rightMax = height[right];
+                } else {
+                    ans += rightMax - height[right];
+
+                }
+                right--;
+            }
+
+        }
+        return ans;
     }
 }
