@@ -58,14 +58,9 @@ public class StreamDemo {
 //Comparable<Integer> c=(i1,i2)->i2.compareTo(i1);
 
 
-
-
 //        list.stream().forEach(System.out::println());
 //
 //        list.stream().close();
-
-
-
 
 
 
